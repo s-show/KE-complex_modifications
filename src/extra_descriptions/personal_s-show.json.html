@@ -45,7 +45,7 @@
 </table>
 
 <p style="margin-top: 20px; font-weight: bold">
-  Application_key to Right Click
+  Application_key(or shift + F10) to Right Click
 </p>
 
 
@@ -56,19 +56,9 @@
     <td>application</td>
     <td>button2</td>
   </tr>
-</table>
-
-<p style="margin-top: 20px; font-weight: bold">
-  Shift + F10 to Application_key
-</p>
-
-
-
-<table class="table">
-  <captions>Key bindings</captions>
   <tr>
     <td>shift-f10</td>
-    <td>application</td>
+    <td>button2</td>
   </tr>
 </table>
 
@@ -94,10 +84,8 @@
 <ul>
   <li>Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss</li>
   <li>option + PrintScreen_key -> Screenshot</li>
-  <li>option + PrintScreen_key + P_key -> Screenshot and Preview</li>
   <li>スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます</li>
   <li>option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います</li>
-  <li>option + PrintScreen + Pで、スクリーンショット（ウィンドウ選択モード）を撮影した後プレビューします。</li>
 </ul>
 
 
@@ -115,56 +103,20 @@
 <table class="table">
   <captions>Key bindings</captions>
   <tr>
-    <td>delete</td>
+    <td>delete_forward</td>
     <td>command-delete_or_backspace</td>
   </tr>
 </table>
 
 <p style="margin-top: 20px; font-weight: bold">
-  command + D to Show desktop
-</p>
-
-<ul>
-  <li>Windows like key_bind</li>
-  <li>Windowsと同様に、command + Dでデスクトップを表示します。</li>
-</ul>
-
-
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td>command-d</td>
-    <td>command-vk_mission_control</td>
-  </tr>
-</table>
-
-<p style="margin-top: 20px; font-weight: bold">
-  option to command + F2(focus Menu_bar)
-</p>
-
-<ul>
-  <li>Windows like key_bind</li>
-  <li>Windowsと同様に、optionでメニュバーにフォーカスが移動します。</li>
-</ul>
-
-
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td>option-vk_none</td>
-    <td>command-f2</td>
-  </tr>
-</table>
-
-<p style="margin-top: 20px; font-weight: bold">
-  atom(Esc (or Control-[) sends Esc Japanese_eisuu Esc)
+  ATOM(Esc (or Control-[) sends Esc Japanese_eisuu Esc Esc Esc)
 </p>
 
 <ul>
   <li>This key_bind for 'vim-mode-plus'</li>
-  <li>Send ESC, EISU, ESC and ESC to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.</li>
+  <li>Send Esc, Eisu, Esc, Esc and Esc to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.</li>
   <li>このキーバインドは、ATOMに'vim-mode-plus'をインストールしている場合に役立ちます</li>
-  <li>Escを押すと、'Esc + 英数 + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。</li>
+  <li>Escを押すと、'Esc + 英数 + Esc + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。</li>
 </ul>
 
 
@@ -172,11 +124,11 @@
   <captions>Key bindings</captions>
   <tr>
     <td>escape</td>
-    <td>escape, japanese_eisuu, escape, escape</td>
+    <td>escape, japanese_eisuu, escape, escape, escape</td>
   </tr>
   <tr>
-    <td>control-open_bracket</td>
-    <td>escape, japanese_eisuu, escape, escape</td>
+    <td>control-close_bracket</td>
+    <td>escape, japanese_eisuu, escape, escape, escape</td>
   </tr>
 </table>
 
@@ -193,7 +145,7 @@
   <captions>Key bindings</captions>
   <tr>
     <td>f5</td>
-    <td>command-r</td>
+    <td>left_command-r</td>
   </tr>
 </table>
 
@@ -210,7 +162,7 @@
   <captions>Key bindings</captions>
   <tr>
     <td>option-home</td>
-    <td>command-shift-h</td>
+    <td>left_command-left_shift-h</td>
   </tr>
 </table>
 
@@ -220,6 +172,8 @@
 
 <ul>
   <li>For Chrome, Safari, Firefox.</li>
+  <li>Because 'open_bracket' is judged with 'close_bracket' in my environment, and 'close_bracket' is judged in 'backslash' again, I do it for the setting that I added and it.</li>
+  <li>私の環境では、'[' が ']' と判定され、']' が '' に判定されるため、それに合わせた設定にしています。</li>
 </ul>
 
 
@@ -227,11 +181,11 @@
   <captions>Key bindings</captions>
   <tr>
     <td>option-right_arrow</td>
-    <td>command-close_bracket</td>
+    <td>command-backslash</td>
   </tr>
   <tr>
     <td>option-left_arrow</td>
-    <td>command-open_bracket</td>
+    <td>command-close_bracket</td>
   </tr>
 </table>
 
@@ -265,11 +219,11 @@
   <captions>Key bindings</captions>
   <tr>
     <td>control-page_down</td>
-    <td>command-tab</td>
+    <td>control-tab</td>
   </tr>
   <tr>
     <td>control-page_up</td>
-    <td>command-shift-tab</td>
+    <td>control-shift-tab</td>
   </tr>
 </table>
 
@@ -283,11 +237,11 @@
   <captions>Key bindings</captions>
   <tr>
     <td>control-page_down</td>
-    <td>command-shift-back</td>
+    <td>control-tab</td>
   </tr>
   <tr>
     <td>control-page_up</td>
-    <td>command-shift-close_bracket</td>
+    <td>control-shift-tab</td>
   </tr>
 </table>
 
@@ -301,11 +255,11 @@
   <captions>Key bindings</captions>
   <tr>
     <td>control-page_down</td>
-    <td>command-close_bracket</td>
+    <td>command-backslash</td>
   </tr>
   <tr>
     <td>control-page_up</td>
-    <td>command-backslash</td>
+    <td>command-close_bracket</td>
   </tr>
 </table>
 

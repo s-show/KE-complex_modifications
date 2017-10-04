@@ -39,9 +39,8 @@
         {
           <%# 参考：KE-complex_modifications/caps_lock.json at master ·pqrs-org/KE-complex_modifications %>
           <%# https://github.com/pqrs-org/KE-complex_modifications/blob/master/docs/json/caps_lock.json %>
-          <%# CapsLockを扱うときは、optionalにcaps_lockの指定は不要となる模様 %>
           "type": "basic",
-          "from": <%= from("caps_lock", ["shift"], []) %>,
+          "from": <%= from("caps_lock", ["shift"], ["caps_lock"]) %>,
           "to": <%= to([["caps_lock", []]]) %>
         },
         {
@@ -52,7 +51,7 @@
       ]
     },
     {
-      "description": "Application_key to Right Click",
+      "description": "Application_key(or shift + F10) to Right Click",
       "manipulators": [
         {
           <%# Application_key to Right Click %>
@@ -62,17 +61,12 @@
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
-        }
-      ]
-    },
-    {
-      "description": "Shift + F10 to Application_key",
-      "manipulators": [
+        },
         {
           <%# この組み合わせには、optionalにcaps_lockの指定が必要 %>
           "type": "basic",
           "from": <%= from("f10", ["shift"], ["caps_lock"]) %>,
-          "to": <%= to([["application", []]]) %>,
+          "to": <%= to([["button2", []]]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
@@ -108,7 +102,7 @@
           ],
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>,
-            {"type": "press_printscreen_key", "value": 0}
+            {"type": "variable_if", "name": "press_printscreen_key", "value": 0}
           ]
         },
         {
@@ -119,7 +113,7 @@
             {"shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
           ],
           "conditions": [
-            {"type": "press_printscreen_key", "value": 1}
+            {"type": "variable_if", "name": "press_printscreen_key", "value": 1}
           ]
         }
       ]
@@ -129,10 +123,8 @@
       "extra_descriptions": [
         "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
         "option + PrintScreen_key -> Screenshot",
-        "option + PrintScreen_key + P_key -> Screenshot and Preview",
         "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
-        "option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います",
-        "option + PrintScreen + Pで、スクリーンショット（ウィンドウ選択モード）を撮影した後プレビューします。"
+        "option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います"
       ],
       "extra_description_level": 1,
       "manipulators": [
@@ -141,30 +133,10 @@
           "from": <%= from("print_screen", ["option"], ["caps_lock"]) %>,
           <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
           "to": [
-            {"set_variable": { "name": "press_printscreen_key", "value": 1}}
-          ],
-          "to_if_alone": [
-          <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
             {"shell_command": "screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
           ],
-          <%# PrintScreenキーから手を離した状態にする %>
-          "to_after_key_up": [
-            {"set_variable": { "name": "press_printscreen_key", "value": 0}}
-          ],
           "conditions": [
-            <%= frontmost_application_unless("remote_desktop") %>,
-            {"type": "press_printscreen_key", "value": 0}
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("p", [], ["caps_lock"]) %>,
-          <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
-          "to": [
-            {"shell_command": "screencapture -oWP ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
-          ],
-          "conditions": [
-            {"type": "press_printscreen_key", "value": 1}
+            <%= frontmost_application_unless("remote_desktop") %>
           ]
         }
       ]
@@ -178,7 +150,7 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": <%= from("delete", [], ["any"]) %>,
+          "from": <%= from("delete_forward", [], ["any"]) %>,
           "to": <%= to([["delete_or_backspace", ["command"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("finder") %>
@@ -186,54 +158,20 @@
         }
       ]
     },
-    {
-      "description": "command + D to Show desktop",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、command + Dでデスクトップを表示します。"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("d", ["command"], []) %>,
-          "to": <%= to([["vk_mission_control", ["command"]]]) %>,
-          "conditions": [
-            <%= frontmost_application_unless("remote_desktop") %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "option to command + F2(focus Menu_bar)",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、optionでメニュバーにフォーカスが移動します。"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("vk_none", ["option"], []) %>,
-          "to": <%= to([["f2", ["command"]]]) %>,
-          "conditions": [
-            <%= frontmost_application_unless("remote_desktop") %>
-          ]
-        }
-      ]
-    },
 		{
-			"description": "atom(Esc (or Control-[) sends Esc Japanese_eisuu Esc)",
+			"description": "ATOM(Esc (or Control-[) sends Esc Japanese_eisuu Esc Esc Esc)",
       "extra_descriptions": [
         "This key_bind for 'vim-mode-plus'",
-        "Send ESC, EISU, ESC and ESC to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.",
+        "Send Esc, Eisu, Esc, Esc and Esc to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.",
         "このキーバインドは、ATOMに'vim-mode-plus'をインストールしている場合に役立ちます",
-        "Escを押すと、'Esc + 英数 + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。"
+        "Escを押すと、'Esc + 英数 + Esc + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。"
       ],
       "manipulators":
       <%=
         each_key(
-          source_keys_list: ["escape", hash_from("open_bracket", ["control"])],
+          source_keys_list: ["escape", hash_from("close_bracket", ["control"])],
           dest_keys_list: [[], []],
-          to_post_events: ["escape", "japanese_eisuu", "escape", "escape"],
+          to_post_events: ["escape", "japanese_eisuu", "escape", "escape", "escape"],
           conditions: [frontmost_application_if("atom", false)],
           as_json: true
         )
@@ -245,15 +183,13 @@
       "extra_descriptions": [
         "For Chrome, Safari"
       ],
-			<%# CapsLockがONでF5キーを押すと、FNキーも押されたことになる。 %>
 			"manipulators": [
 				{
 					"type": "basic",
-          "from": <%= from("f5", [], ["caps_lock", "fn"]) %>,
-          "to": <%= to([["r", ["command"]]]) %>,
+          "from": <%= from("f5", [], ["any"]) %>,
+          "to": <%= to([["r", ["left_command"]]]) %>,
           "conditions": [
-            <%= frontmost_application_if("chrome") %>,
-            <%= frontmost_application_if("safari") %>
+            <%= frontmost_application_if("chrome_and_safari") %>
           ]
 				}
 			]
@@ -267,11 +203,10 @@
 			"manipulators": [
 				{
 					"type": "basic",
-          "from": <%= from("home", ["option"], ["caps_lock"]) %>,
-          "to": <%= to([["h", ["command", "shift"]]]) %>,
+          "from": <%= from("home", ["option"], ["any"]) %>,
+          "to": <%= to([["h", ["left_command", "left_shift"]]]) %>,
           "conditions": [
-            <%= frontmost_application_if("chrome") %>,
-            <%= frontmost_application_if("safari") %>
+            <%= frontmost_application_if("chrome_and_safari") %>
           ]
 				}
 			]
@@ -279,19 +214,61 @@
 		{
       "description": "Next/Prev by option-Left/Right arrow at browser",
       "extra_descriptions": [
-        "For Chrome, Safari, Firefox."
+        "For Chrome, Safari, Firefox.",
+        "Because 'open_bracket' is judged with 'close_bracket' in my environment, and 'close_bracket' is judged in 'backslash' again, I do it for the setting that I added and it.",
+        "私の環境では、'[' が ']' と判定され、']' が '\' に判定されるため、それに合わせた設定にしています。"
       ],
-      "manipulators":
-      <%=
-        manipulators = each_key(
-          source_keys_list: ["right_arrow", "left_arrow"],
-          dest_keys_list: ["close_bracket", "open_bracket"],
-          from_mandatory_modifiers: ["option"],
-          to_modifiers: ["command"],
-          conditions: [frontmost_application_if("browser", false)]
-        )
-        JSON.generate(manipulators)
-      %>
+      <%# erb2json.rbで用意されているdevice_ifメソッドは、HHKBキーボード専用のメソッドのため、device_ifメソッドは使えない。 %>
+      "manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("right_arrow", ["option"], []) %>,
+          "to": <%= to([["backslash", ["command"]]]) %>,
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1455,
+                  "product_id": 4131
+                }
+              ]
+            }
+          ]
+				},
+				{
+					"type": "basic",
+          "from": <%= from("left_arrow", ["option"], []) %>,
+          "to": <%= to([["close_bracket", ["command"]]]) %>,
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1455,
+                  "product_id": 4131
+                }
+              ]
+            }
+          ]
+				}
+      ]
 		},
 		{
 			"description": "Chrome(command + L send command + L, Japanese_eisuu)",
@@ -321,7 +298,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["tab", ["command"]]]) %>,
+          "to": <%= to([["tab", ["control"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("safari") %>
           ]
@@ -329,7 +306,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["tab", ["command", "shift"]]]) %>,
+          "to": <%= to([["tab", ["control", "shift"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("safari") %>
           ]
@@ -342,7 +319,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["back", ["command", "shift"]]]) %>,
+          "to": <%= to([["tab", ["control"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("terminal") %>
           ]
@@ -350,7 +327,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["close_bracket", ["command", "shift"]]]) %>,
+          "to": <%= to([["tab", ["control", "shift"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("terminal") %>
           ]
@@ -363,7 +340,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["close_bracket", ["command"]]]) %>,
+          "to": <%= to([["backslash", ["command"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("iterm2") %>
           ]
@@ -371,7 +348,7 @@
 				{
 					"type": "basic",
           "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
-          "to": <%= to([["backslash", ["command"]]]) %>,
+          "to": <%= to([["close_bracket", ["command"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("iterm2") %>
           ]
