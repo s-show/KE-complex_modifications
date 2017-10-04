@@ -3,70 +3,126 @@
 require 'erb'
 require 'json'
 
-def _from(key_code, mandatory_modifiers, optional_modifiers)
-  data = {}
-  data['key_code'] = key_code
+def deepcopy(data)
+  Marshal.load(Marshal.dump(data))
+end
 
+def to_array(data)
+  unless data.is_a? Array
+    data = [data]
+  end
+  data
+end
+
+def make_data(data, as_json=true)
+  if as_json
+    JSON.generate(data)
+  else
+    data
+  end
+end
+
+def key(data, key)
+  if key == "any"
+    data['any'] = "key_code"
+  elsif key.start_with? "button"
+    data['pointing_button'] = key
+  else
+    data['key_code'] = key
+  end
+end
+
+def from(key_code, mandatory_modifiers=[], optional_modifiers=[], as_json=true)
+  mandatory_modifiers = to_array(mandatory_modifiers)
+  optional_modifiers = to_array(optional_modifiers)
+
+  data = {}
+  key(data, key_code)
   mandatory_modifiers.each do |m|
     data['modifiers'] = {} if data['modifiers'].nil?
     data['modifiers']['mandatory'] = [] if data['modifiers']['mandatory'].nil?
     data['modifiers']['mandatory'] << m
   end
-
   optional_modifiers.each do |m|
     data['modifiers'] = {} if data['modifiers'].nil?
     data['modifiers']['optional'] = [] if data['modifiers']['optional'].nil?
     data['modifiers']['optional'] << m
   end
-  data
+  make_data(data, as_json)
 end
 
-def from(key_code, mandatory_modifiers, optional_modifiers)
-  JSON.generate(_from(key_code, mandatory_modifiers, optional_modifiers))
+def hash_from(key_code, mandatory_modifiers=[], optional_modifiers=[])
+  from(key_code, mandatory_modifiers, optional_modifiers, false)
 end
 
-def _to(events)
+def to(events, as_json=true, repeat=1)
   data = []
-
   events.each do |e|
     d = {}
-    d['key_code'] = e[0]
-    unless e[1].nil?
-      d['modifiers'] = e[1]
+    if e.is_a? Array
+      key(d, e[0])
+      unless e[1].nil?
+        d['modifiers'] = e[1]
+      end
+    elsif e.is_a? String
+      key(d, e)
+    else
+      d = deepcopy(e)
     end
-
     data << d
   end
-  data
+  data_total = []
+  repeat.times do |i|
+    data_total += data
+  end
+  make_data(data_total, as_json)
 end
 
-def to(events)
-  JSON.generate(_to(events))
+def hash_to(events, repeat=1)
+  to(events, false, repeat)
 end
 
-
-def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], conditions: [], as_json: false)
+def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_after_key_up: [], conditions: [], as_json: false)
+  unless source_keys_list.is_a? Array
+    source_keys_list = [source_keys_list]
+    dest_keys_list = [dest_keys_list]
+    to_if_alone = [to_array(to_if_alone)]
+  end
   data = []
-  source_keys_list.each_with_index do |from_key,index|
+  source_keys_list.each_with_index do |from_key, index|
     to_key = dest_keys_list[index]
     d = {}
     d['type'] = 'basic'
-    d['from'] = _from(from_key, from_mandatory_modifiers, from_optional_modifiers)
+    if from_key.is_a? String
+      d['from'] = from(from_key, from_mandatory_modifiers, from_optional_modifiers, false)
+    else
+      d['from'] = from_key
+    end
 
     # Compile list of events to add to "to" section
     events = []
     to_pre_events.each do |e|
       events << e
     end
-    if to_modifiers[0].nil?
-      events << [to_key]
+    if to_key.is_a? String
+      if to_modifiers[0].nil?
+        events << [to_key]
+      else
+        events << [to_key, to_modifiers]
+      end
+    elsif to_key.is_a? Array
+      to_key.each do |e|
+        events << e
+      end
     else
-      events << [to_key, to_modifiers]
+      events << to_key
     end
     to_post_events.each do |e|
       events << e
     end
-    d['to'] = JSON.parse(to(events))
+    d['to'] = hash_to(events)
+    d['to_if_alone'] = to_if_alone[index] if (to_if_alone[index] and to_if_alone[index].size != 0)
+    d['to_after_key_up'] = to_after_key_up unless to_after_key_up.size == 0
 
     if conditions.any?
       d['conditions'] = []
@@ -77,14 +133,14 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
     data << d
   end
 
-  if as_json
-    JSON.generate(data)
-  else
-    data
-  end
+  make_data(data, as_json)
 end
 
-def frontmost_application(type, app_aliases)
+def frontmost_application(type, app_aliases, as_json=true)
+  finder_bundle_identifiers = [
+    '^com\.apple\.finder$',
+  ]
+
   browser_bundle_identifiers = [
     '^org\.mozilla\.firefox$',
     '^com\.google\.Chrome$',
@@ -108,14 +164,16 @@ def frontmost_application(type, app_aliases)
     '^com\.nulana\.remotixmac$',
     '^com\.p5sys\.jump\.mac\.viewer$',
     '^com\.p5sys\.jump\.mac\.viewer\.web$',
-    '^com\.teamviewer\.TeamViewer$',
     '^com\.vmware\.horizon$',
     '^com\.2X\.Client\.Mac$',
   ]
 
-  terminal_bundle_identifiers = [
-    '^com\.apple\.Terminal$',
+  iterm2_bundle_identifiers = [
     '^com\.googlecode\.iterm2$',
+  ]
+
+  terminal_bundle_identifiers = iterm2_bundle_identifiers + [
+    '^com\.apple\.Terminal$',
     '^co\.zeit\.hyperterm$',
     '^co\.zeit\.hyper$',
   ]
@@ -143,20 +201,42 @@ def frontmost_application(type, app_aliases)
     '^org\.macports\.X11$',
   ]
 
-  xcode_bundle_identifiers = [
-    '^com\.apple\.dt\.Xcode$'
+  word_bundle_identifiers = [
+    '^com\.microsoft\.Word$'
+  ]
+  powerpoint_bundle_identifiers = [
+    '^com\.microsoft\.Powerpoint$'
+  ]
+  excel_bundle_identifiers = [
+    '^com\.microsoft\.Excel$'
+  ]
+
+  # 自分が追加した。
+  chrome_bundle_identifiers = [
+    '^com\.google\.Chrome$'
+  ]
+  # 自分が追加した。
+  safari_bundle_identifiers = [
+    '^com\.apple\.Safari$'
+  ]
+
+  # 自分が追加した。
+  atom_bundle_identifiers = [
+    '^com\.github\.atom$'
   ]
 
   # ----------------------------------------
 
   bundle_identifiers = []
 
-  unless app_aliases.is_a? Enumerable
-    app_aliases = [ app_aliases ]
-  end
-
-  app_aliases.each do |app_alias|
+  to_array(app_aliases).each do |app_alias|
     case app_alias
+    when 'finder'
+      bundle_identifiers.concat(finder_bundle_identifiers)
+
+    when 'iterm2'
+      bundle_identifiers.concat(iterm2_bundle_identifiers)
+
     when 'terminal'
       bundle_identifiers.concat(terminal_bundle_identifiers)
 
@@ -170,7 +250,6 @@ def frontmost_application(type, app_aliases)
       bundle_identifiers.concat(vi_bundle_identifiers)
       bundle_identifiers.concat(virtual_machine_bundle_identifiers)
       bundle_identifiers.concat(x11_bundle_identifiers)
-      bundle_identifiers << '^com\\.microsoft\\.VSCode$'
 
     when 'remote_desktop'
       bundle_identifiers.concat(remote_desktop_bundle_identifiers)
@@ -184,8 +263,42 @@ def frontmost_application(type, app_aliases)
     when 'browser'
       bundle_identifiers.concat(browser_bundle_identifiers)
 
-    when 'xcode'
-      bundle_identifiers.concat(xcode_bundle_identifiers)
+    when 'word'
+      bundle_identifiers.concat(word_bundle_identifiers)
+
+    when 'powerpoint'
+      bundle_identifiers.concat(powerpoint_bundle_identifers)
+
+    when 'excel'
+      bundle_identifiers.concat(excel_bundle_identifers)
+
+    when 'office'
+      bundle_identifiers.concat(word_bundle_identifiers)
+      bundle_identifiers.concat(powerpoint_bundle_identifers)
+      bundle_identifiers.concat(excel_bundle_identifers)
+
+    when 'vim_emu'
+      bundle_identifiers.concat(emacs_bundle_identifiers)
+      bundle_identifiers.concat(remote_desktop_bundle_identifiers)
+      bundle_identifiers.concat(terminal_bundle_identifiers)
+      bundle_identifiers.concat(vi_bundle_identifiers)
+      bundle_identifiers.concat(virtual_machine_bundle_identifiers)
+      bundle_identifiers.concat(x11_bundle_identifiers)
+      bundle_identifiers.concat(remote_desktop_bundle_identifiers)
+      bundle_identifiers.concat(virtual_machine_bundle_identifiers)
+      bundle_identifiers.concat(browser_bundle_identifiers)
+
+    # 自分が追加した。
+    when 'chrome'
+      bundle_identifiers.concat(chrome_bundle_identifiers)
+
+    # 自分が追加した。
+    when 'safari'
+      bundle_identifiers.concat(safari_bundle_identifiers)
+
+    # 自分が追加した。
+    when 'atom'
+      bundle_identifiers.concat(atom_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
@@ -193,19 +306,63 @@ def frontmost_application(type, app_aliases)
   end
 
   unless bundle_identifiers.empty?
-    JSON.generate({
-                    "type" => type,
-                    "bundle_identifiers" => bundle_identifiers,
-                  })
+    data = {
+      "type" => type,
+      "bundle_identifiers" => bundle_identifiers
+    }
+    make_data(data, as_json)
   end
 end
 
-def frontmost_application_if(app_aliases)
-  frontmost_application('frontmost_application_if', app_aliases)
+def frontmost_application_if(app_aliases, as_json=true)
+  frontmost_application('frontmost_application_if', app_aliases, as_json)
 end
 
-def frontmost_application_unless(app_aliases)
-  frontmost_application('frontmost_application_unless', app_aliases)
+def frontmost_application_unless(app_aliases, as_json=true)
+  frontmost_application('frontmost_application_unless', app_aliases, as_json)
+end
+
+def device(type, device_aliases, as_json=true)
+  hhkb_id = {"vendor_id": 2131}
+
+  # ----------------------------------------
+
+  ids = []
+
+  to_array(device_aliases).each do |device_alias|
+    case device_alias
+    when 'hhkb'
+      ids << hhkb_id
+
+    else
+      $stderr << "unknown hhkb_alias: #{device_aliases}\n"
+    end
+  end
+
+  unless ids.empty?
+    data = {
+      "type" => type,
+      "identifiers" => ids
+    }
+    make_data(data, as_json)
+  end
+end
+
+def device_if(device_aliases, as_json=true)
+  device('device_if', device_aliases, as_json)
+end
+
+def device_unless(app_aliases, as_json=true)
+  device('device_unless', device_aliases, as_json)
+end
+
+number_letters = ("1".."9").to_a
+alphabet_letters = ("a".."z").to_a
+other_letters = ["spacebar", "hyphen", "equal_sign", "open_bracket", "close_bracket", "backslash", "non_us_pound", "semicolon", "quote", "grave_accent_and_tilde", "comma", "period", "slash"]
+all_letters = number_letters + alphabet_letters + other_letters
+all_letters_array = []
+all_letters.each do |l|
+  all_letters_array.push([l])
 end
 
 template = ERB.new $stdin.read

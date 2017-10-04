@@ -1,0 +1,1005 @@
+{
+  "title": "Personal rules (@s-show)",
+  "rule_list": false,
+  "make_extra_description": true,
+  "rules": [
+    {
+      "description": "command + E Open Finder",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open ~"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "control + Esc Open LaunchPad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_launchpad",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CapsLock to Japanese_eisuu, shift + CapsLock to CapsLock toggle.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock",
+              "modifiers": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu",
+              "modifiers": [
+
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Application_key to Right Click",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "application",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Shift + F10 to Application_key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f10",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "application",
+              "modifiers": [
+
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "PrintScreen_key Screenshot(full Screen)",
+      "extra_descriptions": [
+        "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
+        "PrintScreen_key -> Screenshot",
+        "PrintScreen_key + p_key -> Screenshot and Preview",
+        "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
+        "PrintScreenで、スクリーンショットの撮影（画面全体）のみ行います",
+        "PrintScreen + Pで、スクリーンショット（画面全体）を撮影した後プレビューします。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_printscreen_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "shell_command": "screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "press_printscreen_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            },
+            {
+              "type": "press_printscreen_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "press_printscreen_key",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Option + PrintScreen_key Screenshot(Select Window)",
+      "extra_descriptions": [
+        "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
+        "option + PrintScreen_key -> Screenshot",
+        "option + PrintScreen_key + P_key -> Screenshot and Preview",
+        "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
+        "option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います",
+        "option + PrintScreen + Pで、スクリーンショット（ウィンドウ選択モード）を撮影した後プレビューします。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_printscreen_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "shell_command": "screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "press_printscreen_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            },
+            {
+              "type": "press_printscreen_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "screencapture -oWP ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "press_printscreen_key",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Delete to command + delete(delete file))",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、Deleteでファイルが削除できます"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "command + D to Show desktop",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、command + Dでデスクトップを表示します。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_mission_control",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "option to command + F2(focus Menu_bar)",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、optionでメニュバーにフォーカスが移動します。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "vk_none",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.mac$",
+                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "atom(Esc (or Control-[) sends Esc Japanese_eisuu Esc)",
+      "extra_descriptions": [
+        "This key_bind for 'vim-mode-plus'",
+        "Send ESC, EISU, ESC and ESC to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.",
+        "このキーバインドは、ATOMに'vim-mode-plus'をインストールしている場合に役立ちます",
+        "Escを押すと、'Esc + 英数 + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.atom$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.atom$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Browser(F5 to command + R)",
+      "extra_descriptions": [
+        "For Chrome, Safari"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f5",
+            "modifiers": {
+              "optional": [
+                "caps_lock",
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Browser(option-Home to homepage)",
+      "extra_descriptions": [
+        "For Chrome, Safari"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "home",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Next/Prev by option-Left/Right arrow at browser",
+      "extra_descriptions": [
+        "For Chrome, Safari, Firefox."
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome(command + L send command + L, Japanese_eisuu)",
+      "extra_descriptions": [
+        "The Japanese hardly inputs Japanese in an address bar."
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Safari(Next_tab/Prev_tab by control + Pagedown/Pageup at Safari)",
+      "extra_descriptions": [
+        "For Safari."
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Terminal(Next_tab/Prev_tab by control + Pagedown/Pageup at Terminal)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "back",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.apple\\.Terminal$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "iTerm2(Next_Pane/Prev_Pane by control + Pagedown/Pageup at iTerm2)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "title": "Personal rules (@s-show)",
+  "rule_list": false,
+  "make_extra_description": true,
+  "rules": [
+    {
+      "description": "command + E Open Finder",
+      "manipulators": [
+        {
+          <%# Cmd-E Open Finder %>
+          "type": "basic",
+          "from": <%= from("e", ["command"], ["any"]) %>,
+          "to": [
+            {"shell_command": "open ~"}
+          ],
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "control + Esc Open LaunchPad",
+      "manipulators": [
+        {
+          <%# control-Escape to vk_launchpad %>
+          "type": "basic",
+          "from": <%= from("escape", ["control"], []) %>,
+          "to": <%= to([["vk_launchpad", []]]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "CapsLock to Japanese_eisuu, shift + CapsLock to CapsLock toggle.",
+      "manipulators": [
+        {
+          <%# 参考：KE-complex_modifications/caps_lock.json at master ·pqrs-org/KE-complex_modifications %>
+          <%# https://github.com/pqrs-org/KE-complex_modifications/blob/master/docs/json/caps_lock.json %>
+          <%# CapsLockを扱うときは、optionalにcaps_lockの指定は不要となる模様 %>
+          "type": "basic",
+          "from": <%= from("caps_lock", ["shift"], []) %>,
+          "to": <%= to([["caps_lock", []]]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("caps_lock", [], ["any"]) %>,
+          "to": <%= to([["japanese_eisuu", []]]) %>
+        }
+      ]
+    },
+    {
+      "description": "Application_key to Right Click",
+      "manipulators": [
+        {
+          <%# Application_key to Right Click %>
+          "type": "basic",
+          "from": <%= from("application", [], ["any"]) %>,
+          "to": <%= to([["button2", []]]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Shift + F10 to Application_key",
+      "manipulators": [
+        {
+          <%# この組み合わせには、optionalにcaps_lockの指定が必要 %>
+          "type": "basic",
+          "from": <%= from("f10", ["shift"], ["caps_lock"]) %>,
+          "to": <%= to([["application", []]]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "PrintScreen_key Screenshot(full Screen)",
+      "extra_descriptions": [
+        "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
+        "PrintScreen_key -> Screenshot",
+        "PrintScreen_key + p_key -> Screenshot and Preview",
+        "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
+        "PrintScreenで、スクリーンショットの撮影（画面全体）のみ行います",
+        "PrintScreen + Pで、スクリーンショット（画面全体）を撮影した後プレビューします。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("print_screen", [], ["caps_lock"]) %>,
+          <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
+          "to": [
+            {"set_variable": { "name": "press_printscreen_key", "value": 1}}
+          ],
+          "to_if_alone": [
+          <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
+            {"shell_command": "screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
+          ],
+          <%# PrintScreenキーから手を離した状態にする %>
+          "to_after_key_up": [
+            {"set_variable": { "name": "press_printscreen_key", "value": 0}}
+          ],
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>,
+            {"type": "press_printscreen_key", "value": 0}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("p", [], ["caps_lock"]) %>,
+          <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
+          "to": [
+            {"shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
+          ],
+          "conditions": [
+            {"type": "press_printscreen_key", "value": 1}
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Option + PrintScreen_key Screenshot(Select Window)",
+      "extra_descriptions": [
+        "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
+        "option + PrintScreen_key -> Screenshot",
+        "option + PrintScreen_key + P_key -> Screenshot and Preview",
+        "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
+        "option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います",
+        "option + PrintScreen + Pで、スクリーンショット（ウィンドウ選択モード）を撮影した後プレビューします。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("print_screen", ["option"], ["caps_lock"]) %>,
+          <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
+          "to": [
+            {"set_variable": { "name": "press_printscreen_key", "value": 1}}
+          ],
+          "to_if_alone": [
+          <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
+            {"shell_command": "screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
+          ],
+          <%# PrintScreenキーから手を離した状態にする %>
+          "to_after_key_up": [
+            {"set_variable": { "name": "press_printscreen_key", "value": 0}}
+          ],
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>,
+            {"type": "press_printscreen_key", "value": 0}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("p", [], ["caps_lock"]) %>,
+          <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
+          "to": [
+            {"shell_command": "screencapture -oWP ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
+          ],
+          "conditions": [
+            {"type": "press_printscreen_key", "value": 1}
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Delete to command + delete(delete file))",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、Deleteでファイルが削除できます"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("delete", [], ["any"]) %>,
+          "to": <%= to([["delete_or_backspace", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "command + D to Show desktop",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、command + Dでデスクトップを表示します。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("d", ["command"], []) %>,
+          "to": <%= to([["vk_mission_control", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "option to command + F2(focus Menu_bar)",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、optionでメニュバーにフォーカスが移動します。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("vk_none", ["option"], []) %>,
+          "to": <%= to([["f2", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+		{
+			"description": "atom(Esc (or Control-[) sends Esc Japanese_eisuu Esc)",
+      "extra_descriptions": [
+        "This key_bind for 'vim-mode-plus'",
+        "Send ESC, EISU, ESC and ESC to stop changing at IME, disable IME and change to Normal mode at atom(with vim-mode-plus) at once.",
+        "このキーバインドは、ATOMに'vim-mode-plus'をインストールしている場合に役立ちます",
+        "Escを押すと、'Esc + 英数 + Esc + Esc'とキーを送ることで、変換途中でもIMEをオフにした上でノーマルモードに切り替わります。"
+      ],
+      "manipulators":
+      <%=
+        each_key(
+          source_keys_list: ["escape", hash_from("open_bracket", ["control"])],
+          dest_keys_list: [[], []],
+          to_post_events: ["escape", "japanese_eisuu", "escape", "escape"],
+          conditions: [frontmost_application_if("atom", false)],
+          as_json: true
+        )
+      %>
+		},
+		{
+			"description": "Browser(F5 to command + R)",
+			<%# firefoxは最初から設定済み %>
+      "extra_descriptions": [
+        "For Chrome, Safari"
+      ],
+			<%# CapsLockがONでF5キーを押すと、FNキーも押されたことになる。 %>
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("f5", [], ["caps_lock", "fn"]) %>,
+          "to": <%= to([["r", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("chrome") %>,
+            <%= frontmost_application_if("safari") %>
+          ]
+				}
+			]
+		},
+		{
+			"description": "Browser(option-Home to homepage)",
+			<%# firefoxは最初から設定済み %>
+      "extra_descriptions": [
+        "For Chrome, Safari"
+      ],
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("home", ["option"], ["caps_lock"]) %>,
+          "to": <%= to([["h", ["command", "shift"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("chrome") %>,
+            <%= frontmost_application_if("safari") %>
+          ]
+				}
+			]
+		},
+		{
+      "description": "Next/Prev by option-Left/Right arrow at browser",
+      "extra_descriptions": [
+        "For Chrome, Safari, Firefox."
+      ],
+      "manipulators":
+      <%=
+        manipulators = each_key(
+          source_keys_list: ["right_arrow", "left_arrow"],
+          dest_keys_list: ["close_bracket", "open_bracket"],
+          from_mandatory_modifiers: ["option"],
+          to_modifiers: ["command"],
+          conditions: [frontmost_application_if("browser", false)]
+        )
+        JSON.generate(manipulators)
+      %>
+		},
+		{
+			"description": "Chrome(command + L send command + L, Japanese_eisuu)",
+      "extra_descriptions": [
+        "The Japanese hardly inputs Japanese in an address bar."
+      ],
+			<%# アドレスバーで日本語を入力することはないため %>
+			<%# CapsLockがONでも変換する %>
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("l", ["command"], ["caps_lock"]) %>,
+          "to": <%= to([["l", ["command"]], ["japanese_eisuu"]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("chrome") %>
+          ]
+				}
+			]
+		},
+		{
+			"description": "Safari(Next_tab/Prev_tab by control + Pagedown/Pageup at Safari)",
+      "extra_descriptions": [
+        "For Safari."
+      ],
+			<%# Chromeとfirefoxは最初から設定済み %>
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["tab", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("safari") %>
+          ]
+				},
+				{
+					"type": "basic",
+          "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["tab", ["command", "shift"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("safari") %>
+          ]
+				}
+			]
+		},
+		{
+			"description": "Terminal(Next_tab/Prev_tab by control + Pagedown/Pageup at Terminal)",
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["back", ["command", "shift"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("terminal") %>
+          ]
+				},
+				{
+					"type": "basic",
+          "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["close_bracket", ["command", "shift"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("terminal") %>
+          ]
+				}
+			]
+		},
+		{
+			"description": "iTerm2(Next_Pane/Prev_Pane by control + Pagedown/Pageup at iTerm2)",
+			"manipulators": [
+				{
+					"type": "basic",
+          "from": <%= from("page_down", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["close_bracket", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("iterm2") %>
+          ]
+				},
+				{
+					"type": "basic",
+          "from": <%= from("page_up", ["control"], ["caps_lock"]) %>,
+          "to": <%= to([["backslash", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("iterm2") %>
+          ]
+				}
+			]
+		}
+  ]
+}

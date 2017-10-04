@@ -5,25 +5,45 @@ require 'json'
 
 include ERB::Util
 
-def import_button(json_file_path)
-  json_path = json_file_path.gsub(/^docs\//, '')
-
-  "<a class=\"btn btn-primary btn-sm pull-right\" data-json-path=\"#{json_path}\">Import</a>"
-end
-
-def file_import_panel(json_file_path)
+def file_import_panel(json_file)
+  if json_file =~ /^docs\/json\/[^\/]+.json/
+    json_file_path = json_file
+    json_file = json_file_path.split("/")[-1]
+  else
+    json_file_path = "docs/json/#{json_file}"
+  end
+  json_name = json_file.gsub(/.json$/, '')
   title = ''
   rule_descriptions = ''
+  make_extra_description = false
 
   File.open(json_file_path) do |f|
     data = JSON.parse(f.read)
     title = h(data['title'])
-    data['rules'].each do |rule|
-      rule_descriptions += '<div class="list-group-item">' + h(rule['description']) + '</div>'
+    make_extra_description = data['make_extra_description'] if data.key?('make_extra_description')
+    rule_list = data.key?('rule_list') ? data['rule_list'] : true
+    if rule_list
+      data['rules'].each do |rule|
+        rule_descriptions += '<div class="list-group-item">' + h(rule['description']) + '</div>'
+      end
     end
   end
 
-  extra_description_file_path = 'src/extra_descriptions/' + json_file_path.gsub(/^docs\/json\//, '') + '.html'
+  extra_description_file_path = "src/extra_descriptions/#{json_file}.html"
+
+  if make_extra_description
+    make = true
+    if FileTest.exist?(extra_description_file_path) and File.mtime(extra_description_file_path) - File.mtime(json_file_path) > 0
+      make = false
+    end
+    if make
+      cmd = "scripts/json2exhtml.rb < #{json_file_path} > #{extra_description_file_path}"
+      unless system(cmd)
+        raise "Error at: #{cmd}"
+      end
+    end
+  end
+
   if FileTest.exist?(extra_description_file_path)
     File.open(extra_description_file_path) do |f|
       rule_descriptions += '<div class="list-group-item">' + f.read + '</div>'
@@ -33,10 +53,10 @@ def file_import_panel(json_file_path)
   <<-EOS
     <div class="panel panel-default">
       <div class="panel-heading">
-        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="##{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}" aria-expanded="false" aria-controls="#{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}">#{title}</a>
-        #{import_button(json_file_path)}
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="##{json_name}" aria-expanded="false" aria-controls="#{json_name}">#{title}</a>
+        <a class=\"btn btn-primary btn-sm pull-right\" data-json-path=\"json/#{json_file}\">Import</a>
       </div>
-      <div class="list-group collapse" id="#{json_file_path.gsub(/^docs\/json\//, '').gsub(/.json/, '')}">
+      <div class="list-group collapse" id="#{json_name}">
           #{rule_descriptions}
       </div>
     </div>
