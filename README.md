@@ -4,7 +4,7 @@
 
 complex_modifications for Karabiner-Elements by s-show.
 
-https://s-show.github.io/complex_modifications/
+https://s-show.github.io/KE-complex_modifications/
 
 ## Update docs
 
