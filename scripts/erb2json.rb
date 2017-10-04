@@ -171,8 +171,14 @@ def frontmost_application(type, app_aliases, as_json=true)
   iterm2_bundle_identifiers = [
     '^com\.googlecode\.iterm2$',
   ]
-
-  terminal_bundle_identifiers = iterm2_bundle_identifiers + [
+  # TerminalとiTerm2で異なる扱いをしたいので、「ターミナル関係アプリ全部を一括まとめて設定」ではなく、
+  # iTerm2以外のアプリを設定する。
+  # terminal_bundle_identifiers = iterm2_bundle_identifiers + [
+  #   '^com\.apple\.Terminal$',
+  #   '^co\.zeit\.hyperterm$',
+  #   '^co\.zeit\.hyper$',
+  # ]
+  terminal_bundle_identifiers = [
     '^com\.apple\.Terminal$',
     '^co\.zeit\.hyperterm$',
     '^co\.zeit\.hyper$',
@@ -217,6 +223,10 @@ def frontmost_application(type, app_aliases, as_json=true)
   ]
   # 自分が追加した。
   safari_bundle_identifiers = [
+    '^com\.apple\.Safari$'
+  ]
+  chrome_and_safari_bundle_identifiers = [
+    '^com\.google\.Chrome$',
     '^com\.apple\.Safari$'
   ]
 
@@ -295,6 +305,10 @@ def frontmost_application(type, app_aliases, as_json=true)
     # 自分が追加した。
     when 'safari'
       bundle_identifiers.concat(safari_bundle_identifiers)
+
+    # 自分が追加した。
+    when 'chrome_and_safari'
+      bundle_identifiers.concat(chrome_and_safari_bundle_identifiers)
 
     # 自分が追加した。
     when 'atom'
