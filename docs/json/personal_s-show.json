@@ -473,7 +473,9 @@
     {
       "description": "Browser(F5 to command + R)",
       "extra_descriptions": [
-        "For Chrome, Safari"
+        "For Chrome, Safari",
+        "This setting is accomplished in Firefox from a beginning.",
+        "この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。"
       ],
       "manipulators": [
         {
@@ -509,7 +511,9 @@
     {
       "description": "Browser(option-Home to homepage)",
       "extra_descriptions": [
-        "For Chrome, Safari"
+        "For Chrome, Safari",
+        "This setting is accomplished in Firefox from a beginning.",
+        "この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。"
       ],
       "manipulators": [
         {
@@ -549,9 +553,7 @@
     {
       "description": "Next/Prev by option-Left/Right arrow at browser",
       "extra_descriptions": [
-        "For Chrome, Safari, Firefox.",
-        "Because 'open_bracket' is judged with 'close_bracket' in my environment, and 'close_bracket' is judged in 'backslash' again, I do it for the setting that I added and it.",
-        "私の環境では、'[' が ']' と判定され、']' が '' に判定されるため、それに合わせた設定にしています。"
+        "For Chrome, Safari, Firefox."
       ],
       "manipulators": [
         {
@@ -675,9 +677,6 @@
     },
     {
       "description": "Safari(Next_tab/Prev_tab by control + Pagedown/Pageup at Safari)",
-      "extra_descriptions": [
-        "For Safari."
-      ],
       "manipulators": [
         {
           "type": "basic",
