@@ -131,7 +131,6 @@
         {
           "type": "basic",
           "from": <%= from("print_screen", ["option"], ["caps_lock"]) %>,
-          <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
           "to": [
             {"shell_command": "screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
           ],
@@ -352,6 +351,80 @@
             <%= frontmost_application_if("iterm2") %>
           ]
 				}
+			]
+		},
+		{
+			"description": "test (two-stroke key_bind)",
+			"manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], ["any"]) %>,
+          <%# controlキーを押している状態を次のアクションに伝えるため、変数を使う %>
+          "to": [
+            {"set_variable": { "name": "press_control_key", "value": 1}},
+            {"set_variable": { "name": "press_control_x_key", "value": 0}}
+          ],
+          "to_if_alone": [<%= to([["left_control", []]]) %> ],
+          <%# control-xまでは正しく押したが、次のキーを間違えた時 %>
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_key", "value": 0},
+            {"type": "variable_if", "name": "press_control_x_key", "value": 1}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], []) %>,
+          <%# controlキーを押している状態を次のアクションに伝えるため、変数を使う %>
+          "to": [
+            {"set_variable": { "name": "press_control_key", "value": 1}},
+            {"set_variable": { "name": "press_control_x_key", "value": 0}}
+          ],
+          "to_if_alone": [<%= to([["left_control", []]]) %> ],
+          <%# controlまでは正しく押したが、次のキーを間違えた時 %>
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_key", "value": 1},
+            {"type": "variable_if", "name": "press_control_x_key", "value": 0}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], []) %>,
+          <%# controlキーを押している状態を次のアクションに伝えるため、変数を使う %>
+          "to": [
+            {"set_variable": { "name": "press_control_key", "value": 1}},
+            {"set_variable": { "name": "press_control_x_key", "value": 0}}
+          ],
+          "to_if_alone": [<%= to([["left_control", []]]) %> ],
+          <%# control-x-dを正しく入力した時 %>
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_key", "value": 0},
+            {"type": "variable_if", "name": "press_control_x_key", "value": 0}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("x", [], ["control"]) %>,
+          <%# control-xを押した状態を次のアクションに伝える %>
+          "to": [
+            {"set_variable": { "name": "press_control_key", "value": 0}},
+            {"set_variable": { "name": "press_control_x_key", "value": 1}}
+          ],
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_key", "value": 1}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("d", [], ["any"]) %>,
+          <%# control-xキー + dキーで押したときは、デスクトップを表示する %>
+          "to": <%= to([["vk_mission_control", ["command"]]]) %>,
+          "to_after_key_up": [
+            {"set_variable": { "name": "press_control_x_key", "value": 0}}
+          ],
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_x_key", "value": 1}
+          ]
+        }
 			]
 		}
   ]

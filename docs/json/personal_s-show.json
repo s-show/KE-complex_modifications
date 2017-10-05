@@ -875,6 +875,208 @@
           ]
         }
       ]
+    },
+    {
+      "description": "test (two-stroke key_bind)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_control_key",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "press_control_x_key",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "left_control",
+                "modifiers": [
+
+                ]
+              }
+            ]
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_control_key",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "press_control_x_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_control_key",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "press_control_x_key",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "left_control",
+                "modifiers": [
+
+                ]
+              }
+            ]
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_control_key",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "press_control_x_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_control_key",
+                "value": 1
+              }
+            },
+            {
+              "set_variable": {
+                "name": "press_control_x_key",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "left_control",
+                "modifiers": [
+
+                ]
+              }
+            ]
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_control_key",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "press_control_x_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_control_key",
+                "value": 0
+              }
+            },
+            {
+              "set_variable": {
+                "name": "press_control_x_key",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_control_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_mission_control",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "press_control_x_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_control_x_key",
+              "value": 1
+            }
+          ]
+        }
+      ]
     }
   ]
 }
