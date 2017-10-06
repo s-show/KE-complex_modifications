@@ -6,9 +6,8 @@
 		{
 			"description": "Show Desktop(control-x control-d)",
       "extra_descriptions": [
-        "control-xを押した後、controlを押しながらD以外のキーを押しても、デスクトップを表示する処理は行われず、press_control_x_key変数の値を0にする戻す処理は実装できました。これにより、control-xを押した後、間違えてA等のキーを押し、それからcontrol-dを押したらデスクトップが表示ｓれてしまうという問題は解消できました。",
-        "control-xを押した後、２つのキーから手を離し、次にcontrol-dを押しても変換が実行されてデスクトップが表示されます。",
-        "control-xを押した後、２つのキーから手を離し、次にD以外のキーを単独で押しても、そのキーの入力がなされず、press_control_x_keyの値を0にする処理だけ行われます。そのため、もう一回そのキーを押さないと、そのキーの入力が実行されません。"
+        "This key_bind is sample.",
+        "このキーバインドはサンプルです。"
       ],
 			"manipulators": [
         {
@@ -39,12 +38,16 @@
             {"type": "variable_if", "name": "press_control_x_key", "value": 1}
           ]
         },
+        <%# source_keysは、まずタイプする可能性のあるキーを全て列挙 %>
+        <%# used_keysは、ここから上で設定済みのキーを列挙 %>
+        <%# source_keysからused_keysを差し引いてタイプミス処理をコーディング %>
+        <%# 現在のerb2json.rbには、set_variableやvariable_ifを処理する関数がないので、やむなく、each_keyを使わずに、Rubyのコードを直書きして対処している。 %>
         <%=
-          source_keys = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "w", "v", "x", "y", "z" ]
-          reject_keys = [ "d" ]
+          source_keys = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "w", "v", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+          used_keys = [ "d" ]
           modifier_keys = ["contorl", "any"]
-          reject_keys.each do | reject_key |
-            source_keys.delete(reject_key)
+          used_keys.each do | used_key |
+            source_keys.delete(used_key)
           end
 
           types = ""
@@ -52,10 +55,9 @@
             types += "{
               \"type\": \"basic\",
               \"from\": #{from(source_key, modifier_keys[0], modifier_keys[1])},
-              \"to\": [{\"set_variable\": { \"name\": \"press_control_x_key\", \"value\": 0}}],
-              \"to_if_alone\": [#{to([source_key])}, {\"set_variable\": { \"name\": \"press_control_x_key\", \"value\": 0}}], \"conditions\": [
-                {\"type\": \"variable_if\", \"name\": \"press_control_x_key\", \"value\": 1}
-              ]
+              \"to\": [#{set_variable(["press_control_x_key"], [0])}],
+              \"to_if_alone\": [#{to([source_key])}, [#{set_variable(["press_control_x_key"], [0])}]],
+              \"conditions\": [#{variable_if(["press_control_x_key"], [1])} ]
             },"
           end
           types.chop!
