@@ -1,0 +1,67 @@
+{
+  "title": "Emacs like key_bind",
+  "rule_list": false,
+  "make_extra_description": true,
+  "rules": [
+		{
+			"description": "Show Desktop(control-x control-d)",
+      "extra_descriptions": [
+        "control-xを押した後、controlを押しながらD以外のキーを押しても、デスクトップを表示する処理は行われず、press_control_x_key変数の値を0にする戻す処理は実装できました。これにより、control-xを押した後、間違えてA等のキーを押し、それからcontrol-dを押したらデスクトップが表示ｓれてしまうという問題は解消できました。",
+        "control-xを押した後、２つのキーから手を離し、次にcontrol-dを押しても変換が実行されてデスクトップが表示されます。",
+        "control-xを押した後、２つのキーから手を離し、次にD以外のキーを単独で押しても、そのキーの入力がなされず、press_control_x_keyの値を0にする処理だけ行われます。そのため、もう一回そのキーを押さないと、そのキーの入力が実行されません。"
+      ],
+			"manipulators": [
+        {
+          <%# control-x control-dを正しく押していた時の設定 %>
+          "type": "basic",
+          "from": <%= from("x", ["control"], ["any"]) %>,
+          <%# control-xを押した状態を次のアクションに伝える %>
+          "to": [
+            {"set_variable": { "name": "press_control_x_key", "value": 1}}
+          ],
+          "to_if_alone": [
+            <%= to([["x"]]) %>
+          ],
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_x_key", "value": 0}
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("d", ["control"], ["any"]) %>,
+          <%# control-x control-dキーで押したときは、デスクトップを表示する %>
+          "to": <%= to([["vk_mission_control", ["command"]]]) %>,
+          <%# control-x control-dを正しく押したことを結果に残す %>
+          "to_after_key_up": [
+            {"set_variable": { "name": "press_control_x_key", "value": 0}}
+          ],
+          "conditions": [
+            {"type": "variable_if", "name": "press_control_x_key", "value": 1}
+          ]
+        },
+        <%=
+          source_keys = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "w", "v", "x", "y", "z" ]
+          reject_keys = [ "d" ]
+          modifier_keys = ["contorl", "any"]
+          reject_keys.each do | reject_key |
+            source_keys.delete(reject_key)
+          end
+
+          types = ""
+          for source_key in source_keys do
+            types += "{
+              \"type\": \"basic\",
+              \"from\": #{from(source_key, modifier_keys[0], modifier_keys[1])},
+              \"to\": [{\"set_variable\": { \"name\": \"press_control_x_key\", \"value\": 0}}],
+              \"to_if_alone\": [#{to([source_key])}, {\"set_variable\": { \"name\": \"press_control_x_key\", \"value\": 0}}], \"conditions\": [
+                {\"type\": \"variable_if\", \"name\": \"press_control_x_key\", \"value\": 1}
+              ]
+            },"
+          end
+          types.chop!
+          types
+        %>
+        ]
+      }
+  ]
+}
