@@ -90,7 +90,7 @@
           "from": <%= from("print_screen", [], ["caps_lock"]) %>,
           <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
           "to": [
-            {"set_variable": { "name": "press_printscreen_key", "value": 1}}
+            <%= set_variable(["press_printscreen_key"], [1]) %>
           ],
           "to_if_alone": [
           <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
@@ -98,11 +98,11 @@
           ],
           <%# PrintScreenキーから手を離した状態にする %>
           "to_after_key_up": [
-            {"set_variable": { "name": "press_printscreen_key", "value": 0}}
+            <%= set_variable(["press_printscreen_key"], [0]) %>
           ],
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>,
-            {"type": "variable_if", "name": "press_printscreen_key", "value": 0}
+            <%= variable_if(["press_printscreen_key"], [0]) %>
           ]
         },
         {
@@ -113,7 +113,7 @@
             {"shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
           ],
           "conditions": [
-            {"type": "variable_if", "name": "press_printscreen_key", "value": 1}
+            <%= variable_if(["press_printscreen_key"], [1]) %>
           ]
         }
       ]
@@ -226,14 +226,7 @@
           "from": <%= from("right_arrow", ["option"], []) %>,
           "to": <%= to([["backslash", ["command"]]]) %>,
           "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.apple\\.Safari$"
-              ]
-            },
+            <%= frontmost_application_if("browser") %>,
             {
               "type": "device_if",
               "identifiers": [
@@ -250,14 +243,7 @@
           "from": <%= from("left_arrow", ["option"], []) %>,
           "to": <%= to([["close_bracket", ["command"]]]) %>,
           "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.apple\\.Safari$"
-              ]
-            },
+            <%= frontmost_application_if("browser") %>,
             {
               "type": "device_if",
               "identifiers": [
