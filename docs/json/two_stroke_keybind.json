@@ -13,6 +13,7 @@
         "Quit App(control-x control-c)",
         "Open Chrome(control-x c)"
       ],
+      "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
