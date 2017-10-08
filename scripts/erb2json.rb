@@ -154,6 +154,7 @@ def frontmost_application(type, app_aliases, as_json=true)
     '^org\.pqrs\.unknownapp.conkeror$',
   ]
 
+  # Add 'Microsoft Remote Desktop App beta, 2017/10/08.'
   remote_desktop_bundle_identifiers = [
     '^com\.microsoft\.rdc$',
     '^com\.microsoft\.rdc\.mac$',
@@ -166,6 +167,7 @@ def frontmost_application(type, app_aliases, as_json=true)
     '^com\.p5sys\.jump\.mac\.viewer\.web$',
     '^com\.vmware\.horizon$',
     '^com\.2X\.Client\.Mac$',
+    '^com\.microsoft\.rdc\.osx\.beta$',
   ]
 
   iterm2_bundle_identifiers = [
