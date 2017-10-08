@@ -4,7 +4,7 @@
   "make_extra_description": true,
   "rules": [
     {
-      "description": "command + E Open Finder",
+      "description": "command-E Open Finder",
       "manipulators": [
         {
           "type": "basic",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "description": "control + Esc Open LaunchPad",
+      "description": "control-Esc Open LaunchPad",
       "manipulators": [
         {
           "type": "basic",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "description": "CapsLock to Japanese_eisuu, shift + CapsLock to CapsLock toggle.",
+      "description": "CapsLock to Japanese_eisuu, shift-CapsLock to CapsLock toggle.",
       "manipulators": [
         {
           "type": "basic",
@@ -134,7 +134,7 @@
       ]
     },
     {
-      "description": "Application_key(or shift + F10) to Right Click",
+      "description": "Application_key(or shift-F10) to Right Click",
       "manipulators": [
         {
           "type": "basic",
@@ -220,10 +220,10 @@
       "extra_descriptions": [
         "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
         "PrintScreen_key -> Screenshot",
-        "PrintScreen_key + p_key -> Screenshot and Preview",
+        "PrintScreen_key-p -> Screenshot and Preview",
         "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
         "PrintScreenで、スクリーンショットの撮影（画面全体）のみ行います",
-        "PrintScreen + Pで、スクリーンショット（画面全体）を撮影した後プレビューします。"
+        "PrintScreen-Pで、スクリーンショット（画面全体）を撮影した後プレビューします。"
       ],
       "extra_description_level": 1,
       "manipulators": [
@@ -308,12 +308,12 @@
       ]
     },
     {
-      "description": "Option + PrintScreen_key Screenshot(Select Window)",
+      "description": "Option-PrintScreen Screenshot(Select Window)",
       "extra_descriptions": [
         "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
-        "option + PrintScreen_key -> Screenshot",
+        "option-PrintScreen -> Screenshot",
         "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
-        "option + PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います"
+        "option-PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います"
       ],
       "extra_description_level": 1,
       "manipulators": [
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "description": "Finder(Delete to command + delete(delete file))",
+      "description": "Finder(Delete to command-delete(delete file))",
       "extra_descriptions": [
         "Windows like key_bind",
         "Windowsと同様に、Deleteでファイルが削除できます"
@@ -471,7 +471,86 @@
       ]
     },
     {
-      "description": "Browser(F5 to command + R)",
+      "description": "ATOM(Next_Pane/Prev_Pane by control-shift-Pagedown/Pageup at ATOM)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.atom$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.atom$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Browser(F5 to command-R)",
       "extra_descriptions": [
         "For Chrome, Safari",
         "This setting is accomplished in Firefox from a beginning.",
@@ -635,7 +714,7 @@
       ]
     },
     {
-      "description": "Chrome(command + L send command + L, Japanese_eisuu)",
+      "description": "Chrome(command-L send command-L, Japanese_eisuu)",
       "extra_descriptions": [
         "The Japanese hardly inputs Japanese in an address bar."
       ],
@@ -676,7 +755,7 @@
       ]
     },
     {
-      "description": "Safari(Next_tab/Prev_tab by control + Pagedown/Pageup at Safari)",
+      "description": "Safari(Next_tab/Prev_tab by control-Pagedown/Pageup at Safari)",
       "manipulators": [
         {
           "type": "basic",
@@ -742,7 +821,7 @@
       ]
     },
     {
-      "description": "Terminal(Next_tab/Prev_tab by control + Pagedown/Pageup at Terminal)",
+      "description": "Terminal(Next_tab/Prev_tab by control-Pagedown/Pageup at Terminal)",
       "manipulators": [
         {
           "type": "basic",
@@ -812,7 +891,7 @@
       ]
     },
     {
-      "description": "iTerm2(Next_Pane/Prev_Pane by control + Pagedown/Pageup at iTerm2)",
+      "description": "iTerm2(Next_Pane/Prev_Pane by control-Pagedown/Pageup at iTerm2)",
       "manipulators": [
         {
           "type": "basic",
