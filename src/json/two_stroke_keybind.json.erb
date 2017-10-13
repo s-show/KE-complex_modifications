@@ -15,6 +15,7 @@
       ],
       "extra_description_level": 1,
 			"manipulators": [
+        <%# set_variable, variable_if, set_shell_commandメソッドは自作 %>
         {
           "type": "basic",
           "from": <%= from("x", ["control"], ["any"]) %>,
@@ -27,77 +28,51 @@
           ],
           "conditions": [
             <%= variable_if(["press_control_x_key"], [0]) %>,
+            <%# emacs系統のアプリで本来のショートカットキーとの衝突を避けるため %>
             <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
+            <%# Microsoft Officeでcontrol-xは切り取りのショートカットキーのため %>
+            <%= frontmost_application_unless("office")  %>,
             <%= frontmost_application_unless("iterm2")  %>
           ]
         },
-        {
-          <%# `from`の`optinal`に"any"を設定した場合, 一つ下の設定の下にこの設定を動かすと, control-aの組み合わせで押した場合もこのルールが処理してしまう.  %>
-          <%# Emacsはショートカットキーを押す際に大文字小文字を無視するので, `from`の`optional`に"any"を設定する必要はないと思われる.  %>
-          <%# 一つ下のルールに`to_if_alone`を追加してこのルールを省略しようとしたが, 上手くいかなかったため, やむなくこのルールを作成した.  %>
-          "type": "basic",
-          "from": <%= from("c", [], []) %>,
-          <%# control-x cキーで押したときは, Chromeを立ち上げる %>
-          "to": [{"shell_command": "open -a 'Google Chrome.app'"}],
-          <%# control-x cを正しく押したことを結果に残す %>
-          "to_after_key_up": [
-            <%= set_variable(["press_control_x_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_control_x_key"], [1]) %>,
-            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
-            <%= frontmost_application_unless("iterm2")  %>
+        <%=
+          # control-xの次にタイプするキーを指定する
+          used_keys = [
+            ["c", []],
+            ["c", ["control"]],
+            ["d", ["control"]],
+            ["f", ["control"]]
           ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("c", ["control"], ["any"]) %>,
-          <%# control-x control-cキーで押したときは, command-qに変換する %>
-          "to": <%= to([["q", ["command"]]]) %>,
-          <%# control-x control-cを正しく押したことを結果に残す %>
-          "to_after_key_up": [
-            <%= set_variable(["press_control_x_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_control_x_key"], [1]) %>,
-            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
-            <%= frontmost_application_unless("iterm2")  %>
+
+          # 変換後の組み合わせなどを指定する
+          to_keys = [
+            set_shell_command(["open -a 'Google Chrome.app'"]),
+            to([["q", ["command"]]]),
+            to([["vk_mission_control", ["command"]]]),
+            to([["o", ["command"]]])
           ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("d", ["control"], ["any"]) %>,
-          <%# control-x control-dキーで押したときは, デスクトップを表示する %>
-          "to": <%= to([["vk_mission_control", ["command"]]]) %>,
-          <%# control-x control-dを正しく押したことを結果に残す %>
-          "to_after_key_up": [
-            <%= set_variable(["press_control_x_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_control_x_key"], [1]) %>,
-            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
-            <%= frontmost_application_unless("iterm2")  %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("f", ["control"], ["any"]) %>,
-          <%# control-x control-fキーで押したときは, command-oに変換する %>
-          "to": <%= to([["o", ["command"]]]) %>,
-          <%# control-x control-fを正しく押したことを結果に残す %>
-          "to_after_key_up": [
-            <%= set_variable(["press_control_x_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_control_x_key"], [1]) %>,
-            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
-            <%= frontmost_application_unless("iterm2")  %>
-          ]
-        },
+
+          types = ""
+          used_keys.each_with_index do |use_key, index|
+            types += "{
+              \"type\": \"basic\",
+              \"from\": #{from(use_key[0], use_key[1])},
+              \"to\": #{to_keys[index]},
+              \"to_after_key_up\": [
+                #{set_variable(["press_control_x_key"], [0])}
+              ],
+              \"conditions\": [
+                #{variable_if(["press_control_x_key"], [1])},
+                #{frontmost_application_unless("emacs_key_bindings_exception")},
+                #{frontmost_application_unless("office")},
+                #{frontmost_application_unless("iterm2")}
+              ]
+            },"
+          end
+          types
+        %>
         <%# source_keysは,  https://github.com/tekezo/Karabiner-Elements/blob/8cb8781937246a120acf3b29e9079be81334ed2d/src/share/types.hpp#L550-L761より入手 %>
-        <%# used_keysは, ここから上で設定済みのキーを列挙 %>
-        <%# source_keysからused_keysを差し引いてタイプミス処理が必要なキーをリストアップ %>
-        <%# set_variableとvariable_if関数は自作 %>
+        <%# source_keysからused_keysを除いてタイプミス処理が必要なキーをリストアップ %>
         <%# control-xをこのキー変換モードのトグルにしているため, source_keysから"left_control", "right_control"は除いている %>
         <%=
           source_keys = [
@@ -140,10 +115,10 @@
             "vk_consumer_brightness_down", "vk_consumer_brightness_up", "vk_mission_control", "vk_launchpad", "vk_dashboard", "vk_consumer_illumination_down", "vk_consumer_illumination_up", "vk_consumer_previous", "vk_consumer_play", "vk_consumer_next",
             "volume_down", "volume_up"
           ]
-          used_keys = ["c", "d", "f"]
           modifier_keys = ["any", "any"]
-          used_keys.each do | used_key |
-            source_keys.delete(used_key)
+
+          used_keys.each do | use_key |
+            source_keys.delete(use_key[0])
           end
 
           types = ""
@@ -161,6 +136,7 @@
               \"conditions\": [
                 #{variable_if(["press_control_x_key"], [1])},
                 #{frontmost_application_unless("emacs_key_bindings_exception")} ,
+                #{frontmost_application_unless("office")} ,
                 #{frontmost_application_unless("iterm2")}
               ]
             },"

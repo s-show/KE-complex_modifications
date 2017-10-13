@@ -89,6 +89,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -158,6 +166,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -170,9 +186,6 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ],
-              "optional": [
-                "any"
               ]
             }
           },
@@ -238,6 +251,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -250,9 +271,6 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ],
-              "optional": [
-                "any"
               ]
             }
           },
@@ -318,6 +336,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -330,9 +356,6 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ],
-              "optional": [
-                "any"
               ]
             }
           },
@@ -393,6 +416,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -483,6 +514,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -563,6 +602,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -653,6 +700,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -733,6 +788,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -823,6 +886,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -903,6 +974,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -993,6 +1072,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1073,6 +1160,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -1163,6 +1258,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1243,6 +1346,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -1333,6 +1444,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1413,6 +1532,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -1503,6 +1630,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1583,6 +1718,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -1673,6 +1816,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1753,6 +1904,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -1843,6 +2002,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -1923,6 +2090,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2013,6 +2188,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2093,6 +2276,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2183,6 +2374,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2263,6 +2462,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2353,6 +2560,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2433,6 +2648,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2523,6 +2746,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2603,6 +2834,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2693,6 +2932,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2773,6 +3020,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -2863,6 +3118,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -2943,6 +3206,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3033,6 +3304,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3113,6 +3392,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3203,6 +3490,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3283,6 +3578,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3373,6 +3676,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3453,6 +3764,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3543,6 +3862,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3623,6 +3950,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3713,6 +4048,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3793,6 +4136,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -3883,6 +4234,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -3963,6 +4322,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4053,6 +4420,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4133,6 +4508,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4223,6 +4606,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4303,6 +4694,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4393,6 +4792,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4473,6 +4880,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4563,6 +4978,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4643,6 +5066,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4733,6 +5164,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4813,6 +5252,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -4903,6 +5350,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -4983,6 +5438,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5073,6 +5536,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -5153,6 +5624,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5243,6 +5722,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -5323,6 +5810,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5413,6 +5908,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -5493,6 +5996,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5583,6 +6094,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -5663,6 +6182,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5753,6 +6280,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -5833,6 +6368,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -5923,6 +6466,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6003,6 +6554,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6093,6 +6652,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6173,6 +6740,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6263,6 +6838,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6343,6 +6926,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6433,6 +7024,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6513,6 +7112,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6603,6 +7210,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6683,6 +7298,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6773,6 +7396,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -6853,6 +7484,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -6943,6 +7582,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7023,6 +7670,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7113,6 +7768,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7193,6 +7856,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7283,6 +7954,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7363,6 +8042,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7453,6 +8140,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7533,6 +8228,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7623,6 +8326,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7703,6 +8414,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7793,6 +8512,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -7873,6 +8600,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -7963,6 +8698,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8043,6 +8786,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8133,6 +8884,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8213,6 +8972,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8303,6 +9070,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8383,6 +9158,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8473,6 +9256,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8553,6 +9344,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8643,6 +9442,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8723,6 +9530,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8813,6 +9628,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -8893,6 +9716,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -8983,6 +9814,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9063,6 +9902,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -9153,6 +10000,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9233,6 +10088,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -9323,6 +10186,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9403,6 +10274,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -9493,6 +10372,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9573,6 +10460,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -9663,6 +10558,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9743,6 +10646,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -9833,6 +10744,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -9913,6 +10832,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10003,6 +10930,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10083,6 +11018,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10173,6 +11116,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10253,6 +11204,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10343,6 +11302,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10423,6 +11390,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10513,6 +11488,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10593,6 +11576,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10683,6 +11674,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10763,6 +11762,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -10853,6 +11860,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -10933,6 +11948,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11023,6 +12046,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11103,6 +12134,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11193,6 +12232,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11273,6 +12320,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11363,6 +12418,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11443,6 +12506,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11533,6 +12604,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11613,6 +12692,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11703,6 +12790,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11783,6 +12878,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -11873,6 +12976,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -11953,6 +13064,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12043,6 +13162,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12123,6 +13250,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12213,6 +13348,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12293,6 +13436,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12383,6 +13534,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12463,6 +13622,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12553,6 +13720,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12633,6 +13808,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12723,6 +13906,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12803,6 +13994,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -12893,6 +14092,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -12973,6 +14180,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13063,6 +14278,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13143,6 +14366,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13233,6 +14464,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13313,6 +14552,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13403,6 +14650,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13483,6 +14738,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13573,6 +14836,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13653,6 +14924,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13743,6 +15022,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13823,6 +15110,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -13913,6 +15208,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -13993,6 +15296,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14083,6 +15394,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -14163,6 +15482,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14253,6 +15580,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -14333,6 +15668,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14423,6 +15766,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -14503,6 +15854,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14593,6 +15952,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -14673,6 +16040,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14763,6 +16138,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -14843,6 +16226,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -14933,6 +16324,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15013,6 +16412,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15103,6 +16510,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15183,6 +16598,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15273,6 +16696,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15353,6 +16784,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15443,6 +16882,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15523,6 +16970,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15613,6 +17068,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15693,6 +17156,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15783,6 +17254,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -15863,6 +17342,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -15953,6 +17440,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16033,6 +17528,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16123,6 +17626,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16203,6 +17714,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16293,6 +17812,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16373,6 +17900,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16463,6 +17998,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16543,6 +18086,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16633,6 +18184,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16713,6 +18272,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16803,6 +18370,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -16883,6 +18458,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -16973,6 +18556,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -17053,6 +18644,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -17143,6 +18742,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -17223,6 +18830,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -17313,6 +18928,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -17393,6 +19016,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
@@ -17483,6 +19114,14 @@
             {
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
             }
@@ -17563,6 +19202,14 @@
                 "^com\\.apple\\.x11$",
                 "^org\\.macosforge\\.xquartz\\.X11$",
                 "^org\\.macports\\.X11$"
+              ]
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.Word$",
+                "^com\\.microsoft\\.Powerpoint$",
+                "^com\\.microsoft\\.Excel$"
               ]
             },
             {
