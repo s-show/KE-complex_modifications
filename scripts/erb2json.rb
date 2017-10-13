@@ -82,6 +82,18 @@ def hash_to(events, repeat=1)
   to(events, false, repeat)
 end
 
+def set_shell_command(commands, as_json=true)
+  data =[]
+  unless commands.empty?
+    commands.each do |command|
+      data << { "shell_command" => command }
+    end
+  else
+    $stderr << "name empty.\n"
+  end
+  make_data(data, as_json)
+end
+
 def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_after_key_up: [], conditions: [], as_json: false)
   unless source_keys_list.is_a? Array
     source_keys_list = [source_keys_list]
@@ -277,15 +289,15 @@ def frontmost_application(type, app_aliases, as_json=true)
       bundle_identifiers.concat(word_bundle_identifiers)
 
     when 'powerpoint'
-      bundle_identifiers.concat(powerpoint_bundle_identifers)
+      bundle_identifiers.concat(powerpoint_bundle_identifiers)
 
     when 'excel'
-      bundle_identifiers.concat(excel_bundle_identifers)
+      bundle_identifiers.concat(excel_bundle_identifiers)
 
     when 'office'
       bundle_identifiers.concat(word_bundle_identifiers)
-      bundle_identifiers.concat(powerpoint_bundle_identifers)
-      bundle_identifiers.concat(excel_bundle_identifers)
+      bundle_identifiers.concat(powerpoint_bundle_identifiers)
+      bundle_identifiers.concat(excel_bundle_identifiers)
 
     when 'vim_emu'
       bundle_identifiers.concat(emacs_bundle_identifiers)
