@@ -1,0 +1,85 @@
+{
+  "title": "For JIS keybord（日本語環境向けの設定）",
+  "rule_list": false,
+  "make_extra_description": true,
+  "rules": [
+    {
+      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_command", [], ["any"]) %>,
+          "to": <%= to(["left_command"]) %>,
+          "to_if_alone": <%= to(["japanese_eisuu"]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("right_command", [], ["any"]) %>,
+          "to": <%= to(["right_command"]) %>,
+          "to_if_alone": <%= to(["japanese_kana"]) %>
+        }
+      ]
+    },
+    {
+      "description": "JISキーボードの無変換キーを英数、変換キーとかなキーをかなに変換。",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          <%# international2 = かなキーの模様 %>
+          "from": <%= from("international2", [], ["any"]) %>,
+          "to": <%= to(["international2"]) %>,
+          "to_if_alone": <%= to(["japanese_kana"]) %>
+        },
+        {
+          "type": "basic",
+          <%# international4 = 変換キーの模様 %>
+          "from": <%= from("international4", [], ["any"]) %>,
+          "to": <%= to(["international4"]) %>,
+          "to_if_alone": <%= to(["japanese_kana"]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("international5", [], ["any"]) %>,
+          "to": <%= to(["international5"]) %>,
+          "to_if_alone": <%= to(["japanese_eisuu"]) %>
+        }
+      ]
+    },
+    {
+      "description": "JISキーボードの全角/半角キーをIMEのON/OFF切り替えキーに変換。",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("grave_accent_and_tilde") %>,
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ],
+          "conditions": [
+             <%= input_source_if("en") %> 
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("grave_accent_and_tilde") %>,
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ],
+          "conditions": [
+             <%= input_source_if("ja") %> 
+          ]
+        }
+      ]
+    }
+  ]
+}
