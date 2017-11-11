@@ -3,8 +3,8 @@
   "rule_list": false,
   "make_extra_description": true,
   "rules": [
-		{
-			"description": "Two stroke key_bind",
+  {
+  "description": "Two stroke key_bind",
       "extra_descriptions": [
         "This key_bind is sample.",
         "このキーバインドはサンプルです. ",
@@ -14,27 +14,7 @@
         "Open Chrome(control-x c)"
       ],
       "extra_description_level": 1,
-			"manipulators": [
-        <%# set_variable, variable_if, set_shell_commandメソッドは自作 %>
-        {
-          "type": "basic",
-          "from": <%= from("x", ["control"], ["any"]) %>,
-          <%# control-xを押した状態を次のアクションに伝える %>
-          "to": [
-            <%= set_variable(["press_control_x_key"], [1]) %>
-          ],
-          "to_if_alone": [
-            <%= to([["x"]]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_control_x_key"], [0]) %>,
-            <%# emacs系統のアプリで本来のショートカットキーとの衝突を避けるため %>
-            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
-            <%# Microsoft Officeでcontrol-xは切り取りのショートカットキーのため %>
-            <%= frontmost_application_unless("office")  %>,
-            <%= frontmost_application_unless("iterm2")  %>
-          ]
-        },
+  "manipulators": [
         <%=
           # control-xの次にタイプするキーを指定する
           used_keys = [
@@ -58,92 +38,43 @@
               \"type\": \"basic\",
               \"from\": #{from(use_key[0], use_key[1])},
               \"to\": #{to_keys[index]},
-              \"to_after_key_up\": [
-                #{set_variable(["press_control_x_key"], [0])}
-              ],
               \"conditions\": [
-                #{variable_if(["press_control_x_key"], [1])},
-                #{frontmost_application_unless("emacs_key_bindings_exception")},
-                #{frontmost_application_unless("office")},
-                #{frontmost_application_unless("iterm2")}
+                #{variable_if(["press_control_x_key"], [1])}
               ]
             },"
           end
           types
         %>
-        <%# source_keysは,  https://github.com/tekezo/Karabiner-Elements/blob/8cb8781937246a120acf3b29e9079be81334ed2d/src/share/types.hpp#L550-L761より入手 %>
-        <%# source_keysからused_keysを除いてタイプミス処理が必要なキーをリストアップ %>
-        <%# control-xをこのキー変換モードのトグルにしているため, source_keysから"left_control", "right_control"は除いている %>
-        <%=
-          source_keys = [
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-            "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-            "return_or_enter", "escape", "delete_or_backspace", "tab", "spacebar", "hyphen", "equal_sign", "open_bracket", "close_bracket", "backslash", "non_us_pound", "semicolon", "quote", "grave_accent_and_tilde", "comma", "period", "slash", "caps_lock",
-            "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "f13", "f14", "f15", "f16", "f17", "f18", "f19", "f20", "f21", "f22", "f23", "f24",
-            "print_screen", "scroll_lock", "pause", "insert", "home", "page_up", "delete_forward", "end", "page_down",
-            "right_arrow", "left_arrow", "down_arrow", "up_arrow", "keypad_num_lock", "keypad_slash", "keypad_asterisk", "keypad_hyphen", "keypad_plus", "keypad_enter", "keypad_1", "keypad_2", "keypad_3", "keypad_4", "keypad_5", "keypad_6", "keypad_7", "keypad_8", "keypad_9", "keypad_0", "keypad_period",
-            "non_us_backslash", "application", "power", "keypad_equal_sign",
-            "execute", "help", "menu", "select", "stop", "again", "undo", "cut", "copy", "paste", "find", "mute",
-            "volume_decrement", "volume_increment", "locking_caps_lock",
-            "locking_num_lock", "locking_scroll_lock", "keypad_comma",
-            "keypad_equal_sign_as400",
-            "international1", "international2", "international3", "international4", "international5", "international6", "international7", "international8", "international9",
-            "lang1", "lang2", "lang3", "lang4", "lang5", "lang6", "lang7", "lang8", "lang9",
-            "alternate_erase",
-            "sys_req_or_attention",
-            "cancel",
-            "clear",
-            "prior",
-            "return",
-            "separator",
-            "out",
-            "oper",
-            "clear_or_again",
-            "cr_sel_or_props",
-            "ex_sel",
-            "left_shift", "left_alt", "left_gui", "left_option", "left_command",
-            "right_shift", "right_alt", "right_gui", "right_option", "right_command",
-            "vk_none",
-            "fn",
-            "display_brightness_decrement", "display_brightness_increment",
-            "mission_control", "launchpad", "dashboard",
-            "illumination_decrement", "illumination_increment",
-            "rewind", "play_or_pause", "fastforward", "eject",
-            "apple_display_brightness_decrement", "apple_display_brightness_increment",
-            "apple_top_case_display_brightness_decrement", "apple_top_case_display_brightness_increment",
-            "japanese_eisuu", "japanese_kana", "japanese_pc_nfer", "japanese_pc_xfer", "japanese_pc_katakana",
-            "vk_consumer_brightness_down", "vk_consumer_brightness_up", "vk_mission_control", "vk_launchpad", "vk_dashboard", "vk_consumer_illumination_down", "vk_consumer_illumination_up", "vk_consumer_previous", "vk_consumer_play", "vk_consumer_next",
-            "volume_down", "volume_up"
+        <%# set_variable, variable_if, set_shell_commandメソッドは自作 %>
+        {
+          "type": "basic",
+          "from": <%= from("x", ["control"], ["caps_lock"]) %>,
+          <%# control-xを押した状態を次のアクションに伝える %>
+          "to": [
+            <%= set_variable(["press_control_x_key"], [1]) %>
+          ],
+          "to_if_alone": [
+            <%= to([["x"]]) %>
+          ],
+          <%# `to_delayd_action`項目の追加に伴い2017年11月8日追加 %>
+          <%# `to_if_canceled`項目の追加に伴い2017年11月8日追加 %>
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_control_x_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_control_x_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_control_x_key"], [0]) %>,
+            <%# emacs系統のアプリで本来のショートカットキーとの衝突を避けるため %>
+            <%= frontmost_application_unless("emacs_key_bindings_exception")  %>,
+            <%# Microsoft Officeでcontrol-xは切り取りのショートカットキーのため %>
+            <%= frontmost_application_unless("office")  %>,
+            <%= frontmost_application_unless("iterm2")  %>
           ]
-          modifier_keys = ["any", "any"]
-
-          used_keys.each do | use_key |
-            source_keys.delete(use_key[0])
-          end
-
-          types = ""
-          for source_key in source_keys do
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(source_key, modifier_keys[0], modifier_keys[1])},
-              \"to\": [
-                #{set_variable(["press_control_x_key"], [0])}
-              ],
-              \"to_if_alone\": [
-                #{to([source_key])},
-                #{set_variable(["press_control_x_key"], [0])}
-              ],
-              \"conditions\": [
-                #{variable_if(["press_control_x_key"], [1])},
-                #{frontmost_application_unless("emacs_key_bindings_exception")} ,
-                #{frontmost_application_unless("office")} ,
-                #{frontmost_application_unless("iterm2")}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
+        }
       ]
     }
   ]
