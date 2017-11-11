@@ -423,6 +423,39 @@ def device_unless(app_aliases, as_json=true)
   device('device_unless', device_aliases, as_json)
 end
 
+# https://github.com/rcmdnk/KE-complex_modifications/blob/df08afdaa9d28ad3c6d3dfd3d0b6c2924f195069/scripts/erb2json.rb#L347-L377
+def input_source(type, input_source_aliases, as_json=true)
+  input_sources = []
+  to_array(input_source_aliases).each do |input_source_alias|
+    if input_source_alias.is_a? Hash
+      input_sources << input_source_alias
+    end
+    if input_source_alias.include?("keylayout")
+      input_sources << { "input_source_id": input_source_alias}
+    elsif input_source_alias.include?("inputmethod")
+      input_sources << { "input_mode_id": input_source_alias}
+    else
+      input_sources << { "language": input_source_alias}
+    end
+  end
+
+  unless input_sources.empty?
+    data = {
+      "type" => type,
+      "input_sources" => input_sources
+    }
+    make_data(data, as_json)
+  end
+end
+
+def input_source_if(input_source_aliases, as_json=true)
+  input_source('input_source_if', input_source_aliases, as_json)
+end
+
+def input_source_unless(input_source_aliases, as_json=true)
+  input_source('input_source_unless', input_source_aliases, as_json)
+end
+
 number_letters = ("1".."9").to_a
 alphabet_letters = ("a".."z").to_a
 other_letters = ["spacebar", "hyphen", "equal_sign", "open_bracket", "close_bracket", "backslash", "non_us_pound", "semicolon", "quote", "grave_accent_and_tilde", "comma", "period", "slash"]
@@ -434,3 +467,4 @@ end
 
 template = ERB.new $stdin.read
 puts JSON.pretty_generate(JSON.parse(template.result))
+# puts template.result
