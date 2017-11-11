@@ -7,7 +7,6 @@
       "description": "command-E Open Finder",
       "manipulators": [
         {
-          <%# Cmd-E Open Finder %>
           "type": "basic",
           "from": <%= from("e", ["command"], ["any"]) %>,
           "to": [
@@ -23,12 +22,25 @@
       "description": "control-Esc Open LaunchPad",
       "manipulators": [
         {
-          <%# control-Escape to vk_launchpad %>
           "type": "basic",
           "from": <%= from("escape", ["control"], []) %>,
           "to": <%= to([["vk_launchpad", []]]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "If open 'Alfred' at IME ON, IME OFF before open Alfred",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["option"], ["any"]) %>,
+          "to":
+            <%= to([ ["japanese_eisuu"], ["spacebar", ["option"]] ]) %>,
+          "conditions": [
+             <%= input_source_if("ja") %> 
           ]
         }
       ]
