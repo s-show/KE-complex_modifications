@@ -5,4 +5,4 @@ all:
 
 rebuild:
 	touch src/json/*
-	$(MAKE) all)
+	$(MAKE) all
