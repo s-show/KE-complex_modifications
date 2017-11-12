@@ -9,9 +9,7 @@
         {
           "type": "basic",
           "from": <%= from("e", ["command"], ["any"]) %>,
-          "to": [
-            {"shell_command": "open ~"}
-          ],
+          "to": <%= set_shell_command(["open -a 'finder'"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
@@ -40,7 +38,8 @@
           "to":
             <%= to([ ["japanese_eisuu"], ["spacebar", ["option"]] ]) %>,
           "conditions": [
-             <%= input_source_if("ja") %> 
+            <%# input_source_ifメソッドは自作 %>
+            <%= input_source_if("ja") %> 
           ]
         }
       ]
@@ -104,10 +103,8 @@
           "to": [
             <%= set_variable(["press_printscreen_key"], [1]) %>
           ],
-          "to_if_alone": [
           <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
-            {"shell_command": "screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
-          ],
+          "to_if_alone": <%= set_shell_command(["screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
           <%# PrintScreenキーから手を離した状態にする %>
           "to_after_key_up": [
             <%= set_variable(["press_printscreen_key"], [0]) %>
@@ -121,9 +118,7 @@
           "type": "basic",
           "from": <%= from("p", [], ["caps_lock"]) %>,
           <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
-          "to": [
-            {"shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
-          ],
+          "to": <%= set_shell_command(["screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
           "conditions": [
             <%= variable_if(["press_printscreen_key"], [1]) %>
           ]
@@ -143,9 +138,7 @@
         {
           "type": "basic",
           "from": <%= from("print_screen", ["option"], ["caps_lock"]) %>,
-          "to": [
-            {"shell_command": "screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"}
-          ],
+          "to": <%= set_shell_command(["screencapture -oW ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
