@@ -10,40 +10,23 @@
         "無変換/英数単独 -> 英数キー"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["j", "k", "i", "l"]
-          allow_keys   = ["left_arrow", "down_arrow", "up_arrow", "right_arrow"]
-
-          types = ""
-          from_keys.zip(allow_keys) do |from_key, allow_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["any"])},
-              \"to\": #{to([[allow_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["j", "k", "i", "l"],
+                                dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control"],
+                                to_if_alone: ["j", "k", "i", "l"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) WASD Mode / FPS like",
@@ -52,40 +35,23 @@
         "無変換/英数単独 -> 英数キー"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["a", "s", "w", "d"]
-          allow_keys   = ["left_arrow", "down_arrow", "up_arrow", "right_arrow"]
-
-          types = ""
-          from_keys.zip(allow_keys) do |from_key, allow_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["any"])},
-              \"to\": #{to([[allow_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["a", "s", "w", "d"],
+                                dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control"],
+                                to_if_alone: ["a", "s", "w", "d"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) HJKL Mode / vi like",
@@ -94,40 +60,23 @@
         "無変換/英数単独 -> 英数キー"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["h", "j", "k", "l"]
-          allow_keys   = ["left_arrow", "down_arrow", "up_arrow", "right_arrow"]
-
-          types = ""
-          from_keys.zip(allow_keys) do |from_key, allow_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["any"])},
-              \"to\": #{to([[allow_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["h", "j", "k", "l"],
+                                dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control"],
+                                to_if_alone: ["h", "j", "k", "l"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) FBNP Mode / emacs like",
@@ -136,40 +85,23 @@
         "無変換/英数単独 -> 英数キー"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["b", "n", "p", "f"]
-          allow_keys   = ["left_arrow", "down_arrow", "up_arrow", "right_arrow"]
-
-          types = ""
-          from_keys.zip(allow_keys) do |from_key, allow_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["any"])},
-              \"to\": #{to([[allow_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["b", "n", "p", "f"],
+                                dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control"],
+                                to_if_alone: ["b", "n", "p", "f"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) 無変換/英数+ 「スペース/かな」で「Return/Escape」",
@@ -180,37 +112,21 @@
       "extra_description_level": 1,
       "manipulators": [
         {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
+          "type":"basic",
+          "from": <%= from("spacebar", ["fn"], ["shift", "control"]) %>,
+          "to": <%= to(["return_or_enter"]) %>
         },
-        <%=
-          from_keys = ["spacebar", "international2"]
-          to_keys   = ["return_or_enter", "escape"]
-
-          types = ""
-          from_keys.zip(to_keys) do |from_key, to_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["caps_lock"])},
-              \"to\": #{to([[to_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
+        {
+          "type":"basic",
+          "from": <%= from("international2", ["fn"], ["shift", "control"]) %>,
+          "to": <%= to(["escape"]) %>
+        },
+        {
+          "type":"basic",
+          "from": <%= from("international5", [], ["any"]) %>,
+          "to": <%= to(["fn"]) %>,
+          "to_if_alone": <%= to(["japanese_eisuu"]) %>
+        }
       ]
     },
     {
@@ -221,40 +137,23 @@
         "'FBNP Mode'と併用すると、'無変換/英数 + N'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["n", "m", "comma", "period"]
-          to_keys   = ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"]
-
-          types = ""
-          from_keys.zip(to_keys) do |from_key, to_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["caps_lock"])},
-              \"to\": #{to([[to_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["n", "m", "comma", "period"],
+                                dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_if_alone: ["n", "m", "comma", "period"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) 無変換/英数+ 「Y,U/I,O」で「BackSpace/Delete」",
@@ -264,40 +163,23 @@
         "'IJKL Mode'と併用すると、'無変換/英数 + I'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": [
-            <%= set_variable(["enthumble_mode"], [1]) %>
-          ],
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>,
-          "to_after_key_up": [
-            <%= set_variable(["enthumble_mode"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["enthumble_mode"], [0]) %>
-          ]
-        },
-        <%=
-          from_keys = ["y", "u", "i", "o"]
-          to_keys   = ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"]
-
-          types = ""
-          from_keys.zip(to_keys) do |from_key, to_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key, [], ["caps_lock"])},
-              \"to\": #{to([[to_key]])},
-              \"conditions\": [
-                #{variable_if(["enthumble_mode"], [1])}
-              ]
-            },"
-          end
-          types.chop!
-          types
-        %>
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: [to(["japanese_eisuu"], false)]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["y", "u", "i", "o"],
+                                dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_if_alone: ["y", "u", "i", "o"]
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(Enthumble) thumb IME",
