@@ -279,23 +279,12 @@
           },
           "to": [
             {
-              "set_variable": {
-                "name": "press_printscreen_key",
-                "value": 1
-              }
+              "key_code": "fn"
             }
           ],
           "to_if_alone": [
             {
               "shell_command": "screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "press_printscreen_key",
-                "value": 0
-              }
             }
           ],
           "conditions": [
@@ -314,11 +303,6 @@
                 "^com\\.vmware\\.horizon$",
                 "^com\\.2X\\.Client\\.Mac$"
               ]
-            },
-            {
-              "type": "variable_if",
-              "name": "press_printscreen_key",
-              "value": 0
             }
           ]
         },
@@ -327,6 +311,9 @@
           "from": {
             "key_code": "p",
             "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
               "optional": [
                 "caps_lock"
               ]
@@ -335,13 +322,6 @@
           "to": [
             {
               "shell_command": "screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_printscreen_key",
-              "value": 1
             }
           ]
         }

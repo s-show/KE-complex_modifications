@@ -124,7 +124,12 @@
         {
           "type":"basic",
           "from": <%= from("international5", [], ["any"]) %>,
-          "to": <%= to(["fn"]) %>,
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
           "to_if_alone": <%= to(["japanese_eisuu"]) %>
         }
       ]

@@ -99,7 +99,7 @@
         {
           "type": "basic",
           "from": <%= from("print_screen", [], ["caps_lock"]) %>,
-          "to": <%= to(["fn"]) %>
+          "to": <%= to(["fn"]) %>,
           <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
           "to_if_alone": <%= set_shell_command(["screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
           "conditions": [
