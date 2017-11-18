@@ -99,29 +99,18 @@
         {
           "type": "basic",
           "from": <%= from("print_screen", [], ["caps_lock"]) %>,
-          <%# PrintScreenキーを押している状態を次のアクションに伝えるため、変数を使う %>
-          "to": [
-            <%= set_variable(["press_printscreen_key"], [1]) %>
-          ],
+          "to": <%= to(["fn"]) %>
           <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
           "to_if_alone": <%= set_shell_command(["screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
-          <%# PrintScreenキーから手を離した状態にする %>
-          "to_after_key_up": [
-            <%= set_variable(["press_printscreen_key"], [0]) %>
-          ],
           "conditions": [
-            <%= frontmost_application_unless("remote_desktop") %>,
-            <%= variable_if(["press_printscreen_key"], [0]) %>
+            <%= frontmost_application_unless("remote_desktop") %>
           ]
         },
         {
           "type": "basic",
-          "from": <%= from("p", [], ["caps_lock"]) %>,
+          "from": <%= from("p", ["fn"], ["caps_lock"]) %>,
           <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
-          "to": <%= set_shell_command(["screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
-          "conditions": [
-            <%= variable_if(["press_printscreen_key"], [1]) %>
-          ]
+          "to": <%= set_shell_command(["screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>
         }
       ]
     },
