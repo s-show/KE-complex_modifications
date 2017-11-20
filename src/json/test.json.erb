@@ -1,0 +1,283 @@
+{
+  "title": "TEST!",
+  "rules": [
+    {
+      "description": "test to_delayed_action",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("a", ["control"]) %>,
+          "to": [
+            {
+              "set_variable": {
+                "name": "ctrl-a",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl-a",
+                  "value": 2
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl-a",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "any key_code",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("any") %>,
+          "to": <%= to(["a"]) %>
+        }
+      ]
+    },
+    {
+      "description": "test shift-language5",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("language5", ["shift"]) %>,
+          "to": [
+            {
+              "set_variable": {
+                "name": "shift-language",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "shift-language",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test lazy",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_command") %>,
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test modifier 'A'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("b", ["a"]) %>,
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'period' to 'comma' ver.1",
+      "comment": "この設定は、'1.0'のような入力ができない",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            { "key_code": "comma" },
+            <%= set_variable(["press_period_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%= set_variable(["press_period_key"], [1]) %>
+          ],
+          "to_if_alone": [
+            <%= to([["keypad_period"]]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'period' to 'comma' ver.2",
+      "comment": "この設定は、','の後ろに'.'が入力される。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            { "key_code": "comma" },
+            <%= set_variable(["press_period_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%= set_variable(["press_period_key"], [1]) %>
+          ],
+          "to_if_alone": [
+            <%= to([["keypad_period"]]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_period_key"], [0]) %>,
+              { "key_code": "period" }
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.1",
+      "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_control") %>,
+          "to": [
+            { "shell_command": "open -a 'safari'" },
+            <%= set_variable(["press_left_control_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_left_control_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_control") %>,
+          "to": [
+            <%= to([["left_control"]]) %>
+          ],
+          "to_if_alone": [
+            <%= set_variable(["press_left_control_key"], [1]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_left_control_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_left_control_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.2",
+      "comment": "この設定は、'left_control_key'がcontrolキーとして使えなくなる",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_control") %>,
+          "to": [
+            { "shell_command": "open -a 'safari'" },
+            <%= set_variable(["press_left_control_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_left_control_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_control") %>,
+          "to": [
+            <%= set_variable(["press_left_control_key"], [1]) %>
+          ],
+          "to_if_alone": [
+            <%= to([["left_control"]]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_left_control_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_left_control_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test modifier 'h'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["h"]) %>,
+          "to": [
+            { "key_code": "left_arrow" }
+          ],
+          "to_if_alone": <%= to(["spacebar"]) %>
+        }
+      ]
+    },
+    {
+      "description": "Change cmd-ctrl-h/j/k/l to arrow keys",
+      "manipulators":
+      <%=
+        each_key(
+          source_keys_list: ["h", "j", "k", "l"],
+          dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+          from_mandatory_modifiers: ["control"],
+          as_json: true
+        )
+      %>
+    }    
+  ]
+}

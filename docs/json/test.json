@@ -1,0 +1,536 @@
+{
+  "title": "TEST!",
+  "rules": [
+    {
+      "description": "test to_delayed_action",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ctrl-a",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl-a",
+                  "value": 2
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl-a",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "any key_code",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code"
+          },
+          "to": [
+            {
+              "key_code": "a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test shift-language5",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "language5",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "shift-language",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "shift-language",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test lazy",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test modifier 'A'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": [
+                "a"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'period' to 'comma' ver.1",
+      "comment": "この設定は、'1.0'のような入力ができない",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "keypad_period"
+              }
+            ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'period' to 'comma' ver.2",
+      "comment": "この設定は、','の後ろに'.'が入力される。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "keypad_period"
+              }
+            ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              },
+              {
+                "key_code": "period"
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.1",
+      "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'safari'"
+            },
+            {
+              "set_variable": {
+                "name": "press_left_control_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_left_control_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            [
+              {
+                "key_code": "left_control"
+              }
+            ]
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "press_left_control_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_left_control_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_left_control_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.2",
+      "comment": "この設定は、'left_control_key'がcontrolキーとして使えなくなる",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'safari'"
+            },
+            {
+              "set_variable": {
+                "name": "press_left_control_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_left_control_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_left_control_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "left_control"
+              }
+            ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_left_control_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_left_control_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test modifier 'h'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "h"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change cmd-ctrl-h/j/k/l to arrow keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
