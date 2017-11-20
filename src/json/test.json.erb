@@ -179,6 +179,70 @@
       ]
     },
     {
+      "description": "テンキー上のピリオド２回でコンマ入力",
+      "manipulators": [
+        <%=
+          from_keys = ["keypad_0", "keypad_1", "keypad_2", "keypad_3", "keypad_4", "keypad_5", "keypad_6", "keypad_7", "keypad_8", "keypad_9"]
+
+          types = ""
+          from_keys.each do |from_key|
+            types += "{
+              \"type\": \"basic\",
+              \"from\": #{from(from_key)},
+              \"to\": #{to([["keypad_period"], [from_key]])},
+              \"conditions\": [
+                #{variable_if(["press_period_key"], [1])}
+              ]
+            },"
+          end
+          types
+        %>
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+          { "key_code": "comma" },
+            <%= set_variable(["press_period_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("any") %>,
+          "to": [
+            { "key_code": "keypad_period" },
+            <%= set_variable(["press_period_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>
+          ]
+        },        
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%= set_variable(["press_period_key"], [1]) %>
+          ],
+          "to_if_alone": [
+            <%= to([["keypad_period"]]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
       "description": "Doble tap 'left_control' to 'open -a 'safari' ver.1",
       "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
       "manipulators": [

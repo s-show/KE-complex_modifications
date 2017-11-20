@@ -286,6 +286,316 @@
       ]
     },
     {
+      "description": "Doble tap 'period' to 'comma' ver.3",
+      "comment": "これは一応希望どおりの動作になる",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_0"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_1"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_2"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_3"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_4"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_4"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_5"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_5"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_6"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_7"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_7"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_8"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_8"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_9"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "key_code": "keypad_9"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "any": "key_code"
+          },
+          "to": [
+            {
+              "key_code": "keypad_period"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            [
+              {
+                "key_code": "keypad_period"
+              }
+            ]
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Doble tap 'left_control' to 'open -a 'safari' ver.1",
       "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
       "manipulators": [
