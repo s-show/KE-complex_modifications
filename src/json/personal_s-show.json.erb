@@ -171,36 +171,62 @@
       %>
 		},
 		{
-			"description": "ATOM(Next_Pane/Prev_Pane by control-shift-Pagedown/Pageup at ATOM)",
+			"description": "ATOM('control control' to 'shift-command-P')",
       "manipulators": [
-				{
-					"type": "basic",
-          "from": <%= from("page_down", ["control", "shift"], ["caps_lock"]) %>,
-          "to":
-            <%=
-             to([
-              ["k", ["command"]],
-              ["right_arrow", ["command"]]
-              ])
-             %>,
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], ["caps_lock"]) %>,
+          "to": <%= to([["p", ["shift", "command"]]]) %>,
           "conditions": [
-            <%= frontmost_application_if("atom") %>
+            <%= variable_if(["left_control_key"], [1]) %>
           ]
-				},
-				{
-					"type": "basic",
-          "from": <%= from("page_up", ["control", "shift"], ["caps_lock"]) %>,
-          "to":
-            <%=
-             to([
-              ["k", ["command"]],
-              ["left_arrow", ["command"]]
-              ])
-             %>,
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_control", [], ["caps_lock"]) %>,
+          "to": [
+            <%= set_variable(["left_control_key"], [1]) %>,
+            { "key_code": "left_control"}
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["left_control_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["left_control_key"], [0]) %>
+            ]
+          },
           "conditions": [
-            <%= frontmost_application_if("atom") %>
+            <%= variable_if(["press_period_key"], [0]) %>
           ]
-				}
+        },
+        {
+          "type": "basic",
+          "from": <%= from("right_control", [], ["caps_lock"]) %>,
+          "to": <%= to([["p", ["shift", "command"]]]) %>,
+          "conditions": [
+            <%= variable_if(["right_control_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("right_control", [], ["caps_lock"]) %>,
+          "to": [
+            <%= set_variable(["right_control_key"], [1]) %>,
+            { "key_code": "right_control"}
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["right_control_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["right_control_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
       ]
 		},
 		{
@@ -365,6 +391,43 @@
           ]
 				}
 			]
-		}
+		},
+    {
+      "description": "Double tap 'keypad_period' to 'comma'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%# 下の"to"で入力された"keypad_period"を削除して"comma"を入力する %>
+            { "key_code": "delete_or_backspace" },
+            { "key_code": "comma" },
+            <%= set_variable(["press_period_key"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%= set_variable(["press_period_key"], [1]) %>,
+            { "key_code": "keypad_period"}
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_period_key"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    }
   ]
 }

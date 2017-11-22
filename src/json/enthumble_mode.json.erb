@@ -22,8 +22,7 @@
                                 source_keys_list: ["j", "k", "i", "l"],
                                 dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["shift", "control"],
-                                to_if_alone: ["j", "k", "i", "l"]
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
                               )
         JSON.generate(manipulators)
       %>
@@ -47,8 +46,7 @@
                                 source_keys_list: ["a", "s", "w", "d"],
                                 dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["shift", "control"],
-                                to_if_alone: ["a", "s", "w", "d"]
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
                               )
         JSON.generate(manipulators)
       %>
@@ -72,8 +70,7 @@
                                 source_keys_list: ["h", "j", "k", "l"],
                                 dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["shift", "control"],
-                                to_if_alone: ["h", "j", "k", "l"]
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
                               )
         JSON.generate(manipulators)
       %>
@@ -97,8 +94,7 @@
                                 source_keys_list: ["b", "n", "p", "f"],
                                 dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["shift", "control"],
-                                to_if_alone: ["b", "n", "p", "f"]
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
                               )
         JSON.generate(manipulators)
       %>
@@ -113,17 +109,17 @@
       "manipulators": [
         {
           "type":"basic",
-          "from": <%= from("spacebar", ["fn"], ["shift", "control"]) %>,
+          "from": <%= from("spacebar", ["fn"], ["caps_lock"]) %>,
           "to": <%= to(["return_or_enter"]) %>
         },
         {
           "type":"basic",
-          "from": <%= from("international2", ["fn"], ["shift", "control"]) %>,
+          "from": <%= from("international2", ["fn"], ["caps_lock"]) %>,
           "to": <%= to(["escape"]) %>
         },
         {
           "type":"basic",
-          "from": <%= from("international5", [], ["any"]) %>,
+          "from": <%= from("international5", [], ["caps_lock"]) %>,
           "to": [
             {
               "key_code": "fn",
@@ -155,7 +151,6 @@
                                 dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
                                 from_mandatory_modifiers: ["fn"],
                                 from_optional_modifiers: ["caps_lock"],
-                                to_if_alone: ["n", "m", "comma", "period"]
                               )
         JSON.generate(manipulators)
       %>
@@ -181,7 +176,6 @@
                                 dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
                                 from_mandatory_modifiers: ["fn"],
                                 from_optional_modifiers: ["caps_lock"],
-                                to_if_alone: ["y", "u", "i", "o"]
                               )
         JSON.generate(manipulators)
       %>
@@ -193,26 +187,20 @@
         "変換/かな -> IME ON"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("international2", [], ["caps_lock"]) %>,
-          "to": <%= to(["international2"]) %>,
-          "to_if_alone": <%= to(["japanese_kana"]) %>
-        },
-        {
-          "type": "basic",
-          "from": <%= from("international4", [], ["caps_lock"]) %>,
-          "to": <%= to(["international4"]) %>,
-          "to_if_alone": <%= to(["japanese_kana"]) %>
-        },
-        {
-          "type": "basic",
-          "from": <%= from("international5", [], ["any"]) %>,
-          "to": <%= to(["international5"]) %>,
-          "to_if_alone": <%= to(["japanese_eisuu"]) %>
-        }
-      ]
+      "manipulators":
+      <%=
+        each_key(
+                  source_keys_list: ["international2", "international4", "international5"],
+                  dest_keys_list: ["international2", "international4", "international5"],
+                  from_optional_modifiers: ["caps_lock"],
+                  to_if_alone: [
+                    to(["japanese_kana"], false),
+                    to(["japanese_kana"], false),
+                    to(["japanese_eisuu"], false)
+                  ],
+                  as_json: true
+                )
+      %>
     }
   ]
 }

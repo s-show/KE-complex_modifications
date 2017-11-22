@@ -42,7 +42,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -50,8 +51,7 @@
             {
               "key_code": "left_arrow"
             }
-          ],
-          "to_if_alone": "j"
+          ]
         },
         {
           "type": "basic",
@@ -63,7 +63,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -71,8 +72,7 @@
             {
               "key_code": "down_arrow"
             }
-          ],
-          "to_if_alone": "k"
+          ]
         },
         {
           "type": "basic",
@@ -84,7 +84,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -92,8 +93,7 @@
             {
               "key_code": "up_arrow"
             }
-          ],
-          "to_if_alone": "i"
+          ]
         },
         {
           "type": "basic",
@@ -105,7 +105,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -113,8 +114,7 @@
             {
               "key_code": "right_arrow"
             }
-          ],
-          "to_if_alone": "l"
+          ]
         }
       ]
     },
@@ -157,7 +157,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -165,8 +166,7 @@
             {
               "key_code": "left_arrow"
             }
-          ],
-          "to_if_alone": "a"
+          ]
         },
         {
           "type": "basic",
@@ -178,7 +178,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -186,8 +187,7 @@
             {
               "key_code": "down_arrow"
             }
-          ],
-          "to_if_alone": "s"
+          ]
         },
         {
           "type": "basic",
@@ -199,7 +199,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -207,8 +208,7 @@
             {
               "key_code": "up_arrow"
             }
-          ],
-          "to_if_alone": "w"
+          ]
         },
         {
           "type": "basic",
@@ -220,7 +220,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -228,8 +229,7 @@
             {
               "key_code": "right_arrow"
             }
-          ],
-          "to_if_alone": "d"
+          ]
         }
       ]
     },
@@ -272,7 +272,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -280,8 +281,7 @@
             {
               "key_code": "left_arrow"
             }
-          ],
-          "to_if_alone": "h"
+          ]
         },
         {
           "type": "basic",
@@ -293,7 +293,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -301,8 +302,7 @@
             {
               "key_code": "down_arrow"
             }
-          ],
-          "to_if_alone": "j"
+          ]
         },
         {
           "type": "basic",
@@ -314,7 +314,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -322,8 +323,7 @@
             {
               "key_code": "up_arrow"
             }
-          ],
-          "to_if_alone": "k"
+          ]
         },
         {
           "type": "basic",
@@ -335,7 +335,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -343,8 +344,7 @@
             {
               "key_code": "right_arrow"
             }
-          ],
-          "to_if_alone": "l"
+          ]
         }
       ]
     },
@@ -387,7 +387,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -395,8 +396,7 @@
             {
               "key_code": "left_arrow"
             }
-          ],
-          "to_if_alone": "b"
+          ]
         },
         {
           "type": "basic",
@@ -408,7 +408,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -416,8 +417,7 @@
             {
               "key_code": "down_arrow"
             }
-          ],
-          "to_if_alone": "n"
+          ]
         },
         {
           "type": "basic",
@@ -429,7 +429,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -437,8 +438,7 @@
             {
               "key_code": "up_arrow"
             }
-          ],
-          "to_if_alone": "p"
+          ]
         },
         {
           "type": "basic",
@@ -450,7 +450,8 @@
               ],
               "optional": [
                 "shift",
-                "control"
+                "control",
+                "caps_lock"
               ]
             }
           },
@@ -458,8 +459,7 @@
             {
               "key_code": "right_arrow"
             }
-          ],
-          "to_if_alone": "f"
+          ]
         }
       ]
     },
@@ -480,8 +480,7 @@
                 "fn"
               ],
               "optional": [
-                "shift",
-                "control"
+                "caps_lock"
               ]
             }
           },
@@ -500,8 +499,7 @@
                 "fn"
               ],
               "optional": [
-                "shift",
-                "control"
+                "caps_lock"
               ]
             }
           },
@@ -517,7 +515,7 @@
             "key_code": "international5",
             "modifiers": {
               "optional": [
-                "any"
+                "caps_lock"
               ]
             }
           },
@@ -582,8 +580,7 @@
             {
               "key_code": "delete_or_backspace"
             }
-          ],
-          "to_if_alone": "n"
+          ]
         },
         {
           "type": "basic",
@@ -602,8 +599,7 @@
             {
               "key_code": "delete_or_backspace"
             }
-          ],
-          "to_if_alone": "m"
+          ]
         },
         {
           "type": "basic",
@@ -622,8 +618,7 @@
             {
               "key_code": "delete_forward"
             }
-          ],
-          "to_if_alone": "comma"
+          ]
         },
         {
           "type": "basic",
@@ -642,8 +637,7 @@
             {
               "key_code": "delete_forward"
             }
-          ],
-          "to_if_alone": "period"
+          ]
         }
       ]
     },
@@ -694,8 +688,7 @@
             {
               "key_code": "delete_or_backspace"
             }
-          ],
-          "to_if_alone": "y"
+          ]
         },
         {
           "type": "basic",
@@ -714,8 +707,7 @@
             {
               "key_code": "delete_or_backspace"
             }
-          ],
-          "to_if_alone": "u"
+          ]
         },
         {
           "type": "basic",
@@ -734,8 +726,7 @@
             {
               "key_code": "delete_forward"
             }
-          ],
-          "to_if_alone": "i"
+          ]
         },
         {
           "type": "basic",
@@ -754,8 +745,7 @@
             {
               "key_code": "delete_forward"
             }
-          ],
-          "to_if_alone": "o"
+          ]
         }
       ]
     },
@@ -815,7 +805,7 @@
             "key_code": "international5",
             "modifiers": {
               "optional": [
-                "any"
+                "caps_lock"
               ]
             }
           },

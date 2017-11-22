@@ -131,7 +131,7 @@
       ]
     },
     {
-      "description": "Doble tap 'period' to 'comma' ver.1",
+      "description": "Double tap 'period' to 'comma' ver.1",
       "comment": "この設定は、'1.0'のような入力ができない",
       "manipulators": [
         {
@@ -207,7 +207,7 @@
       ]
     },
     {
-      "description": "Doble tap 'period' to 'comma' ver.2",
+      "description": "Double tap 'period' to 'comma' ver.2",
       "comment": "この設定は、','の後ろに'.'が入力される。",
       "manipulators": [
         {
@@ -286,7 +286,8 @@
       ]
     },
     {
-      "description": "テンキー上のピリオド２回でコンマ入力",
+      "description": "テンキー上のピリオド２回でコンマ入力 ver.1",
+      "comment": "Double tap 'period' to 'comma' ver.2 にエラー処理を加えたもの",
       "manipulators": [
         {
           "type": "basic",
@@ -595,7 +596,82 @@
       ]
     },
     {
-      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.1",
+      "description": "テンキー上のピリオド２回でコンマ入力 ver.2",
+      "comment": "これは期待通りに動作する",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            },
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "keypad_period"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double tap 'left_control' to 'open -a 'safari' ver.1",
       "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
       "manipulators": [
         {
@@ -671,7 +747,7 @@
       ]
     },
     {
-      "description": "Doble tap 'left_control' to 'open -a 'safari' ver.2",
+      "description": "Double tap 'left_control' to 'open -a 'safari' ver.2",
       "comment": "この設定は、'left_control_key'がcontrolキーとして使えなくなる",
       "manipulators": [
         {
@@ -731,6 +807,77 @@
               {
                 "set_variable": {
                   "name": "press_left_control_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double tap 'left_control' to 'open -a 'safari' ver.3",
+      "comment": "この設定は期待どおりの動作になる。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'safari'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "left_control_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "left_control_key",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_control_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_control_key",
                   "value": 0
                 }
               }

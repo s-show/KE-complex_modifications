@@ -491,17 +491,13 @@
       ]
     },
     {
-      "description": "ATOM(Next_Pane/Prev_Pane by control-shift-Pagedown/Pageup at ATOM)",
+      "description": "ATOM('control control' to 'shift-command-P')",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "page_down",
+            "key_code": "left_control",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "shift"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -509,36 +505,26 @@
           },
           "to": [
             {
-              "key_code": "k",
+              "key_code": "p",
               "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
+                "shift",
                 "command"
               ]
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.github\\.atom$"
-              ]
+              "type": "variable_if",
+              "name": "left_control_key",
+              "value": 1
             }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "page_up",
+            "key_code": "left_control",
             "modifiers": {
-              "mandatory": [
-                "control",
-                "shift"
-              ],
               "optional": [
                 "caps_lock"
               ]
@@ -546,24 +532,112 @@
           },
           "to": [
             {
-              "key_code": "k",
-              "modifiers": [
-                "command"
-              ]
+              "set_variable": {
+                "name": "left_control_key",
+                "value": 1
+              }
             },
             {
-              "key_code": "left_arrow",
+              "key_code": "left_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "left_control_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "left_control_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
               "modifiers": [
+                "shift",
                 "command"
               ]
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.github\\.atom$"
+              "type": "variable_if",
+              "name": "right_control_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
               ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "right_control_key",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "right_control_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "right_control_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
             }
           ]
         }
@@ -970,6 +1044,80 @@
               "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double tap 'keypad_period' to 'comma'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            },
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "keypad_period"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_period_key",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "keypad_period"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_period_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_period_key",
+              "value": 0
             }
           ]
         }
