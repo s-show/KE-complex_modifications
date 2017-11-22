@@ -286,8 +286,7 @@
       ]
     },
     {
-      "description": "Doble tap 'period' to 'comma' ver.3",
-      "comment": "これは一応希望どおりの動作になる",
+      "description": "テンキー上のピリオド２回でコンマ入力",
       "manipulators": [
         {
           "type": "basic",
