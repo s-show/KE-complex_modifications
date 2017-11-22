@@ -886,7 +886,7 @@
           "conditions": [
             {
               "type": "variable_if",
-              "name": "press_period_key",
+              "name": "left_control_key",
               "value": 0
             }
           ]
@@ -914,6 +914,97 @@
           "to_if_alone": [
             {
               "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "pointing_button in 'from'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "pointing_button in 'from' ver.2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "file_paths": [
+                "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "command-Enter to Double Click",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            },
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
             }
           ]
         }

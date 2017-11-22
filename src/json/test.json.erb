@@ -387,7 +387,7 @@
             ]
           },
           "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
+            <%= variable_if(["left_control_key"], [0]) %>
           ]
         }
       ]
@@ -402,6 +402,61 @@
             { "key_code": "left_arrow" }
           ],
           "to_if_alone": <%= to(["spacebar"]) %>
+        }
+      ]
+    },
+    {
+      "description": "pointing_button in 'from'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "pointing_button": "button3" },
+          "to": <%= to([["t", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "pointing_button in 'from' ver.2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button1",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": <%= to([["t", ["command"]]]) %>,
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "file_paths": [
+                "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "command-Enter to Double Click",
+      "comment": "cmd-enterをダブルクリックにしようとしたがうまくいかなかった",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("return_or_enter", ["command"]) %>,
+          "to": [
+            { "pointing_button": "button1" },
+            { "pointing_button": "button1" }
+          ],
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
         }
       ]
     },

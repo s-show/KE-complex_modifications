@@ -171,61 +171,14 @@
       %>
 		},
 		{
-			"description": "ATOM('control control' to 'shift-command-P')",
-      "extra_description_level": 1,
+			"description": "ATOM('control-spacebar' to 'shift-command-P')",
       "manipulators": [
         {
           "type": "basic",
-          "from": <%= from("left_control", [], ["caps_lock"]) %>,
+          "from": <%= from("spacebar", ["control"], ["caps_lock"]) %>,
           "to": <%= to([["p", ["shift", "command"]]]) %>,
           "conditions": [
-            <%= variable_if(["left_control_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("left_control", [], ["caps_lock"]) %>,
-          "to": [
-            <%= set_variable(["left_control_key"], [1]) %>,
-            { "key_code": "left_control"}
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["left_control_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["left_control_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("right_control", [], ["caps_lock"]) %>,
-          "to": <%= to([["p", ["shift", "command"]]]) %>,
-          "conditions": [
-            <%= variable_if(["right_control_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("right_control", [], ["caps_lock"]) %>,
-          "to": [
-            <%= set_variable(["right_control_key"], [1]) %>,
-            { "key_code": "right_control"}
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["right_control_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["right_control_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
+            <%= frontmost_application_if("atom") %>
           ]
         }
       ]
@@ -427,6 +380,26 @@
           },
           "conditions": [
             <%= variable_if(["press_period_key"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(middle click to command-t)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": <%= to([["t", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
           ]
         }
       ]

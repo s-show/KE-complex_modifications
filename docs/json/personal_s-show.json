@@ -491,14 +491,16 @@
       ]
     },
     {
-      "description": "ATOM('control control' to 'shift-command-P')",
-      "extra_description_level": 1,
+      "description": "ATOM('control-spacebar' to 'shift-command-P')",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "spacebar",
             "modifiers": {
+              "mandatory": [
+                "control"
+              ],
               "optional": [
                 "caps_lock"
               ]
@@ -515,130 +517,10 @@
           ],
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "left_control_key",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.github\\.atom$"
               ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "left_control_key",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "left_control_key",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "left_control_key",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_period_key",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "p",
-              "modifiers": [
-                "shift",
-                "command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "right_control_key",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "right_control_key",
-                "value": 1
-              }
-            },
-            {
-              "key_code": "right_control"
-            }
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              {
-                "set_variable": {
-                  "name": "right_control_key",
-                  "value": 0
-                }
-              }
-            ],
-            "to_if_canceled": [
-              {
-                "set_variable": {
-                  "name": "right_control_key",
-                  "value": 0
-                }
-              }
-            ]
-          },
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "press_period_key",
-              "value": 0
             }
           ]
         }
@@ -1120,6 +1002,38 @@
               "type": "variable_if",
               "name": "press_period_key",
               "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(middle click to command-t)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
             }
           ]
         }
