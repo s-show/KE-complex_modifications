@@ -47,31 +47,6 @@
       ]
     },
     {
-      "description": "test shift-language5",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("language5", ["shift"]) %>,
-          "to": [
-            {
-              "set_variable": {
-                "name": "shift-language",
-                "value": 1
-              }
-            }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "shift-language",
-                "value": 0
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "test lazy",
       "manipulators": [
         {
@@ -80,9 +55,14 @@
           "to": [
             {
               "key_code": "left_control",
-              "lazy": false
+              "lazy": true
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("9") %>,
+          "to": <%= to(["q"]) %>
         }
       ]
     },
@@ -102,150 +82,7 @@
       ]
     },
     {
-      "description": "Double tap 'period' to 'comma' ver.1",
-      "comment": "この設定は、'1.0'のような入力ができない",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-            { "key_code": "comma" },
-            <%= set_variable(["press_period_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_period_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-            <%= set_variable(["press_period_key"], [1]) %>
-          ],
-          "to_if_alone": [
-            <%= to([["keypad_period"]]) %>
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["press_period_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["press_period_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Double tap 'period' to 'comma' ver.2",
-      "comment": "この設定は、','の後ろに'.'が入力される。",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-            { "key_code": "comma" },
-            <%= set_variable(["press_period_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_period_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-            <%= set_variable(["press_period_key"], [1]) %>
-          ],
-          "to_if_alone": [
-            <%= to([["keypad_period"]]) %>
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["press_period_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["press_period_key"], [0]) %>,
-              { "key_code": "period" }
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "テンキー上のピリオド２回でコンマ入力 ver.1",
-      "comment": "Double tap 'period' to 'comma' ver.2 にエラー処理を加えたもの",
-      "manipulators": [
-        <%=
-          from_keys = ["keypad_0", "keypad_1", "keypad_2", "keypad_3", "keypad_4", "keypad_5", "keypad_6", "keypad_7", "keypad_8", "keypad_9"]
-
-          types = ""
-          from_keys.each do |from_key|
-            types += "{
-              \"type\": \"basic\",
-              \"from\": #{from(from_key)},
-              \"to\": #{to([["keypad_period"], [from_key]])},
-              \"conditions\": [
-                #{variable_if(["press_period_key"], [1])}
-              ]
-            },"
-          end
-          types
-        %>
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-          { "key_code": "comma" },
-            <%= set_variable(["press_period_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_period_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("any") %>,
-          "to": [
-            { "key_code": "keypad_period" },
-            <%= set_variable(["press_period_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_period_key"], [1]) %>
-          ]
-        },        
-        {
-          "type": "basic",
-          "from": <%= from("keypad_period") %>,
-          "to": [
-            <%= set_variable(["press_period_key"], [1]) %>
-          ],
-          "to_if_alone": [
-            <%= to([["keypad_period"]]) %>
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["press_period_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["press_period_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "テンキー上のピリオド２回でコンマ入力 ver.2",
-      "comment": "これは期待通りに動作する",
+      "description": "テンキー上のピリオド２回でコンマ入力",
       "manipulators": [
         {
           "type": "basic",
@@ -282,83 +119,7 @@
       ]
     },
     {
-      "description": "Double tap 'left_control' to 'open -a 'safari' ver.1",
-      "comment": "この設定は、'press_left_control_key'変数に値が代入されない(controlが押されたと認識されない",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("left_control") %>,
-          "to": [
-            { "shell_command": "open -a 'safari'" },
-            <%= set_variable(["press_left_control_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_left_control_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("left_control") %>,
-          "to": [
-            <%= to([["left_control"]]) %>
-          ],
-          "to_if_alone": [
-            <%= set_variable(["press_left_control_key"], [1]) %>
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["press_left_control_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["press_left_control_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Double tap 'left_control' to 'open -a 'safari' ver.2",
-      "comment": "この設定は、'left_control_key'がcontrolキーとして使えなくなる",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("left_control") %>,
-          "to": [
-            { "shell_command": "open -a 'safari'" },
-            <%= set_variable(["press_left_control_key"], [0]) %>
-          ],
-          "conditions": [
-            <%= variable_if(["press_left_control_key"], [1]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": <%= from("left_control") %>,
-          "to": [
-            <%= set_variable(["press_left_control_key"], [1]) %>
-          ],
-          "to_if_alone": [
-            <%= to([["left_control"]]) %>
-          ],
-          "to_delayed_action": {
-            "to_if_invoked": [
-              <%= set_variable(["press_left_control_key"], [0]) %>
-            ],
-            "to_if_canceled": [
-              <%= set_variable(["press_left_control_key"], [0]) %>
-            ]
-          },
-          "conditions": [
-            <%= variable_if(["press_period_key"], [0]) %>
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Double tap 'left_control' to 'open -a 'safari' ver.3",
+      "description": "Double tap 'left_control'",
       "comment": "この設定は期待どおりの動作になる。",
       "manipulators": [
         {
@@ -393,19 +154,6 @@
       ]
     },
     {
-      "description": "test modifier 'h'",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("spacebar", ["h"]) %>,
-          "to": [
-            { "key_code": "left_arrow" }
-          ],
-          "to_if_alone": <%= to(["spacebar"]) %>
-        }
-      ]
-    },
-    {
       "description": "pointing_button in 'from'",
       "manipulators": [
         {
@@ -419,7 +167,7 @@
       ]
     },
     {
-      "description": "pointing_button in 'from' ver.2",
+      "description": "Test 'frontmost_application_if > file_paths'",
       "manipulators": [
         {
           "type": "basic",
@@ -459,18 +207,6 @@
           ]
         }
       ]
-    },
-    {
-      "description": "Change cmd-ctrl-h/j/k/l to arrow keys",
-      "manipulators":
-      <%=
-        each_key(
-          source_keys_list: ["h", "j", "k", "l"],
-          dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
-          from_mandatory_modifiers: ["control"],
-          as_json: true
-        )
-      %>
-    }    
+    }
   ]
 }
