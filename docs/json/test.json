@@ -980,6 +980,7 @@
     },
     {
       "description": "command-Enter to Double Click",
+      "comment": "cmd-enterをダブルクリックにしようとしたがうまくいかなかった",
       "manipulators": [
         {
           "type": "basic",
