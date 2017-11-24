@@ -1,14 +1,14 @@
 {
-  "title": "Enthumble(Windows App) Mode",
+  "title": "enthumble(Windows App) Mode",
   <%# Gistに掲載中(erbファイル) https://gist.github.com/s-show/92b823f8fe67e06b809f3d1c6d04bc4f/edit %>
   "rule_list": false,
   "make_extra_description": true,
   "rules": [
     {
-      "description": "(Enthumble) IJKL Mode / normal",
+      "description": "(enthumble) IJKL Mode / normal",
       "extra_descriptions": [
-        "無変換/英数 + J, K, I, L -> 矢印キー（←, ↓, ↑, →）",
-        "無変換/英数単独 -> 英数キー"
+        "無変換/英数 + J, K, I, L -> カーソル移動（←, ↓, ↑, →）",
+        "無変換/英数 単独h -> 英数キー"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -29,10 +29,10 @@
       %>
     },
     {
-      "description": "(Enthumble) WASD Mode / FPS like",
+      "description": "(enthumble) WASD Mode / FPS like",
       "extra_descriptions": [
-        "無変換/英数 + A, S, W, D -> 矢印キー（←, ↓, ↑, →）",
-        "無変換/英数単独 -> 英数キー"
+        "無変換/英数 + A, S, W, D -> カーソル移動（←, ↓, ↑, →）",
+        "無変換/英数 単独 -> 英数キー"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -53,10 +53,10 @@
       %>
     },
     {
-      "description": "(Enthumble) HJKL Mode / vi like",
+      "description": "(enthumble) HJKL Mode / vi like",
       "extra_descriptions": [
-        "無変換/英数 + H, J, K, L -> 矢印キー（←, ↓, ↑, →）",
-        "無変換/英数単独 -> 英数キー"
+        "無変換/英数 + H, J, K, L -> カーソル移動（←, ↓, ↑, →）",
+        "無変換/英数 単独 -> 英数キー"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -77,10 +77,10 @@
       %>
     },
     {
-      "description": "(Enthumble) FBNP Mode / emacs like",
+      "description": "(enthumble) FBNP Mode / emacs like",
       "extra_descriptions": [
-        "無変換/英数 + B, N, P, F -> 矢印キー（←, ↓, ↑, →）",
-        "無変換/英数単独 -> 英数キー"
+        "無変換/英数 + B, N, P, F -> カーソル移動（←, ↓, ↑, →）",
+        "無変換/英数 単独 -> 英数キー"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -101,7 +101,7 @@
       %>
     },
     {
-      "description": "(Enthumble) 無変換/英数+ 「スペース/かな」で「Return/Escape」",
+      "description": "(enthumble) 無変換/英数 + 「Space/かな」で「Return/Escape」",
       "extra_descriptions": [
         "無変換/英数 + Space/かな -> Enter/Escape",
         "'thumb IME'より下位に設定すると、'無変換/英数 + かな'はIMEオンになります。"
@@ -132,9 +132,9 @@
       ]
     },
     {
-      "description": "(Enthumble) 無変換/英数+ 「N,M/',' '.'」で「BackSpace/Delete」",
+      "description": "(enthumble) 無変換/英数 + 「N,M/',' '.'」で「BackSpace/Delete」",
       "extra_descriptions": [
-        "無変換/英数 + N, M -> Back",
+        "無変換/英数 + N, M -> BackSpace",
         "無変換/英数 + ',' '.' -> Delete",
         "'FBNP Mode'と併用すると、'無変換/英数 + N'はカーソル移動になります。"
       ],
@@ -157,11 +157,11 @@
       %>
     },
     {
-      "description": "(Enthumble) 無変換/英数+ 「Y,U/I,O」で「BackSpace/Delete」",
+      "description": "(enthumble) 無変換/英数 + 「Y,U/I,O」で「BackSpace/Delete」",
       "extra_descriptions": [
-        "無変換/英数 + Y, U -> Back",
+        "無変換/英数 + Y, U -> BackSpace",
         "無変換/英数 + I, O -> Delete",
-        "'IJKL Mode'と併用すると、'無変換/英数 + I'はカーソル移動になります。"
+        "'IJKL Mode'と併用すると、'無変換/英数  + I'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -182,7 +182,7 @@
       %>
     },
     {
-      "description": "(Enthumble) 無変換/英数+ 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, → 入力）」",
+      "description": "(enthumble) 無変換/英数 + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
       "extra_description_level": 1,
       "manipulators": [
         {
@@ -238,9 +238,9 @@
       ]
     },
     {
-      "description": "(Enthumble) thumb IME",
+      "description": "(enthumble) thumb IME",
       "extra_descriptions": [
-        "無変換/英数 -> IME OFF",
+        "無変換/英数  -> IME OFF",
         "変換/かな -> IME ON"
       ],
       "extra_description_level": 1,
