@@ -182,6 +182,62 @@
       %>
     },
     {
+      "description": "(Enthumble) 無変換/英数+ 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, → 入力）」",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("international5", [], ["any"]) %>,
+          "to": <%= to(["fn"]) %>,
+          "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"←\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "down_arrow",
+            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"↓\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "up_arrow",
+            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"↑\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_arrow",
+            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
+          },
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"→\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        }
+      ]
+    },
+    {
       "description": "(Enthumble) thumb IME",
       "extra_descriptions": [
         "無変換/英数 -> IME OFF",
