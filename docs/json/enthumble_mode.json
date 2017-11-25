@@ -466,7 +466,7 @@
     {
       "description": "(enthumble) 無変換/英数 + 「Space/かな」で「Return/Escape」",
       "extra_descriptions": [
-        "無変換/英数  + Space/かな -> Enter/Escape",
+        "無変換/英数 + Space/かな -> Enter/Escape",
         "'thumb IME'より下位に設定すると、'無変換/英数 + かな'はIMEオンになります。"
       ],
       "extra_description_level": 1,
@@ -536,8 +536,8 @@
     {
       "description": "(enthumble) 無変換/英数 + 「N,M/',' '.'」で「BackSpace/Delete」",
       "extra_descriptions": [
-        "無変換/英数  + N, M -> BackSpace",
-        "無変換/英数  + ',' '.' -> Delete",
+        "無変換/英数 + N, M -> BackSpace",
+        "無変換/英数 + ',' '.' -> Delete",
         "'FBNP Mode'と併用すると、'無変換/英数 + N'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
@@ -644,8 +644,8 @@
     {
       "description": "(enthumble) 無変換/英数 + 「Y,U/I,O」で「BackSpace/Delete」",
       "extra_descriptions": [
-        "無変換/英数  + Y, U -> BackSpace",
-        "無変換/英数  + I, O -> Delete",
+        "無変換/英数 + Y, U -> BackSpace",
+        "無変換/英数 + I, O -> Delete",
         "'IJKL Mode'と併用すると、'無変換/英数  + I'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
@@ -750,7 +750,7 @@
       ]
     },
     {
-      "description": "(enthumble) 無変換/英数 + 「←, ↓, ↑, →」で「←, ↓, ↑, →」入力",
+      "description": "(enthumble) 無変換/英数 + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
       "extra_description_level": 1,
       "manipulators": [
         {
