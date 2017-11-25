@@ -1097,8 +1097,7 @@
               "key_code": "f2",
               "modifiers": [
                 "control"
-              ],
-              "lazy": true
+              ]
             }
           ]
         },
@@ -1122,8 +1121,7 @@
               "key_code": "f2",
               "modifiers": [
                 "control"
-              ],
-              "lazy": true
+              ]
             }
           ]
         }

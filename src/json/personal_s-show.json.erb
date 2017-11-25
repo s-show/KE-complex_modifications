@@ -425,25 +425,13 @@
           "type": "basic",
           "from": <%= from("left_option", [], ["caps_lock"]) %>,
           "to": <%= to(["left_option"]) %>,
-          "to_if_alone": [
-            {
-              "key_code": "f2",
-              "modifiers": [ "control" ],
-              "lazy": true
-            }
-          ]
+          "to_if_alone": <%= to([["f2", ["control"]]]) %>
         },
         {
           "type": "basic",
           "from": <%= from("right_option", [], ["caps_lock"]) %>,
           "to": <%= to(["right_option"]) %>,
-          "to_if_alone": [
-            {
-              "key_code": "f2",
-              "modifiers": [ "control" ],
-              "lazy": true
-            }
-          ]
+          "to_if_alone": <%= to([["f2", ["control"]]]) %>
         }
       ]
     }
