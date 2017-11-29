@@ -22,7 +22,7 @@ def make_data(data, as_json=true)
   end
 end
 
-def key(data, key)
+def key(data, key, lazy=false)
   if key == "any"
     data['any'] = "key_code"
   elsif key.start_with? "button"
@@ -30,6 +30,7 @@ def key(data, key)
   else
     data['key_code'] = key
   end
+  data['lazy'] = true if lazy
 end
 
 def from(key_code, mandatory_modifiers=[], optional_modifiers=[], as_json=true)
@@ -55,7 +56,7 @@ def hash_from(key_code, mandatory_modifiers=[], optional_modifiers=[])
   from(key_code, mandatory_modifiers, optional_modifiers, false)
 end
 
-def to(events, as_json=true, repeat=1)
+def to(events, as_json=true, lazy=false, repeat=1)
   data = []
   events.each do |e|
     d = {}
@@ -63,6 +64,9 @@ def to(events, as_json=true, repeat=1)
       key(d, e[0])
       unless e[1].nil?
         d['modifiers'] = e[1]
+      end
+      unless e[2].nil?
+        d['lazy'] = true
       end
     elsif e.is_a? String
       key(d, e)
@@ -94,7 +98,7 @@ def set_shell_command(commands, as_json=true)
   make_data(data, as_json)
 end
 
-def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_after_key_up: [], conditions: [], as_json: false)
+def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_if_alone_modifiers: [], to_after_key_up: [], conditions: [], as_json: false)
   unless source_keys_list.is_a? Array
     source_keys_list = [source_keys_list]
     dest_keys_list = [dest_keys_list]
@@ -103,6 +107,7 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
   data = []
   source_keys_list.each_with_index do |from_key, index|
     to_key = dest_keys_list[index]
+    to_if_alone_key = to_if_alone[index]
     d = {}
     d['type'] = 'basic'
     if from_key.is_a? String
@@ -133,7 +138,25 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
       events << e
     end
     d['to'] = hash_to(events)
-    d['to_if_alone'] = to_if_alone[index] if (to_if_alone[index] and to_if_alone[index].size != 0)
+
+    # Compile list of events to add to "to_if_alone" section
+    to_if_alone_events = []
+    if to_if_alone_key.is_a? String
+      if to_if_alone_modifiers[0].nil?
+        to_if_alone_events << [to_if_alone_key]
+      else
+        to_if_alone_events << [to_if_alone_key, to_if_alone_modifiers]
+      end
+    elsif to_if_alone_key.is_a? Array
+      to_if_alone_key.each do |e|
+        to_if_alone_events << e
+      end
+    else
+      to_if_alone_events << to_if_alone_key
+    end
+    d['to_if_alone'] = hash_to(to_if_alone_events)
+    
+    # d['to_if_alone'] = to_if_alone[index] if (to_if_alone[index] and to_if_alone[index].size != 0)
     d['to_after_key_up'] = to_after_key_up unless to_after_key_up.size == 0
 
     if conditions.any?
