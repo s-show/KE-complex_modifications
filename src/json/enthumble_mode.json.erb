@@ -17,7 +17,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["j", "k", "i", "l"],
@@ -41,7 +47,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["a", "s", "w", "d"],
@@ -65,7 +77,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["h", "j", "k", "l"],
@@ -89,7 +107,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["b", "n", "p", "f"],
@@ -145,7 +169,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["n", "m", "comma", "period"],
@@ -170,7 +200,13 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: [to(["japanese_eisuu"], false)]
+                                to_if_alone: ["japanese_eisuu"]
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"]
                               )
         manipulators += each_key(
                                 source_keys_list: ["y", "u", "i", "o"],
@@ -250,10 +286,7 @@
                   source_keys_list: ["international2", "international4", "international5"],
                   dest_keys_list: ["international2", "international4", "international5"],
                   from_optional_modifiers: ["caps_lock"],
-                  to_if_alone: [
-                    to(["japanese_kana"], false),
-                    to(["japanese_kana"], false),
-                    to(["japanese_eisuu"], false)
+                  to_if_alone: ["japanese_kana", "japanese_kana", "japanese_eisuu")
                   ],
                   as_json: true
                 )
