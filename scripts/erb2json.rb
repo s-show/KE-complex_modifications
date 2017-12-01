@@ -33,6 +33,11 @@ def key(data, key, lazy=false)
   data['lazy'] = true if lazy
 end
 
+# @return [Hash] { "key_code": ".", "modifiers": { "mandatory": [ "..." ], "optional": [ "..." ] } }
+# @example
+#   <%= from("e", ["command"], ["any"]) %>
+#   <%= from("delete_forward", [], ["any"]) %>
+#   <%= from("keypad_period") %>
 def from(key_code, mandatory_modifiers=[], optional_modifiers=[], as_json=true)
   mandatory_modifiers = to_array(mandatory_modifiers)
   optional_modifiers = to_array(optional_modifiers)
@@ -56,7 +61,14 @@ def hash_from(key_code, mandatory_modifiers=[], optional_modifiers=[])
   from(key_code, mandatory_modifiers, optional_modifiers, false)
 end
 
-def to(events, as_json=true, lazy=false, repeat=1)
+# @return [Array] [ { "key_code": ..., "lazy": true or false } ]
+# @example
+#   <%= to(["escape"]) %> "Escape" only
+#   <%= to([["tab", ["control"]]]) %> "control-tab"
+#   <%= to([["f2"], ["t", ["option"]]]) %> "f2", "option-t"
+#   <%= to([["t", ["control"], true]]) %> "control-t" with "lazy: true"
+#   <%= to([["t", nil, true]]) %> "t" only , with "lazy: true"
+def to(events, as_json=true, repeat=1)
   data = []
   events.each do |e|
     d = {}
@@ -86,6 +98,9 @@ def hash_to(events, repeat=1)
   to(events, false, repeat)
 end
 
+# @return [Array] [ { "shell_command": ... } ] 
+# @example
+#   <%= set_shell_command(["open -a 'finder'"]) %>
 def set_shell_command(commands, as_json=true)
   data =[]
   unless commands.empty?
@@ -98,7 +113,17 @@ def set_shell_command(commands, as_json=true)
   make_data(data, as_json)
 end
 
-def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_if_alone_modifiers: [], to_after_key_up: [], conditions: [], as_json: false)
+# @return [Array] [ { "type": ... } ]
+# @example
+#   each_key(
+#             source_keys_list: ["1", "2", "3"],
+#             dest_keys_list: ["f1", "f2", "f3"],
+#             from_mandatory_modifiers: ["fn"]
+#             from_optional_modifiers: ["caps_lock"],
+#             to_if_alone: ["1", "2", "3"],
+#             as_json: true
+#           )
+def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_list, from_mandatory_modifiers: [], from_optional_modifiers: [], to_pre_events: [], to_modifiers: [], to_post_events: [], to_if_alone: [], to_if_alone_modifiers: [], to_after_key_up: [], conditions: [], as_lazy: false, as_json: false)
   unless source_keys_list.is_a? Array
     source_keys_list = [source_keys_list]
     dest_keys_list = [dest_keys_list]
@@ -107,7 +132,6 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
   data = []
   source_keys_list.each_with_index do |from_key, index|
     to_key = dest_keys_list[index]
-    to_if_alone_key = to_if_alone[index]
     d = {}
     d['type'] = 'basic'
     if from_key.is_a? String
@@ -123,9 +147,17 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
     end
     if to_key.is_a? String
       if to_modifiers[0].nil?
-        events << [to_key]
+        unless as_lazy
+          events << [to_key]
+        else
+          events << [to_key, nil, as_lazy]
+        end
       else
-        events << [to_key, to_modifiers]
+        unless as_lazy
+          events << [to_key, to_modifiers]
+        else
+          events << [to_key, to_modifiers, as_lazy]
+        end
       end
     elsif to_key.is_a? Array
       to_key.each do |e|
@@ -140,21 +172,24 @@ def each_key(source_keys_list: :source_keys_list, dest_keys_list: :dest_keys_lis
     d['to'] = hash_to(events)
 
     # Compile list of events to add to "to_if_alone" section
-    to_if_alone_events = []
-    if to_if_alone_key.is_a? String
-      if to_if_alone_modifiers[0].nil?
-        to_if_alone_events << [to_if_alone_key]
+    unless to_if_alone.empty?
+      to_if_alone_key = to_if_alone[index]
+      to_if_alone_events = []
+      if to_if_alone_key.is_a? String
+        if to_if_alone_modifiers[0].nil?
+          to_if_alone_events << [to_if_alone_key]
+        else
+          to_if_alone_events << [to_if_alone_key, to_if_alone_modifiers]
+        end
+      elsif to_if_alone_key.is_a? Array
+        to_if_alone_key.each do |e|
+          to_if_alone_events << e
+        end
       else
-        to_if_alone_events << [to_if_alone_key, to_if_alone_modifiers]
+        to_if_alone_events << to_if_alone_key
       end
-    elsif to_if_alone_key.is_a? Array
-      to_if_alone_key.each do |e|
-        to_if_alone_events << e
-      end
-    else
-      to_if_alone_events << to_if_alone_key
+      d['to_if_alone'] = hash_to(to_if_alone_events)
     end
-    d['to_if_alone'] = hash_to(to_if_alone_events)
     
     # d['to_if_alone'] = to_if_alone[index] if (to_if_alone[index] and to_if_alone[index].size != 0)
     d['to_after_key_up'] = to_after_key_up unless to_after_key_up.size == 0
@@ -363,14 +398,23 @@ def frontmost_application(type, app_aliases, as_json=true)
   end
 end
 
+# @return [Hash] { "type": "frontmost_application_if", "bundle_identifiers": [ "..." ] }
+# @example
+#   <%= frontmost_application_if("remote_desktop") %>
 def frontmost_application_if(app_aliases, as_json=true)
   frontmost_application('frontmost_application_if', app_aliases, as_json)
 end
 
+# @return [Hash] { "type": "frontmost_application_unless", "bundle_identifiers": [ "..." ] }
+# @example
+#   <%= frontmost_application_unless("remote_desktop") %>
 def frontmost_application_unless(app_aliases, as_json=true)
   frontmost_application('frontmost_application_unless', app_aliases, as_json)
 end
 
+# @return [Hash] { "set_variable": { "name": "...", "value": @ } }
+# @example
+#   <%= set_variable(["press_period_key"], [0]) %>
 def set_variable(names, values, as_json=true)
   data =[]
   unless names.empty?
@@ -404,10 +448,16 @@ def variable(type, names, values, as_json=true)
   make_data(data, as_json)
 end
 
+# @return [Hash] { "type": "variable_if", "name": "...", "value": @ }
+# @example
+#   <%= variable_if(["press_period_key"], [1]) %>
 def variable_if(names, values, as_json=true)
   variable('variable_if', names, values, as_json)
 end
 
+# @return [Hash] { "type": "variable_unless", "name": "...", "value": @ }
+# @example
+#   <%= variable_unless(["press_period_key"], [0]) %>
 def variable_unless(names, values, as_json=true)
   variable('variable_unless', names, values, as_json)
 end
@@ -471,10 +521,16 @@ def input_source(type, input_source_aliases, as_json=true)
   end
 end
 
+# @return [Hash] { "type": "input_source_if", "input_sources": [ { "language": ".." } ] }
+# @example
+#   <%= input_source_if("ja") %>
 def input_source_if(input_source_aliases, as_json=true)
   input_source('input_source_if', input_source_aliases, as_json)
 end
 
+# @return [Hash] { "type": "input_source_unless", "input_sources": [ { "language": ".." } ] }
+# @example
+#   <%= input_source_unless("en") %>
 def input_source_unless(input_source_aliases, as_json=true)
   input_source('input_source_unless', input_source_aliases, as_json)
 end
