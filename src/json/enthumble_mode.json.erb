@@ -17,13 +17,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["j", "k", "i", "l"],
@@ -47,13 +49,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["a", "s", "w", "d"],
@@ -77,13 +81,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["h", "j", "k", "l"],
@@ -107,13 +113,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["b", "n", "p", "f"],
@@ -131,29 +139,30 @@
         "'thumb IME'より下位に設定すると、'無変換/英数 + かな'はIMEオンになります。"
       ],
       "extra_description_level": 1,
-      "manipulators": [
-        {
-          "type":"basic",
-          "from": <%= from("spacebar", ["fn"], ["caps_lock"]) %>,
-          "to": <%= to(["return_or_enter"]) %>
-        },
-        {
-          "type":"basic",
-          "from": <%= from("international2", ["fn"], ["caps_lock"]) %>,
-          "to": <%= to(["escape"]) %>
-        },
-        {
-          "type":"basic",
-          "from": <%= from("international5", [], ["caps_lock"]) %>,
-          "to": [
-            {
-              "key_code": "fn",
-              "lazy": true
-            }
-          ],
-          "to_if_alone": <%= to(["japanese_eisuu"]) %>
-        }
-      ]
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["spacebar", "international2"],
+                                dest_keys_list: ["return_or_enter", "escape"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
+                              )
+        JSON.generate(manipulators)
+      %>
     },
     {
       "description": "(enthumble) 無変換/英数 + 「N,M/',' '.'」で「BackSpace/Delete」",
@@ -169,13 +178,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["n", "m", "comma", "period"],
@@ -200,13 +211,15 @@
                                 source_keys_list: ["international5"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["lang2"],
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
-                                to_if_alone: ["japanese_eisuu"]
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["y", "u", "i", "o"],
@@ -224,15 +237,14 @@
         {
           "type": "basic",
           "from": <%= from("international5", [], ["any"]) %>,
-          "to": <%= to(["fn"]) %>,
-          "to_if_alone": <%= to([["japanese_eisuu"]]) %>
+          "to": <%= to([
+                        ["fn", nil, true]
+                       ]) %>,
+          "to_if_alone": <%= to(["japanese_eisuu"]) %>
         },
         {
           "type": "basic",
-          "from": {
-            "key_code": "left_arrow",
-            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
-          },
+          "from": <%= from("left_arrow", ["fn"], ["caps_lock"]) %>,
           "to": [
             { "shell_command": "osascript -e 'set the clipboard to \"←\"'" },
             { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
@@ -240,10 +252,7 @@
         },
         {
           "type": "basic",
-          "from": {
-            "key_code": "down_arrow",
-            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
-          },
+          "from": <%= from("down_arrow", ["fn"], ["caps_lock"]) %>,
           "to": [
             { "shell_command": "osascript -e 'set the clipboard to \"↓\"'" },
             { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
@@ -251,10 +260,7 @@
         },
         {
           "type": "basic",
-          "from": {
-            "key_code": "up_arrow",
-            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
-          },
+          "from": <%= from("up_arrow", ["fn"], ["caps_lock"]) %>,
           "to": [
             { "shell_command": "osascript -e 'set the clipboard to \"↑\"'" },
             { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
@@ -262,10 +268,7 @@
         },
         {
           "type": "basic",
-          "from": {
-            "key_code": "right_arrow",
-            "modifiers": { "mandatory": ["fn"], "optional": ["caps_lock"] }
-          },
+          "from": <%= from("right_arrow", ["fn"], ["caps_lock"]) %>,
           "to": [
             { "shell_command": "osascript -e 'set the clipboard to \"→\"'" },
             { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
@@ -277,7 +280,8 @@
       "description": "(enthumble) thumb IME",
       "extra_descriptions": [
         "無変換/英数  -> IME OFF",
-        "変換/かな -> IME ON"
+        "変換/かな -> IME ON",
+        "この設定は、その他の(enthumble)設定より下位に設定すること。上位に設定すると、その他の(enthumble)設定が作動しなくなる。"
       ],
       "extra_description_level": 1,
       "manipulators":
@@ -286,8 +290,7 @@
                   source_keys_list: ["international2", "international4", "international5"],
                   dest_keys_list: ["international2", "international4", "international5"],
                   from_optional_modifiers: ["caps_lock"],
-                  to_if_alone: ["japanese_kana", "japanese_kana", "japanese_eisuu")
-                  ],
+                  to_if_alone: ["japanese_kana", "japanese_kana", "japanese_eisuu"],
                   as_json: true
                 )
       %>
