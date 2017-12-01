@@ -1,0 +1,134 @@
+{
+  "title": "enthumble(Windows App) Mode toggle 'Space'",
+  "rule_list": false,
+  "make_extra_description": true,
+  "rules": [
+    {
+      "description": "(enthumble / toggle 'Space') HJKL Mode / vi like",
+      "extra_descriptions": [
+        "スペース + H, J, K, L -> カーソル移動（←, ↓, ↑, →）",
+        "スペース 単独 -> スペースキー"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                conditions: [
+                                  {
+                                    "type": "device_unless",
+                                    "identifiers": [
+                                      {
+                                        "vendor_id": 1455,
+                                        "product_id": 4131
+                                      }
+                                    ]
+                                  }
+                                ],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["h", "j", "k", "l"],
+                                dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space + 「R/E」で「Return/Escape」",
+      "extra_descriptions": [
+        "スペース + R/E -> Enter/Escape",
+        "'thumb IME'より下位に設定すると、'スペース + かな'はIMEオンになります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_if_alone: ["spacebar"],
+                                conditions: [
+                                  {
+                                    "type": "device_unless",
+                                    "identifiers": [
+                                      {
+                                        "vendor_id": 1455,
+                                        "product_id": 4131
+                                      }
+                                    ]
+                                  }
+                                ],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["r", "e"],
+                                dest_keys_list: ["return_or_enter", "escape"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["shift", "control", "caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') スペース + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", [], ["any"]) %>,
+          "to": <%= to(["fn"]) %>,
+          "to_if_alone": <%= to(["spacebar"]) %>,
+          "conditions": [
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1455,
+                  "product_id": 4131
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_arrow", ["fn"], ["caps_lock"]) %>,
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"←\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("down_arrow", ["fn"], ["caps_lock"]) %>,
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"↓\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("up_arrow", ["fn"], ["caps_lock"]) %>,
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"↑\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("right_arrow", ["fn"], ["caps_lock"]) %>,
+          "to": [
+            { "shell_command": "osascript -e 'set the clipboard to \"→\"'" },
+            { "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'" }
+          ]
+        }
+      ]
+    }
+  ]
+}
