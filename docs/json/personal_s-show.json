@@ -60,10 +60,7 @@
           },
           "to": [
             {
-              "key_code": "vk_launchpad",
-              "modifiers": [
-
-              ]
+              "key_code": "vk_launchpad"
             }
           ],
           "conditions": [
@@ -145,10 +142,7 @@
           },
           "to": [
             {
-              "key_code": "caps_lock",
-              "modifiers": [
-
-              ]
+              "key_code": "caps_lock"
             }
           ]
         },
@@ -164,10 +158,7 @@
           },
           "to": [
             {
-              "key_code": "japanese_eisuu",
-              "modifiers": [
-
-              ]
+              "key_code": "japanese_eisuu"
             }
           ]
         }
@@ -188,10 +179,7 @@
           },
           "to": [
             {
-              "pointing_button": "button2",
-              "modifiers": [
-
-              ]
+              "pointing_button": "button2"
             }
           ],
           "conditions": [
@@ -228,10 +216,7 @@
           },
           "to": [
             {
-              "pointing_button": "button2",
-              "modifiers": [
-
-              ]
+              "pointing_button": "button2"
             }
           ],
           "conditions": [
@@ -638,15 +623,6 @@
                 "^com\\.google\\.Chrome$",
                 "^com\\.apple\\.Safari$"
               ]
-            },
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1455,
-                  "product_id": 4131
-                }
-              ]
             }
           ]
         },
@@ -675,15 +651,6 @@
                 "^org\\.mozilla\\.firefox$",
                 "^com\\.google\\.Chrome$",
                 "^com\\.apple\\.Safari$"
-              ]
-            },
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1455,
-                  "product_id": 4131
-                }
               ]
             }
           ]

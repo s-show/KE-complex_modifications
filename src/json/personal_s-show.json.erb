@@ -22,7 +22,7 @@
         {
           "type": "basic",
           "from": <%= from("escape", ["control"], []) %>,
-          "to": <%= to([["vk_launchpad", []]]) %>,
+          "to": <%= to(["vk_launchpad"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
@@ -52,12 +52,12 @@
           <%# https://github.com/pqrs-org/KE-complex_modifications/blob/master/docs/json/caps_lock.json %>
           "type": "basic",
           "from": <%= from("caps_lock", ["shift"], ["caps_lock"]) %>,
-          "to": <%= to([["caps_lock", []]]) %>
+          "to": <%= to(["caps_lock"]) %>
         },
         {
           "type": "basic",
           "from": <%= from("caps_lock", [], ["any"]) %>,
-          "to": <%= to([["japanese_eisuu", []]]) %>
+          "to": <%= to(["japanese_eisuu"]) %>
         }
       ]
     },
@@ -68,7 +68,7 @@
           <%# Application_key to Right Click %>
           "type": "basic",
           "from": <%= from("application", [], ["any"]) %>,
-          "to": <%= to([["button2", []]]) %>,
+          "to": <%= to(["button2"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
@@ -77,7 +77,7 @@
           <%# この組み合わせには、optionalにcaps_lockの指定が必要 %>
           "type": "basic",
           "from": <%= from("f10", ["shift"], ["caps_lock"]) %>,
-          "to": <%= to([["button2", []]]) %>,
+          "to": <%= to(["button2"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
@@ -226,23 +226,13 @@
       "extra_descriptions": [
         "For Chrome, Safari, Firefox."
       ],
-      <%# erb2json.rbで用意されているdevice_ifメソッドは、HHKBキーボード専用のメソッドのため、device_ifメソッドは使えない。 %>
       "manipulators": [
 				{
 					"type": "basic",
           "from": <%= from("right_arrow", ["option"], []) %>,
           "to": <%= to([["backslash", ["command"]]]) %>,
           "conditions": [
-            <%= frontmost_application_if("browser") %>,
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1455,
-                  "product_id": 4131
-                }
-              ]
-            }
+            <%= frontmost_application_if("browser") %>
           ]
 				},
 				{
@@ -250,16 +240,7 @@
           "from": <%= from("left_arrow", ["option"], []) %>,
           "to": <%= to([["close_bracket", ["command"]]]) %>,
           "conditions": [
-            <%= frontmost_application_if("browser") %>,
-            {
-              "type": "device_if",
-              "identifiers": [
-                {
-                  "vendor_id": 1455,
-                  "product_id": 4131
-                }
-              ]
-            }
+            <%= frontmost_application_if("browser") %>
           ]
 				}
       ]
@@ -269,7 +250,7 @@
       "extra_descriptions": [
         "The Japanese hardly inputs Japanese in an address bar."
       ],
-			<%# アドレスバーで日本語を入力することはないため %>
+			<%# URL入力で日本語を入力する機会はほとんどないため %>
 			<%# CapsLockがONでも変換する %>
 			"manipulators": [
 				{
@@ -390,14 +371,7 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": {
-            "pointing_button": "button3",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
+          "from": <%= from("button3", [], ["caps_lock"]) %>,
           "to": <%= to([["t", ["command"]]]) %>,
           "conditions": [
             <%= frontmost_application_if("finder") %>
