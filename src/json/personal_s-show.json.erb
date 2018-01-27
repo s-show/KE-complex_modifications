@@ -393,6 +393,27 @@
       ]
     },
     {
+      "description": "Quit application by holding command-q(1000ms)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("q", ["command"], ["caps_lock"]) %>,
+          "parameters": {
+              "basic.to_if_held_down_threshold_milliseconds": 1000
+          },
+          "to_if_held_down":[
+            {
+              "key_code": "q",
+              "modifiers": [
+                "command"
+              ],
+              "repeat": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "option to control-F2 (focus on the menu bar)",
       "manipulators": [
         {
