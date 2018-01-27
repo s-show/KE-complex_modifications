@@ -48,19 +48,21 @@ data["rules"].each do |rule|
                         from["modifiers"].key?("mandatory")) ?
                           from["modifiers"]["mandatory"] : []
 
-      to = manipulator["to"]
-      to_keys = []
-      to_modifiers = []
-      to.each do |t|
-        event_types.each do |e|
-          if t.key?(e)
-            if ["key_code", "pointing_button"].include?(e)
-              to_keys.push(t[e])
-            else
-              to_keys.push("#{e}: #{t[e]}")
+      if manipulator["to"]
+        to = manipulator["to"]
+        to_keys = []
+        to_modifiers = []
+        to.each do |t|
+          event_types.each do |e|
+            if t.key?(e)
+              if ["key_code", "pointing_button"].include?(e)
+                to_keys.push(t[e])
+              else
+                to_keys.push("#{e}: #{t[e]}")
+              end
+              to_modifiers.push(t.key?("modifiers") ? t["modifiers"] : [])
+              next
             end
-            to_modifiers.push(t.key?("modifiers") ? t["modifiers"] : [])
-            next
           end
         end
       end
@@ -71,12 +73,14 @@ data["rules"].each do |rule|
       end
       keys += "#{from_key}</td>\n"
       keys += "    <td>"
-      to_keys.each_with_index do |t, i|
-        keys += ", " if i > 0
-        to_modifiers[i].each do |m|
-          keys += "#{m}-"
+      if manipulator["to"]
+        to_keys.each_with_index do |t, i|
+          keys += ", " if i > 0
+          to_modifiers[i].each do |m|
+            keys += "#{m}-"
+          end
+          keys += "#{t}"
         end
-        keys += "#{t}"
       end
       keys += "</td>\n"
       keys += "  </tr>\n"
