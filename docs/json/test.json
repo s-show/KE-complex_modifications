@@ -110,6 +110,71 @@
       ]
     },
     {
+      "description": "Cmd to Ctrl",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "エスペラント語入力のテスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "g"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "テンキー上のピリオド２回でコンマ入力",
       "manipulators": [
         {

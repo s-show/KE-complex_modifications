@@ -82,6 +82,45 @@
       ]
     },
     {
+      "description": "Cmd to Ctrl",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("right_command") %>,
+          "to": <%= to(["right_control"]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("safari") %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_command") %>,
+          "to": <%= to(["left_control"]) %>,
+          "conditions": [
+            <%= frontmost_application_unless("safari") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "エスペラント語入力のテスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("g") %>,
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [ "option" ]
+            },
+            {
+              "key_code": "g"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "テンキー上のピリオド２回でコンマ入力",
       "manipulators": [
         {
