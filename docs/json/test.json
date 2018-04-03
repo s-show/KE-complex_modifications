@@ -158,7 +158,92 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "g"
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "s"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "g"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "u"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "c"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "key_code": "g"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w"
           },
           "to": [
             {
