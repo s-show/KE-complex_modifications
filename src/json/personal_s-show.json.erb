@@ -414,6 +414,22 @@
       ]
     },
     {
+      "description": "無変換 + d -> delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("international5", ["any"]) %>,
+          "to": <%= to([["fn", nil, true]]) %>,
+          "to_if_alone": <%= to(["japanese_eisuu"]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("d", ["fn"], ["shift", "control", "caps_lock"]) %>,
+          "to": <%= to(["delete_forward"]) %>
+        }
+      ]
+    },
+    {
       "description": "option to control-F2 (focus on the menu bar)",
       "manipulators": [
         {
