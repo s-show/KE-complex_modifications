@@ -231,6 +231,133 @@
       %>
     },
     {
+      "description": "(enthumble) 無変換/英数 + 「C,X,V」で「Copy,Cut,Paste」",
+      "extra_descriptions": [
+        "無変換/英数 + C,X,V -> Copy,Cut,Paste"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["c", "x", "v"],
+                                dest_keys_list: ["c", "x", "v"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["command"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「S,O」で「Save,Open」",
+      "extra_descriptions": [
+        "無変換/英数 + S,O -> Save,Open"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["s", "o"],
+                                dest_keys_list: ["s", "o"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["command"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「[」で「Escape」",
+      "extra_descriptions": [
+        "無変換/英数 + [ -> Escape"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["close_bracket"],
+                                dest_keys_list: ["escape"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["controle"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「1 - 10, -, ^」で「F1 - F12」",
+      "extra_descriptions": [
+        "無変換/英数 + 1 -10, -, ^ -> F1 - F12"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "hyphen", "equal_sign"],
+                                dest_keys_list: ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
       "description": "(enthumble) 無変換/英数 + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
       "extra_description_level": 1,
       "manipulators": [
