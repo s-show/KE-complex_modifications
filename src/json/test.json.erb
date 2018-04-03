@@ -107,16 +107,51 @@
       "manipulators": [
         {
           "type": "basic",
-          "from": <%= from("g") %>,
-          "to": [
-            {
-              "key_code": "6",
-              "modifiers": [ "option" ]
-            },
-            {
-              "key_code": "g"
-            }
-          ]
+          "from": <%= from("q") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["s"]
+            ]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("w") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["g"]
+            ]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("y") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["u"]
+            ]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("x") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["c"]
+            ]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("w") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["g"]
+            ]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("w") %>,
+          "to": <%= to([
+            ["6", ["option"]],
+            ["g"]
+            ]) %>
         }
       ]
     },
