@@ -342,7 +342,34 @@
             <%= set_variable(["press_period_key"], [0]) %>
           ],
           "conditions": [
-            <%= variable_if(["press_period_key"], [1]) %>
+            <%= variable_if(["press_period_key"], [1]) %>,
+            <%= input_source_if("en") %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("keypad_period") %>,
+          "to": [
+            <%# IMEがOFFにしないと"comma"が全角カンマとして入力されてしまうため、IMEをOFFにする。 %>
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            },
+            <%# 下の"to"で入力された"keypad_period"を削除して"comma"を入力する %>
+            { "key_code": "delete_or_backspace" },
+            { "key_code": "comma" },
+            <%= set_variable(["press_period_key"], [0]) %>,
+            <%# いったんOFFにしたIMEをONに戻す %>
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ],
+          "conditions": [
+            <%= variable_if(["press_period_key"], [1]) %>,
+            <%= input_source_if("ja") %>
           ]
         },
         {
