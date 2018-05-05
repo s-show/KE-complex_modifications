@@ -40,7 +40,7 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">1</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#two_stroke_keybind(Emacs like)">Two Stroke Keybind</a></li><li class="list-group-item"><span class="badge">1</span><a href="#enthumble(Windows App) mode">enthumble(Windows App) mode</a></li><li class="list-group-item"><span class="badge">1</span><a href="#JIS_keyboard settings">JIS Keyboard Settings</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">1</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#two_stroke_keybind(Emacs like)">Two Stroke Keybind</a></li><li class="list-group-item"><span class="badge">1</span><a href="#enthumble(Windows App) mode">enthumble(Windows App) mode</a></li><li class="list-group-item"><span class="badge">1</span><a href="#JIS_keyboard settings">JIS Keyboard Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#Mouse Emulation">Mouse Emulation</a></li></ul>
       <div class="text-left" style="margin-bottom: 30px">
         <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
         <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
@@ -666,6 +666,54 @@
   JISキーボードの全角/半角キーをIMEのON/OFF切り替えキーに変換。
 </p>
 
+
+
+
+</div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+      <div class="panel panel-primary" id="Mouse Emulation">
+        <div class="panel-heading">
+          <h3 class="panel-title">Mouse Emulation</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#mouse_emulation" aria-expanded="false" aria-controls="mouse_emulation">Operate mouse with keyboard</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/mouse_emulation.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="mouse_emulation">
+          <div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  left ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)
+</p>
+
+<ul>
+  <li>左ctrlと左shiftを同時押し + H, J, K, L でホイールスクロール（左、下、上、右スクロール）</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  left ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)
+</p>
+
+<ul>
+  <li>左ctrlと左shiftを同時押し + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  left ctrl-shift + spacebar -> mouse left click
+</p>
+
+<ul>
+  <li>左ctrlと左shiftを同時押し + スペースキーでマウスクリック</li>
+  <li>スペースキーを押したままカーソルキーでマウスを移動するとドラッグ操作になる</li>
+</ul>
 
 
 
