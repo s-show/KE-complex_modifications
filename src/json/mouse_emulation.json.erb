@@ -5,6 +5,10 @@
   "rules": [
     {
       "description": "left ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)",
+      "extra_descriptions": [
+        "左ctrlと左shiftを同時押し + H, J, K, L でホイールスクロール（左、下、上、右スクロール）"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         <%=
           types = ""
@@ -55,6 +59,10 @@
     },
     {
       "description": "left ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)",
+      "extra_descriptions": [
+        "左ctrlと左shiftを同時押し + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         <%=
           types = ""
@@ -106,6 +114,11 @@
     },
     {
       "description": "left ctrl-shift + spacebar -> mouse left click",
+      "extra_descriptions": [
+        "左ctrlと左shiftを同時押し + スペースキーでマウスクリック",
+        "スペースキーを押したままカーソルキーでマウスを移動するとドラッグ操作になる"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
