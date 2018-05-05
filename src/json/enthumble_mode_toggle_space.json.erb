@@ -4,7 +4,7 @@
   "make_extra_description": true,
   "rules": [
     {
-      "description": "(enthumble / toggle 'Space') HJKL Mode / vi like",
+      "description": "(enthumble / toggle 'Space') Space + 「HJKL」 Mode / vi like",
       "extra_descriptions": [
         "スペース + H, J, K, L -> カーソル移動（←, ↓, ↑, →）",
         "スペース 単独 -> スペースキー"
@@ -17,24 +17,13 @@
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["any"],
                                 to_if_alone: ["spacebar"],
-                                conditions: [
-                                  {
-                                    "type": "device_unless",
-                                    "identifiers": [
-                                      {
-                                        "vendor_id": 1455,
-                                        "product_id": 4131
-                                      }
-                                    ]
-                                  }
-                                ],
                                 as_lazy: true
                               )
         manipulators += each_key(
                                 source_keys_list: ["h", "j", "k", "l"],
                                 dest_keys_list: ["left_arrow", "down_arrow", "up_arrow", "right_arrow"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["shift", "control", "caps_lock"],
+                                from_optional_modifiers: ["shift", "control", "caps_lock"]
                               )
         JSON.generate(manipulators)
       %>
@@ -53,17 +42,6 @@
                                 dest_keys_list: ["fn"],
                                 from_optional_modifiers: ["caps_lock"],
                                 to_if_alone: ["spacebar"],
-                                conditions: [
-                                  {
-                                    "type": "device_unless",
-                                    "identifiers": [
-                                      {
-                                        "vendor_id": 1455,
-                                        "product_id": 4131
-                                      }
-                                    ]
-                                  }
-                                ],
                                 as_lazy: true
                               )
         manipulators += each_key(
@@ -76,25 +54,190 @@
       %>
     },
     {
-      "description": "(enthumble / toggle 'Space') スペース + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
+      "description": "(enthumble / toggle 'Space') Space +「N,M/',' '.'」で「BackSpace/Delete」",
+      "extra_descriptions": [
+        "無変換/英数 + N, M -> BackSpace",
+        "無変換/英数 + ',' '.' -> Delete",
+        "'FBNP Mode'と併用すると、'無変換/英数 + N'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["n", "m", "comma", "period"],
+                                dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space +「Y,U/I,O」で「BackSpace/Delete」",
+      "extra_descriptions": [
+        "無変換/英数 + Y, U -> BackSpace",
+        "無変換/英数 + I, O -> Delete",
+        "'IJKL Mode'と併用すると、'無変換/英数  + I'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["y", "u", "i", "o"],
+                                dest_keys_list: ["delete_or_backspace", "delete_or_backspace", "delete_forward", "delete_forward"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space +「C,X,V」で「Copy,Cut,Paste」",
+      "extra_descriptions": [
+        "無変換/英数 + C,X,V -> Copy,Cut,Paste"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["c", "x", "v"],
+                                dest_keys_list: ["c", "x", "v"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["command"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space +「S,O」で「Save,Open」",
+      "extra_descriptions": [
+        "無変換/英数 + S,O -> Save,Open"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["s", "o"],
+                                dest_keys_list: ["s", "o"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["command"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space +「A,E」で「Ctrl-A, Ctrl-E」",
+      "extra_descriptions": [
+        "無変換/英数 + A,E -> Ctrl-A, Ctrl-E"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["a", "e"],
+                                dest_keys_list: ["a", "e"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["control"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space +「[」で「Escape」",
+      "extra_descriptions": [
+        "無変換/英数 + [ -> Escape"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["close_bracket"],
+                                dest_keys_list: ["escape"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["control"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'space') Space + 「1 - 10, -, ^」で「F1 - F12」",
+      "extra_descriptions": [
+        "Space + 1 -10, -, ^ -> F1 - F12"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "hyphen", "equal_sign"],
+                                dest_keys_list: ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble / toggle 'Space') Space + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力",
       "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
           "from": <%= from("spacebar", [], ["any"]) %>,
           "to": <%= to(["fn"]) %>,
-          "to_if_alone": <%= to(["spacebar"]) %>,
-          "conditions": [
-            {
-              "type": "device_unless",
-              "identifiers": [
-                {
-                  "vendor_id": 1455,
-                  "product_id": 4131
-                }
-              ]
-            }
-          ]
+          "to_if_alone": <%= to(["spacebar"]) %>
         },
         {
           "type": "basic",
