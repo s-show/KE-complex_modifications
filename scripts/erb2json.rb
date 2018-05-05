@@ -535,6 +535,24 @@ def input_source_unless(input_source_aliases, as_json=true)
   input_source('input_source_unless', input_source_aliases, as_json)
 end
 
+# @return [Hash] { "key_code": ".", "modifiers": { "mandatory": [ "..." ], "optional": [ "..." ] } }
+# @example
+#   <%= from("e", ["command"], ["any"]) %>
+#   <%= from("delete_forward", [], ["any"]) %>
+#   <%= from("keypad_period") %>
+def mouse_key(type, value, as_json=true)
+  unless type.empty?
+    data = {
+      "mouse_key" => {
+        type => value
+      }
+    }
+  else
+    $stderr << "type empty.\n"
+  end
+  make_data(data, as_json)
+end
+
 number_letters = ("1".."9").to_a
 alphabet_letters = ("a".."z").to_a
 other_letters = ["spacebar", "hyphen", "equal_sign", "open_bracket", "close_bracket", "backslash", "non_us_pound", "semicolon", "quote", "grave_accent_and_tilde", "comma", "period", "slash"]
