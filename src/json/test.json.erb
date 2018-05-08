@@ -267,7 +267,7 @@
       ]
     },
     {
-      "description": "Escapeキー長押しでAlfred起動、普通に押したらメニューバーにフォーカスを当てる",
+      "description": "Escapeキー長押しでAlfred起動",
       "manipulators": [
         {
           "type": "basic",
@@ -275,6 +275,18 @@
           "to_if_alone": <%= to(["escape"]) %>,
           "to_if_held_down": [
             { "shell_command": "open -a 'Alfred 3.app'" }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "マウステスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("7", ["left_option"], ["caps_lock"]) %>,
+          "to": [
+            { "mouse_key": {"x": -960} }
           ]
         }
       ]
