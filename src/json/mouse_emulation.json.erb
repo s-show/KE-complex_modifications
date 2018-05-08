@@ -4,36 +4,20 @@
   "make_extra_description": true,
   "rules": [
     {
-      "description": "left ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)",
+      "description": "left_ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + H, J, K, L でホイールスクロール（左、下、上、右スクロール）"
+        "左control-shift + H, J, K, L でホイールスクロール（左、下、上、右スクロール）"
       ],
       "extra_description_level": 1,
       "manipulators": [
         <%=
           types = ""
-          types += "{
-            \"type\": \"basic\",
-            \"from\": {
-              \"simultaneous\": [
-                { \"key_code\": \"left_control\" },
-                { \"key_code\": \"left_shift\" }
-              ]
-            },
-            \"to\": [
-              #{set_variable(["mouse_mode"], [1])}
-            ],
-            \"to_after_key_up\": [
-              #{set_variable(["mouse_mode"], [0])}
-            ]
-          },"
-          
-          # control-xの次にタイプするキーを指定する
+          # 変換したいキーを指定する
           from_keys = [
             "h", "j", "k", "l"
           ]
 
-          # 変換後の組み合わせなどを指定する
+          # 変換後の組み合わせを指定する
           to_keys = [
             ["horizontal_wheel", 64],
             ["vertical_wheel", 64],
@@ -44,12 +28,9 @@
           from_keys.each_with_index do |from_key, index|
             types += "{
               \"type\": \"basic\",
-              \"from\": #{from(from_key)},
+              \"from\": #{from(from_key, ["left_control", "left_shift"], ["caps_lock"])},
               \"to\": [
                 #{mouse_key(to_keys[index][0], to_keys[index][1])}
-              ],
-              \"conditions\": [
-                #{variable_if(["mouse_mode"], [1])}
               ]
             },"
           end
@@ -58,36 +39,20 @@
       ]
     },
     {
-      "description": "left ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)",
+      "description": "left_ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）"
+        "左control-shift + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）"
       ],
       "extra_description_level": 1,
       "manipulators": [
         <%=
           types = ""
-          types += "{
-            \"type\": \"basic\",
-            \"from\": {
-              \"simultaneous\": [
-                { \"key_code\": \"left_control\" },
-                { \"key_code\": \"left_shift\" }
-              ]
-            },
-            \"to\": [
-              #{set_variable(["mouse_mode"], [1])}
-            ],
-            \"to_after_key_up\": [
-              #{set_variable(["mouse_mode"], [0])}
-            ]
-          },"
-          
-          # control-xの次にタイプするキーを指定する
+          # 変換したいキーを指定する
           from_keys = [
             "left_arrow", "up_arrow", "down_arrow", "right_arrow"
           ]
 
-          # 変換後の組み合わせなどを指定する
+          # 変換後の組み合わせを指定する
           to_keys = [
             ["x", -960],
             ["y", -960],
@@ -98,12 +63,9 @@
           from_keys.each_with_index do |from_key, index|
             types += "{
               \"type\": \"basic\",
-              \"from\": #{from(from_key)},
+              \"from\": #{from(from_key, ["left_control", "left_shift"], ["caps_lock"])},
               \"to\": [
                 #{mouse_key(to_keys[index][0], to_keys[index][1])}
-              ],
-              \"conditions\": [
-                #{variable_if(["mouse_mode"], [1])}
               ]
             },"
           end
@@ -115,31 +77,14 @@
     {
       "description": "left ctrl-shift + spacebar -> mouse left click",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + スペースキーでマウスクリック",
+        "左control-shift + スペースキーでマウスクリック",
         "スペースキーを押したままカーソルキーでマウスを移動するとドラッグ操作になる"
       ],
       "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
-          "from": {
-            "simultaneous": [
-              { "key_code": "left_control" },
-              { "key_code": "left_shift" }
-            ]
-          },
-          "to": [
-            <%= set_variable(["mouse_mode"], [1]) %>
-          ],
-          "to_after_key_up": [
-            <%= set_variable(["mouse_mode"], [0]) %>
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar"
-          },
+          "from": <%= from("spacebar", ["left_control", "left_shift"], ["caps_lock"]) %>,
           "to": [
             { "pointing_button": "button1" }
           ],

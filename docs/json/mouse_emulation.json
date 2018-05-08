@@ -4,45 +4,25 @@
   "make_extra_description": true,
   "rules": [
     {
-      "description": "left ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)",
+      "description": "left_ctrl-shift + hjkl -> mouse_wheel scroll (left/down/up/right)",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + H, J, K, L でホイールスクロール（左、下、上、右スクロール）"
+        "左control-shift + H, J, K, L でホイールスクロール（左、下、上、右スクロール）"
       ],
       "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "simultaneous": [
-              {
-                "key_code": "left_control"
-              },
-              {
-                "key_code": "left_shift"
-              }
-            ]
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 1
-              }
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
             }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 0
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h"
           },
           "to": [
             {
@@ -50,19 +30,21 @@
                 "horizontal_wheel": 64
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "j"
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
@@ -70,19 +52,21 @@
                 "vertical_wheel": 64
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "k"
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
@@ -90,19 +74,21 @@
                 "vertical_wheel": -64
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "l"
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
@@ -110,57 +96,30 @@
                 "horizontal_wheel": -64
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         }
       ]
     },
     {
-      "description": "left ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)",
+      "description": "left_ctrl-shift + ←↑↓→ -> mouse_corsor move (left/up/down/right)",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）"
+        "左control-shift + カーソルキーでマウスカーソル移動（左、下、上、右へ移動）"
       ],
       "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "simultaneous": [
-              {
-                "key_code": "left_control"
-              },
-              {
-                "key_code": "left_shift"
-              }
-            ]
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 1
-              }
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
             }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 0
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_arrow"
           },
           "to": [
             {
@@ -168,19 +127,21 @@
                 "x": -960
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "up_arrow"
+            "key_code": "up_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
@@ -188,19 +149,21 @@
                 "y": -960
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "down_arrow"
+            "key_code": "down_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
@@ -208,32 +171,27 @@
                 "y": 960
               }
             }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
-            }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "right_arrow"
+            "key_code": "right_arrow",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
           },
           "to": [
             {
               "mouse_key": {
                 "x": 960
               }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mouse_mode",
-              "value": 1
             }
           ]
         }
@@ -242,7 +200,7 @@
     {
       "description": "left ctrl-shift + spacebar -> mouse left click",
       "extra_descriptions": [
-        "左ctrlと左shiftを同時押し + スペースキーでマウスクリック",
+        "左control-shift + スペースキーでマウスクリック",
         "スペースキーを押したままカーソルキーでマウスを移動するとドラッグ操作になる"
       ],
       "extra_description_level": 1,
@@ -250,36 +208,16 @@
         {
           "type": "basic",
           "from": {
-            "simultaneous": [
-              {
-                "key_code": "left_control"
-              },
-              {
-                "key_code": "left_shift"
-              }
-            ]
-          },
-          "to": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 1
-              }
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
             }
-          ],
-          "to_after_key_up": [
-            {
-              "set_variable": {
-                "name": "mouse_mode",
-                "value": 0
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar"
           },
           "to": [
             {
