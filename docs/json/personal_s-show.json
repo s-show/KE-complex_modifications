@@ -1095,7 +1095,7 @@
       ]
     },
     {
-      "description": "Quit application by holding command-q(1000ms)",
+      "description": "Quit application by double type command-q",
       "manipulators": [
         {
           "type": "basic",
@@ -1110,16 +1110,72 @@
               ]
             }
           },
-          "parameters": {
-            "basic.to_if_held_down_threshold_milliseconds": 1000
-          },
-          "to_if_held_down": [
+          "to": [
             {
               "key_code": "q",
               "modifiers": [
                 "command"
+              ]
+            },
+            {
+              "set_variable": {
+                "name": "press_command_q",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_command_q",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "command"
               ],
-              "repeat": false
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_command_q",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_command_q",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_command_q",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_command_q",
+              "value": 0
             }
           ]
         }

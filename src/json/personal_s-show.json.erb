@@ -420,22 +420,38 @@
       ]
     },
     {
-      "description": "Quit application by holding command-q(1000ms)",
+      "description": "Quit application by double type command-q",
       "manipulators": [
         {
           "type": "basic",
           "from": <%= from("q", ["command"], ["caps_lock"]) %>,
-          "parameters": {
-              "basic.to_if_held_down_threshold_milliseconds": 1000
-          },
-          "to_if_held_down":[
+          "to": [
             {
               "key_code": "q",
-              "modifiers": [
-                "command"
-              ],
-              "repeat": false
-            }
+              "modifiers": [ "command" ]
+            },
+            <%= set_variable(["press_command_q"], [0]) %>
+          ],
+          "conditions": [
+            <%= variable_if(["press_command_q"], [1]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("q", ["command"], ["caps_lock"]) %>,
+          "to": [
+            <%= set_variable(["press_command_q"], [1]) %>
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              <%= set_variable(["press_command_q"], [0]) %>
+            ],
+            "to_if_canceled": [
+              <%= set_variable(["press_command_q"], [0]) %>
+            ]
+          },
+          "conditions": [
+            <%= variable_if(["press_command_q"], [0]) %>
           ]
         }
       ]
