@@ -783,11 +783,11 @@
       ]
     },
     {
-      "description": "(enthumble) 無変換/英数 + 「Y,U/I,O」で「BackSpace/Delete」",
+      "description": "(enthumble) 無変換/英数 + 「H,D」で「BackSpace/Delete」",
       "extra_descriptions": [
-        "無変換/英数 + Y, U -> BackSpace",
-        "無変換/英数 + I, O -> Delete",
-        "'IJKL Mode'と併用すると、'無変換/英数  + I'はカーソル移動になります。"
+        "無変換/英数 + H -> BackSpace",
+        "無変換/英数 + D -> Delete",
+        "'HJKL Mode'と併用すると、'無変換/英数 + H'はカーソル移動になります。"
       ],
       "extra_description_level": 1,
       "manipulators": [
@@ -838,7 +838,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "y",
+            "key_code": "h",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -857,7 +857,81 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "u",
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「H,D」で「BackSpace/Delete」",
+      "extra_descriptions": [
+        "無変換/英数 + H -> BackSpace",
+        "無変換/英数 + D -> Delete",
+        "'HJKL Mode'と併用すると、'無変換/英数 + H'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "lang2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -876,7 +950,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "i",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -891,11 +965,66 @@
               "key_code": "delete_forward"
             }
           ]
+        }
+      ]
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「a, e」で「ctrl-a/ctrl-e」",
+      "extra_descriptions": [
+        "無変換/英数 + A -> Ctrl-A",
+        "無変換/英数 + E -> Ctrl-E",
+        "'WASD Mode'と併用すると、'無変換/英数  + A'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "lang2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -907,7 +1036,107 @@
           },
           "to": [
             {
-              "key_code": "delete_forward"
+              "key_code": "a",
+              "modifiers": [
+                "ctrl"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "ctrl"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「z」で「command-z」",
+      "extra_descriptions": [
+        "無変換/英数 + Z -> Command-Z"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "lang2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "command"
+              ]
             }
           ]
         }
