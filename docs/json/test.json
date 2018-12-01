@@ -531,7 +531,241 @@
               {
                 "key_code": "f"
               }
+            ]
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Alfred 3.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "S,D同時押しで左矢印（detect_key_down_uninterruptedly=true）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "s"
+              },
+              {
+                "key_code": "d"
+              }
             ],
+            "simultaneous_options": {
+              "detect_key_down_uninterruptedly": true
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "F,R同時押しで上矢印（key_down_order=strict_inverse）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "f"
+              },
+              {
+                "key_code": "r"
+              }
+            ],
+            "simultaneous_options": {
+              "key_down_order": "strict_inverse"
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "J,K同時押しで下矢印（key_up_order=strict_inverse）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "j"
+              },
+              {
+                "key_code": "k"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_order": "strict_inverse"
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "J,K同時押しで下矢印（key_up_order=insensitive）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "j"
+              },
+              {
+                "key_code": "k"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_order": "insensitive"
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "J,K同時押しで下矢印（key_up_order=strict）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "j"
+              },
+              {
+                "key_code": "k"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_order": "strict"
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "テンキーの0,-同時押しでBackSpace（key_up_when=all）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "keypad_0"
+              },
+              {
+                "key_code": "keypad_hyphen"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_when": "all"
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "テンキーの0,-同時押しでBackSpace（key_up_when=any）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "keypad_0"
+              },
+              {
+                "key_code": "keypad_hyphen"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_when": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "テンキーの0,*同時押しでフラグを立てる",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "keypad_0"
+              },
+              {
+                "key_code": "keypad_asterisk"
+              }
+            ],
+            "simultaneous_options": {
+              "to_after_key_up": [
+                {
+                  "set_variable": {
+                    "name": "hogehoge",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "hogehoge",
+                "value": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "to_if_aloneとto_after_key_upの発火順を確認する",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_gui",
             "modifiers": {
               "optional": [
                 "any"
@@ -540,7 +774,65 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Alfred 3.app'"
+              "key_code": "left_gui"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "F1",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "F2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "control"
+              ]
             }
           ]
         }
