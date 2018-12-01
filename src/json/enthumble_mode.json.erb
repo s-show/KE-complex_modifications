@@ -419,7 +419,7 @@
                                 source_keys_list: ["a", "e"],
                                 dest_keys_list: ["a", "e"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["caps_lock"],
+                                from_optional_modifiers: ["shift", "control", "caps_lock"],
                                 to_modifiers: ["control"]
                               )
         JSON.generate(manipulators)
@@ -453,6 +453,38 @@
                                 from_mandatory_modifiers: ["fn"],
                                 from_optional_modifiers: ["caps_lock"],
                                 to_modifiers: ["control"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「t」で「Command+Tab」",
+      "extra_descriptions": [
+        "無変換/英数 + T  -> Command + Tab"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["international5"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["lang2"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["japanese_eisuu"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["t"],
+                                dest_keys_list: ["tab"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"],
+                                to_modifiers: ["command"]
                               )
         JSON.generate(manipulators)
       %>

@@ -1418,6 +1418,8 @@
                 "fn"
               ],
               "optional": [
+                "shift",
+                "control",
                 "caps_lock"
               ]
             }
@@ -1440,6 +1442,8 @@
                 "fn"
               ],
               "optional": [
+                "shift",
+                "control",
                 "caps_lock"
               ]
             }
@@ -1524,6 +1528,81 @@
               "key_code": "escape",
               "modifiers": [
                 "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "(enthumble) 無変換/英数 + 「t」で「Command+Tab」",
+      "extra_descriptions": [
+        "無変換/英数 + T  -> Command + Tab"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "international5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "lang2",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "command"
               ]
             }
           ]
