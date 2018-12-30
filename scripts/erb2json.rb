@@ -304,6 +304,11 @@ def frontmost_application(type, app_aliases, as_json=true)
   atom_bundle_identifiers = [
     '^com\.github\.atom$'
   ]
+  
+  # 自分が追加した。
+  coteditor_bundle_identifiers = [
+    'com\.coteditor\.CotEditor$'
+  ]
 
   # ----------------------------------------
 
@@ -383,6 +388,10 @@ def frontmost_application(type, app_aliases, as_json=true)
     # 自分が追加した。
     when 'atom'
       bundle_identifiers.concat(atom_bundle_identifiers)
+    
+    # 自分が追加した。
+    when 'coteditor'  
+      bundle_identifiers.concat(coteditor_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
