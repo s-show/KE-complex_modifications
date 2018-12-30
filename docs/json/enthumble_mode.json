@@ -1535,9 +1535,9 @@
       ]
     },
     {
-      "description": "(enthumble) 無変換/英数 + 「t」で「Command+Tab」",
+      "description": "(enthumble) 無変換/英数 + 「tab」で「Command+Tab」",
       "extra_descriptions": [
-        "無変換/英数 + T  -> Command + Tab"
+        "無変換/英数 + Tab  -> Command + Tab"
       ],
       "extra_description_level": 1,
       "manipulators": [
@@ -1588,7 +1588,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "t",
+            "key_code": "tab",
             "modifiers": {
               "mandatory": [
                 "fn"
