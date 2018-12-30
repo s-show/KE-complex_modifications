@@ -420,6 +420,45 @@
       ]
     },
     {
+      "description": "CotEditor(Pagedown/Pageup to Option-Pagedown/Pageup) (Windows like behavior.))",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("page_down", [], ["caps_lock"]) %>,
+          "to": <%= to([["page_down", ["option"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("coteditor") %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("page_up", [], ["caps_lock"]) %>,
+          "to": <%= to([["page_up", ["option"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("coteditor") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "simultaneous 'S', 'D' and 'F', Open 'Alfred'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "key_code": "s" },
+              { "key_code": "d" },
+              { "key_code": "f" }
+            ]
+          },
+          "to": [
+            { "shell_command": "open -a 'Alfred 3.app'" }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Quit application by double type command-q",
       "manipulators": [
         {

@@ -1092,6 +1092,91 @@
       ]
     },
     {
+      "description": "CotEditor(Pagedown/Pageup to Option-Pagedown/Pageup) (Windows like behavior.))",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_down",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.coteditor\\.CotEditor$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "page_up",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com\\.coteditor\\.CotEditor$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "simultaneous 'S', 'D' and 'F', Open 'Alfred'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "s"
+              },
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "f"
+              }
+            ]
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Alfred 3.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Quit application by double type command-q",
       "manipulators": [
         {
