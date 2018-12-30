@@ -47,6 +47,18 @@
       ]
     },
     {
+      "description": "ctrl-aキーの無効化（CotEditor限定）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("a", ["control"]) %>,
+          "conditions": [
+            <%= frontmost_application_if("coteditor") %>
+          ]
+        }
+      ]
+    },
+    {
       "description": "test lazy",
       "manipulators": [
         {
@@ -480,7 +492,7 @@
       ]
     },
     {
-      "description": "F1",
+      "description": "F1 -> ctrl+←",
       "manipulators": [
         {
           "type": "basic",
@@ -490,7 +502,7 @@
       ]
     },
     {
-      "description": "F2",
+      "description": "F2 -> ctrl+→",
       "manipulators": [
         {
           "type": "basic",
