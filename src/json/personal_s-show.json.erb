@@ -184,6 +184,19 @@
       ]
 		},
 		{
+			"description": "ATOM('control-d' to 'delete_key')",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("d", ["control"], ["caps_lock"]) %>,
+          "to": <%= to(["delete_forward"]) %>,
+          "conditions": [
+            <%= frontmost_application_if("atom") %>
+          ]
+        }
+      ]
+		},
+		{
 			"description": "Browser(F5 to command-R)",
 			<%# firefoxは最初から設定済み %>
       "extra_descriptions": [
@@ -453,7 +466,12 @@
             ]
           },
           "to": [
-            { "shell_command": "open -a 'Alfred 3.app'" }
+            { "shell_command": "open -a 'Alfred 3.app'" },
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
           ]
         }
       ]
