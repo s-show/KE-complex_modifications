@@ -863,6 +863,27 @@
       ]
     },
     {
+      "description": "lang2 + j -> vk_launchpad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "lang2"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_launchpad"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "command-Enter to Double Click",
       "comment": "cmd-enterをダブルクリックにしようとしたがうまくいかなかった",
       "manipulators": [
