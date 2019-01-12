@@ -5,6 +5,11 @@
   "rules": [
     {
       "description": "command-E Open Finder",
+      "extra_descriptions": [
+        "It achieves the same key binding as Windows",
+        "Windowsと同じキーバインドを実現"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
@@ -63,6 +68,11 @@
     },
     {
       "description": "Application_key(or shift-F10) to Right Click",
+      "extra_descriptions": [
+        "If you press the application key using this setting, the displayed context menu will correspond to the place where the mouse cursor is located.",
+        "この設定を利用してアプリケーションキーを押した場合、表示されるコンテキストメニューは、マウスカーソルがある場所に応じたものとなります。"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         {
           <%# Application_key to Right Click %>
@@ -85,45 +95,25 @@
       ]
     },
     {
-      "description": "PrintScreen_key Screenshot(full Screen)",
+      "description": "'Windows' like PrintScreen",
       "extra_descriptions": [
         "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
         "PrintScreen_key -> Screenshot",
-        "PrintScreen_key-p -> Screenshot and Preview",
+        "Option-PrintScreen -> Screenshot of the selected window",
         "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
-        "PrintScreenで、スクリーンショットの撮影（画面全体）のみ行います",
-        "PrintScreen-Pで、スクリーンショット（画面全体）を撮影した後プレビューします。"
+        "PrintScreenキーで画面全体のスクリーンショットを撮影します",
+        "Option-PrintScreenキーで、選択したウィンドウのスクリーンショットを撮影します"
       ],
       "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
           "from": <%= from("print_screen", [], ["caps_lock"]) %>,
-          "to": <%= to(["fn"]) %>,
-          <%# PrintScreenキー単独で押したときはスクリーンショット撮影のみ行う %>
-          "to_if_alone": <%= set_shell_command(["screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
+          "to": <%= set_shell_command(["screencapture ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>,
           "conditions": [
             <%= frontmost_application_unless("remote_desktop") %>
           ]
         },
-        {
-          "type": "basic",
-          "from": <%= from("p", ["fn"], ["caps_lock"]) %>,
-          <%# PrintScreenキー + Pキーで押したときは、スクリーンショットを撮影してプレビューする %>
-          "to": <%= set_shell_command(["screencapture -P ~/Desktop/screenshot-`date +%Y%m%d-%H%M%S`.png"]) %>
-        }
-      ]
-    },
-    {
-      "description": "Option-PrintScreen Screenshot(Select Window)",
-      "extra_descriptions": [
-        "Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss",
-        "option-PrintScreen -> Screenshot",
-        "スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます",
-        "option-PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います"
-      ],
-      "extra_description_level": 1,
-      "manipulators": [
         {
           "type": "basic",
           "from": <%= from("print_screen", ["option"], ["caps_lock"]) %>,
@@ -201,8 +191,9 @@
 			<%# firefoxは最初から設定済み %>
       "extra_descriptions": [
         "For Chrome, Safari",
-        "This setting is accomplished in Firefox from a beginning.",
-        "この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。"
+        "Firefox reloads the page with the F5 key by default, so it is excluded from the target application.",
+        "この設定はChromeとSafari用です。",
+        "Firefoxは、デフォルトでF5キーでページをリロードしますので、対象アプリから除外しています。"
       ],
 			"manipulators": [
 				{
@@ -220,8 +211,9 @@
 			<%# firefoxは最初から設定済み %>
       "extra_descriptions": [
         "For Chrome, Safari",
-        "This setting is accomplished in Firefox from a beginning.",
-        "この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。"
+        "Firefox is excluded from the target application because the homepage is displayed by Option-Home by default.",
+        "この設定はChromeとSafari用です。",
+        "Firefoxは、デフォルトでOption-Homeでホームページが表示されるため、対象アプリから除外しています。"
       ],
 			"manipulators": [
 				{
@@ -261,7 +253,8 @@
 		{
 			"description": "Chrome(command-L send command-L, Japanese_eisuu)",
       "extra_descriptions": [
-        "The Japanese hardly inputs Japanese in an address bar."
+        "Since URL input is almost not done with Japanese input, turn IME off when you move to the URL bar.",
+        "URL入力では日本語入力をほぼ行わないため、URLバーに移動したらIMEをオフにします。"
       ],
 			<%# URL入力で日本語を入力する機会はほとんどないため %>
 			<%# CapsLockがONでも変換する %>
@@ -408,6 +401,10 @@
     },
     {
       "description": "Finder(middle click to command-t)",
+      "extra_descriptions": [
+        "It achieves the same key binding as Windows",
+        "Windowsと同じキーバインドを実現"
+      ],
       "manipulators": [
         {
           "type": "basic",
@@ -421,6 +418,10 @@
     },
     {
       "description": "Finder(option-Enter to command-I (Show the Get Info window for a selected file.))",
+      "extra_descriptions": [
+        "It achieves the same key binding as Windows",
+        "Windowsと同じキーバインドを実現"
+      ],
       "manipulators": [
         {
           "type": "basic",
@@ -454,7 +455,8 @@
       ]
     },
     {
-      "description": "simultaneous 'S', 'D' and 'F', Open 'Alfred'",
+      "description": "Simultaneous 'S', 'D' and 'F', Open 'Alfred'. And IME OFF.",
+      "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",
@@ -477,7 +479,50 @@
       ]
     },
     {
+      "description": "Simultaneous 'D' and 'F' IME Off, 'J', 'K' IME On",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "key_code": "d" },
+              { "key_code": "f" }
+            ]
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "key_code": "j" },
+              { "key_code": "k" }
+            ]
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Quit application by double type command-q",
+      "extra_descriptions": [
+        "Misoperation prevention",
+        "誤操作防止のための設定"
+      ],
+      "extra_description_level": 1,
       "manipulators": [
         {
           "type": "basic",

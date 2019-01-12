@@ -40,7 +40,7 @@
 
       
 
-      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">1</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#two_stroke_keybind(Emacs like)">Two Stroke Keybind</a></li><li class="list-group-item"><span class="badge">1</span><a href="#enthumble(Windows App) mode">enthumble(Windows App) mode</a></li><li class="list-group-item"><span class="badge">1</span><a href="#JIS_keyboard settings">JIS Keyboard Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#Mouse Emulation">Mouse Emulation</a></li></ul>
+      <ul class="toc list-group"><li class="list-group-item list-group-item-info">Table of Contents</li><li class="list-group-item"><span class="badge">1</span><a href="#personal_settings">Personal Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#two_stroke_keybind(Emacs like)">Two Stroke Keybind</a></li><li class="list-group-item"><span class="badge">1</span><a href="#enthumble(Windows App) mode">enthumble(Windows App) mode</a></li><li class="list-group-item"><span class="badge">1</span><a href="#enthumble(Windows App) mode with toggle 'Spacebar">enthumble(Windows App) mode with toggle 'Spacebar.'</a></li><li class="list-group-item"><span class="badge">1</span><a href="#JIS_keyboard settings">JIS Keyboard Settings</a></li><li class="list-group-item"><span class="badge">1</span><a href="#Mouse Emulation">Mouse Emulation</a></li></ul>
       <div class="text-left" style="margin-bottom: 30px">
         <a href="javascript:$('.collapse').collapse('show')">Expand All</a> |
         <a href="javascript:$('.collapse').collapse('hide')">Collapse All</a>
@@ -61,15 +61,12 @@
   command-E Open Finder
 </p>
 
+<ul>
+  <li>It achieves the same key binding as Windows</li>
+  <li>Windowsと同じキーバインドを実現</li>
+</ul>
 
 
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td>command-e</td>
-    <td>shell_command: open -a 'finder'</td>
-  </tr>
-</table>
 
 <p style="margin-top: 20px; font-weight: bold">
   control-Esc Open LaunchPad
@@ -121,44 +118,24 @@
   Application_key(or shift-F10) to Right Click
 </p>
 
-
-
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td>application</td>
-    <td>button2</td>
-  </tr>
-  <tr>
-    <td>shift-f10</td>
-    <td>button2</td>
-  </tr>
-</table>
-
-<p style="margin-top: 20px; font-weight: bold">
-  PrintScreen_key Screenshot(full Screen)
-</p>
-
 <ul>
-  <li>Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss</li>
-  <li>PrintScreen_key -> Screenshot</li>
-  <li>PrintScreen_key-p -> Screenshot and Preview</li>
-  <li>スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます</li>
-  <li>PrintScreenで、スクリーンショットの撮影（画面全体）のみ行います</li>
-  <li>PrintScreen-Pで、スクリーンショット（画面全体）を撮影した後プレビューします。</li>
+  <li>If you press the application key using this setting, the displayed context menu will correspond to the place where the mouse cursor is located.</li>
+  <li>この設定を利用してアプリケーションキーを押した場合、表示されるコンテキストメニューは、マウスカーソルがある場所に応じたものとなります。</li>
 </ul>
 
 
 
 <p style="margin-top: 20px; font-weight: bold">
-  Option-PrintScreen Screenshot(Select Window)
+  'Windows' like PrintScreen
 </p>
 
 <ul>
   <li>Screenshot save in ~/Desktop/screenshot-yyyymmdd-hhmmss</li>
-  <li>option-PrintScreen -> Screenshot</li>
+  <li>PrintScreen_key -> Screenshot</li>
+  <li>Option-PrintScreen -> Screenshot of the selected window</li>
   <li>スクリーンショットは、'~/Desktop/screenshot-yyyymmdd-hhmmss'というファイル名で保存されます</li>
-  <li>option-PrintScreenで、スクリーンショット（ウィンドウ選択モード）の撮影のみ行います</li>
+  <li>PrintScreenキーで画面全体のスクリーンショットを撮影します</li>
+  <li>Option-PrintScreenキーで、選択したウィンドウのスクリーンショットを撮影します</li>
 </ul>
 
 
@@ -239,8 +216,9 @@
 
 <ul>
   <li>For Chrome, Safari</li>
-  <li>This setting is accomplished in Firefox from a beginning.</li>
-  <li>この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。</li>
+  <li>Firefox reloads the page with the F5 key by default, so it is excluded from the target application.</li>
+  <li>この設定はChromeとSafari用です。</li>
+  <li>Firefoxは、デフォルトでF5キーでページをリロードしますので、対象アプリから除外しています。</li>
 </ul>
 
 
@@ -258,8 +236,9 @@
 
 <ul>
   <li>For Chrome, Safari</li>
-  <li>This setting is accomplished in Firefox from a beginning.</li>
-  <li>この設定はChromeとSafari用です。FirefoxはF5キーで更新する初期設定になっています。</li>
+  <li>Firefox is excluded from the target application because the homepage is displayed by Option-Home by default.</li>
+  <li>この設定はChromeとSafari用です。</li>
+  <li>Firefoxは、デフォルトでOption-Homeでホームページが表示されるため、対象アプリから除外しています。</li>
 </ul>
 
 
@@ -297,7 +276,8 @@
 </p>
 
 <ul>
-  <li>The Japanese hardly inputs Japanese in an address bar.</li>
+  <li>Since URL input is almost not done with Japanese input, turn IME off when you move to the URL bar.</li>
+  <li>URL入力では日本語入力をほぼ行わないため、URLバーに移動したらIMEをオフにします。</li>
 </ul>
 
 
@@ -374,6 +354,10 @@
   Finder(middle click to command-t)
 </p>
 
+<ul>
+  <li>It achieves the same key binding as Windows</li>
+  <li>Windowsと同じキーバインドを実現</li>
+</ul>
 
 
 <table class="table">
@@ -388,6 +372,10 @@
   Finder(option-Enter to command-I (Show the Get Info window for a selected file.))
 </p>
 
+<ul>
+  <li>It achieves the same key binding as Windows</li>
+  <li>Windowsと同じキーバインドを実現</li>
+</ul>
 
 
 <table class="table">
@@ -417,36 +405,29 @@
 </table>
 
 <p style="margin-top: 20px; font-weight: bold">
-  simultaneous 'S', 'D' and 'F', Open 'Alfred'
+  Simultaneous 'S', 'D' and 'F', Open 'Alfred'. And IME OFF.
 </p>
 
 
 
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td></td>
-    <td>shell_command: open -a 'Alfred 3.app'</td>
-  </tr>
-</table>
+
+<p style="margin-top: 20px; font-weight: bold">
+  Simultaneous 'D' and 'F' IME Off, 'J', 'K' IME On
+</p>
+
+
+
 
 <p style="margin-top: 20px; font-weight: bold">
   Quit application by double type command-q
 </p>
 
+<ul>
+  <li>Misoperation prevention</li>
+  <li>誤操作防止のための設定</li>
+</ul>
 
 
-<table class="table">
-  <captions>Key bindings</captions>
-  <tr>
-    <td>command-q</td>
-    <td>command-q, set_variable: {"name"=>"press_command_q", "value"=>0}</td>
-  </tr>
-  <tr>
-    <td>command-q</td>
-    <td>set_variable: {"name"=>"press_command_q", "value"=>1}</td>
-  </tr>
-</table>
 
 </div>
       </div>
@@ -577,30 +558,6 @@
 
 
 <p style="margin-top: 20px; font-weight: bold">
-  (enthumble) 無変換/英数 + 「H,D」で「BackSpace/Delete」
-</p>
-
-<ul>
-  <li>無変換/英数 + H -> BackSpace</li>
-  <li>無変換/英数 + D -> Delete</li>
-  <li>'HJKL Mode'と併用すると、'無変換/英数 + H'はカーソル移動になります。</li>
-</ul>
-
-
-
-<p style="margin-top: 20px; font-weight: bold">
-  (enthumble) 無変換/英数 + 「a, e」で「ctrl-a/ctrl-e」
-</p>
-
-<ul>
-  <li>無変換/英数 + A -> Ctrl-A</li>
-  <li>無変換/英数 + E -> Ctrl-E</li>
-  <li>'WASD Mode'と併用すると、'無変換/英数  + A'はカーソル移動になります。</li>
-</ul>
-
-
-
-<p style="margin-top: 20px; font-weight: bold">
   (enthumble) 無変換/英数 + 「z」で「command-z」
 </p>
 
@@ -695,6 +652,172 @@
   <li>無変換/英数  -> IME OFF</li>
   <li>変換/かな -> IME ON</li>
   <li>この設定は、その他の(enthumble)設定より下位に設定すること。上位に設定すると、その他の(enthumble)設定が作動しなくなる。</li>
+</ul>
+
+
+
+</div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+      <div class="panel panel-primary" id="enthumble(Windows App) mode with toggle 'Spacebar">
+        <div class="panel-heading">
+          <h3 class="panel-title">enthumble(Windows App) mode with toggle 'Spacebar.'</h3>
+        </div>
+        <div class="panel-body">
+              <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="panel-title btn btn-link" role="button" data-toggle="collapse" href="#enthumble_mode_toggle_space" aria-expanded="false" aria-controls="enthumble_mode_toggle_space">enthumble(Windows App) Mode toggle &#39;Space&#39;</a>
+        <a class="btn btn-primary btn-sm pull-right" data-json-path="json/enthumble_mode_toggle_space.json">Import</a>
+      </div>
+      <div class="list-group collapse" id="enthumble_mode_toggle_space">
+          <div class="list-group-item"><p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 「HJKL」 Mode / vi like
+</p>
+
+<ul>
+  <li>スペース + H, J, K, L -> カーソル移動（←, ↓, ↑, →）</li>
+  <li>スペース 単独 -> スペースキー</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 「WASD」 Mode / FPS like
+</p>
+
+<ul>
+  <li>スペース + A, S, W, D -> カーソル移動（←, ↓, ↑, →）</li>
+  <li>スペース 単独 -> スペースキー</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 「IJKL」 Mode / Normal Mode like
+</p>
+
+<ul>
+  <li>スペース + I, J, K, L -> カーソル移動（←, ↓, ↑, →）</li>
+  <li>スペース 単独 -> スペースキー</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 「FBNP」 Mode / Emacs like
+</p>
+
+<ul>
+  <li>スペース + F, B, N, P -> カーソル移動（←, ↓, ↑, →）</li>
+  <li>スペース 単独 -> スペースキー</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 「R/E」で「Return/Escape」
+</p>
+
+<ul>
+  <li>スペース + R/E -> Enter/Escape</li>
+  <li>'thumb IME'より下位に設定すると、'スペース + かな'はIMEオンになります。</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「N,M/',' '.'」で「BackSpace/Delete」
+</p>
+
+<ul>
+  <li>Spacebar + N, M -> BackSpace</li>
+  <li>Spacebar + ',' '.' -> Delete</li>
+  <li>'FBNP Mode'と併用すると、'Spacebar + N'はカーソル移動になります。</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「Y,U/I,O」で「BackSpace/Delete」
+</p>
+
+<ul>
+  <li>Spacebar + Y, U -> BackSpace</li>
+  <li>Spacebar + I, O -> Delete</li>
+  <li>'IJKL Mode'と併用すると、'Spacebar  + I'はカーソル移動になります。</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「C,X,V」で「Copy,Cut,Paste」
+</p>
+
+<ul>
+  <li>Spacebar + C,X,V -> Copy,Cut,Paste</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「S,O」で「Save,Open」
+</p>
+
+<ul>
+  <li>Spacebar + S,O -> Save,Open</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「A,E」で「Ctrl-A, Ctrl-E」
+</p>
+
+<ul>
+  <li>Spacebar + A,E -> Ctrl-A, Ctrl-E</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「[」で「Escape」
+</p>
+
+<ul>
+  <li>Spacebar + [ -> Escape</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space +「tab」で「Command + Tab」
+</p>
+
+<ul>
+  <li>Spacebar + Tab -> Command + Tab</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'space') Space + 「1 - 10, -, ^」で「F1 - F12」
+</p>
+
+<ul>
+  <li>Space + 1 -10, -, ^ -> F1 - F12</li>
+</ul>
+
+
+
+<p style="margin-top: 20px; font-weight: bold">
+  (enthumble / toggle 'Space') Space + 矢印キー（←, ↓, ↑, →）で「←, ↓, ↑, →」入力
+</p>
+
+<ul>
+  <li>spacebar + 1 -10, -, ^ -> F1 - F12</li>
 </ul>
 
 
