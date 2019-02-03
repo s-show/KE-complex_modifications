@@ -467,23 +467,6 @@
       ]
     },
     {
-      "description": "Finder(F2 to Enter)",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、F2でファイル名を変更できます。"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("f2") %>,
-          "to": <%= to(["return_or_enter"]) %>,
-          "conditions": [
-            <%= frontmost_application_if("finder") %>
-          ]
-        }
-      ]
-    },
-    {
       "description": "CotEditor(Pagedown/Pageup to Option-Pagedown/Pageup) (Windows like behavior.))",
       "manipulators": [
         {

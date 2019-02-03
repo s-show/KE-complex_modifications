@@ -1194,34 +1194,6 @@
       ]
     },
     {
-      "description": "Finder(F2 to Enter)",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、F2でファイル名を変更できます。"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f2"
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.finder$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "CotEditor(Pagedown/Pageup to Option-Pagedown/Pageup) (Windows like behavior.))",
       "manipulators": [
         {
