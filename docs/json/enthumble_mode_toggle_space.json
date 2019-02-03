@@ -651,6 +651,76 @@
       ]
     },
     {
+      "description": "(enthumble / toggle 'Space') Space +「H,D/',' '.'」で「BackSpace/Delete」",
+      "extra_descriptions": [
+        "Spacebar + H, D -> BackSpace",
+        "'HJKL Mode'と併用すると、'Spacebar + H'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "(enthumble / toggle 'Space') Space +「Y,U/I,O」で「BackSpace/Delete」",
       "extra_descriptions": [
         "Spacebar + Y, U -> BackSpace",
@@ -1038,7 +1108,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "close_bracket",
+            "key_code": "open_bracket",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -1050,10 +1120,7 @@
           },
           "to": [
             {
-              "key_code": "escape",
-              "modifiers": [
-                "control"
-              ]
+              "key_code": "escape"
             }
           ]
         }

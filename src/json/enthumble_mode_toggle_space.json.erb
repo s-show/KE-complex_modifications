@@ -155,6 +155,31 @@
       %>
     },
     {
+      "description": "(enthumble / toggle 'Space') Space +「H,D/',' '.'」で「BackSpace/Delete」",
+      "extra_descriptions": [
+        "Spacebar + H, D -> BackSpace",
+        "'HJKL Mode'と併用すると、'Spacebar + H'はカーソル移動になります。"
+      ],
+      "extra_description_level": 1,
+      "manipulators":
+      <%=
+        manipulators = each_key(
+                                source_keys_list: ["spacebar"],
+                                dest_keys_list: ["fn"],
+                                from_optional_modifiers: ["any"],
+                                to_if_alone: ["spacebar"],
+                                as_lazy: true
+                              )
+        manipulators += each_key(
+                                source_keys_list: ["h", "d"],
+                                dest_keys_list: ["delete_or_backspace", "delete_forward"],
+                                from_mandatory_modifiers: ["fn"],
+                                from_optional_modifiers: ["caps_lock"]
+                              )
+        JSON.generate(manipulators)
+      %>
+    },
+    {
       "description": "(enthumble / toggle 'Space') Space +「Y,U/I,O」で「BackSpace/Delete」",
       "extra_descriptions": [
         "Spacebar + Y, U -> BackSpace",
@@ -271,11 +296,10 @@
                                 as_lazy: true
                               )
         manipulators += each_key(
-                                source_keys_list: ["close_bracket"],
+                                source_keys_list: ["open_bracket"],
                                 dest_keys_list: ["escape"],
                                 from_mandatory_modifiers: ["fn"],
-                                from_optional_modifiers: ["caps_lock"],
-                                to_modifiers: ["control"]
+                                from_optional_modifiers: ["caps_lock"]
                               )
         JSON.generate(manipulators)
       %>
