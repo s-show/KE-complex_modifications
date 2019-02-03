@@ -333,42 +333,6 @@
       ]
     },
     {
-      "description": "Finder(Delete to command-delete(delete file))",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、Deleteでファイルが削除できます"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_forward",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": [
-                "command"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.finder$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "ATOM(Esc (or Control-[) sends Esc Japanese_eisuu Esc Esc Esc)",
       "extra_descriptions": [
         "This key_bind for 'vim-mode-plus'",
@@ -1070,7 +1034,7 @@
       ]
     },
     {
-      "description": "Finder(option-Enter to command-I (Show the Get Info window for a selected file.))",
+      "description": "Finder(option-Enter to command-I, Enter to command-O, F2 to Enter)",
       "extra_descriptions": [
         "It achieves the same key binding as Windows",
         "Windowsと同じキーバインドを実現"
@@ -1095,6 +1059,155 @@
               "modifiers": [
                 "command"
               ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Delete to command-delete(delete file))",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、Deleteでファイルが削除できます"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Fn + Backspace to command-delete(delete file, For Mint60))",
+      "extra_descriptions": [
+        "For Mint60(Custom build keyboard)",
+        "自作キーボードのMint60用の設定k"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.finder$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(F2 to Enter)",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、F2でファイル名を変更できます。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
             }
           ],
           "conditions": [
@@ -1332,6 +1445,68 @@
               "type": "variable_if",
               "name": "press_command_q",
               "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mint60の全角/半角キーでIMEのON/OFF切り替え",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "en"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
             }
           ]
         }

@@ -124,23 +124,6 @@
         }
       ]
     },
-    {
-      "description": "Finder(Delete to command-delete(delete file))",
-      "extra_descriptions": [
-        "Windows like key_bind",
-        "Windowsと同様に、Deleteでファイルが削除できます"
-      ],
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": <%= from("delete_forward", [], ["any"]) %>,
-          "to": <%= to([["delete_or_backspace", ["command"]]]) %>,
-          "conditions": [
-            <%= frontmost_application_if("finder") %>
-          ]
-        }
-      ]
-    },
 		{
 			"description": "ATOM(Esc (or Control-[) sends Esc Japanese_eisuu Esc Esc Esc)",
       "extra_descriptions": [
@@ -417,7 +400,7 @@
       ]
     },
     {
-      "description": "Finder(option-Enter to command-I (Show the Get Info window for a selected file.))",
+      "description": "Finder(option-Enter to command-I, Enter to command-O, F2 to Enter)",
       "extra_descriptions": [
         "It achieves the same key binding as Windows",
         "Windowsと同じキーバインドを実現"
@@ -427,6 +410,73 @@
           "type": "basic",
           "from": <%= from("return_or_enter", ["option"], ["caps_lock"]) %>,
           "to": <%= to([["i", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("return_or_enter", [], ["caps_lock"]) %>,
+          "to": <%= to([["o", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("f2") %>,
+          "to": <%= to(["return_or_enter"]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Delete to command-delete(delete file))",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、Deleteでファイルが削除できます"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("delete_forward", [], ["any"]) %>,
+          "to": <%= to([["delete_or_backspace", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(Fn + Backspace to command-delete(delete file, For Mint60))",
+      "extra_descriptions": [
+        "For Mint60(Custom build keyboard)",
+        "自作キーボードのMint60用の設定k"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("delete_or_backspace", ["fn"], ["any"]) %>,
+          "to": <%= to([["delete_or_backspace", ["command"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if("finder") %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Finder(F2 to Enter)",
+      "extra_descriptions": [
+        "Windows like key_bind",
+        "Windowsと同様に、F2でファイル名を変更できます。"
+      ],
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("f2") %>,
+          "to": <%= to(["return_or_enter"]) %>,
           "conditions": [
             <%= frontmost_application_if("finder") %>
           ]
@@ -554,6 +604,40 @@
           },
           "conditions": [
             <%= variable_if(["press_command_q"], [0]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mint60の全角/半角キーでIMEのON/OFF切り替え",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("grave_accent_and_tilde", ["option"]) %>,
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ],
+          "conditions": [
+             <%= input_source_if("en") %> 
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("grave_accent_and_tilde", ["option"]) %>,
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ],
+          "conditions": [
+             <%= input_source_if("ja") %> 
           ]
         }
       ]
