@@ -256,7 +256,7 @@
     {
       "description": "Test 'frontmost_application_if > file_paths'",
       "manipulators": [
-        {
+       {
           "type": "basic",
           "from": {
             "pointing_button": "button1",
@@ -517,6 +517,24 @@
         {
           "type": "basic",
           "from": <%= from("j", ["lang2"],[]) %>,
+          "to": <%= to(["vk_launchpad"]) %>
+        }
+      ]
+    },
+    {
+      "description": "Simultaneous Right & Left Click Open LaunchPad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "key_code": "button1" },
+              { "key_code": "button2" }
+            ],
+            "simultaneous_options": {
+              "key_up_when": "any"
+            }
+          },
           "to": <%= to(["vk_launchpad"]) %>
         }
       ]

@@ -884,6 +884,32 @@
       ]
     },
     {
+      "description": "Simultaneous Right & Left Click Open LaunchPad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "button1"
+              },
+              {
+                "key_code": "button2"
+              }
+            ],
+            "simultaneous_options": {
+              "key_up_when": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_launchpad"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "command-Enter to Double Click",
       "comment": "cmd-enterをダブルクリックにしようとしたがうまくいかなかった",
       "manipulators": [
