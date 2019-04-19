@@ -529,6 +529,14 @@
                 "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
               }
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.parallels\\.desktop\\.console$"
+              ]
+            }
           ]
         },
         {
@@ -544,6 +552,14 @@
               "select_input_source": {
                 "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.parallels\\.desktop\\.console$"
+              ]
             }
           ]
         }
