@@ -888,17 +888,67 @@
       "manipulators": [
         {
           "type": "basic",
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          },
           "from": {
             "simultaneous": [
               {
-                "key_code": "button1"
+                "pointing_button": "button1"
               },
               {
-                "key_code": "button2"
+                "pointing_button": "button2"
               }
-            ],
-            "simultaneous_options": {
-              "key_up_when": "any"
+            ]
+          },
+          "to": [
+            {
+              "key_code": "vk_launchpad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Simultaneous Right & Left Click to Command-N",
+      "manipulators": [
+        {
+          "type": "basic",
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          },
+          "from": {
+            "simultaneous": [
+              {
+                "pointing_button": "button1"
+              },
+              {
+                "pointing_button": "button2"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Cmd-Insert Open vk_launchpad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
             }
           },
           "to": [

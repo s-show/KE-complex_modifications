@@ -526,15 +526,43 @@
       "manipulators": [
         {
           "type": "basic",
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 500
+          },
           "from": {
             "simultaneous": [
-              { "key_code": "button1" },
-              { "key_code": "button2" }
-            ],
-            "simultaneous_options": {
-              "key_up_when": "any"
-            }
+              { "pointing_button": "button1" },
+              { "pointing_button": "button2" }
+            ]
           },
+          "to": <%= to(["vk_launchpad"]) %>
+        }
+      ]
+    },
+    {
+      "description": "Simultaneous Right & Left Click to Command-N",
+      "manipulators": [
+        {
+          "type": "basic",
+          "parameters": {
+            "basic.simultaneous_threshold_milliseconds": 50
+          },
+          "from": {
+            "simultaneous": [
+              { "pointing_button": "button1" },
+              { "pointing_button": "button2" }
+            ]
+          },
+          "to": <%= to([["n", ["command"]]]) %>
+        }
+      ]
+    },
+    {
+      "description": "Cmd-Insert Open vk_launchpad",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("insert", ["command"],[]) %>,
           "to": <%= to(["vk_launchpad"]) %>
         }
       ]
