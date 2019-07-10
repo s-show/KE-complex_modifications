@@ -566,6 +566,36 @@
       ]
     },
     {
+      "description": "Simultaneous 'Shift' and 'Ctrl', Open 'CheetSheet for Naked48'.",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              { "key_code": "left_shift" },
+              { "key_code": "left_control" }
+            ]
+          },
+          "parameters": { "basic.to_if_held_down_threshold_milliseconds": 500 },
+          "to_if_held_down": [
+            { "shell_command": "qlmanage -p ~/cheetsheet_naked48.png > /dev/null 2<&1" }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 12384
+                  }
+              ]
+            }
+          ] 
+        }
+      ]
+    },
+    {
       "description": "Quit application by double type command-q",
       "extra_descriptions": [
         "Misoperation prevention",
