@@ -78,6 +78,21 @@
         }
       ]
     },
+    { 
+      "description": "test Cmd Holding",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_command") %>,
+          "to": <%= to(["japanese_kana"]) %>
+        },
+        {
+          "type": "basic",
+          "from": <%= from("left_command") %>,
+          "to_if_held_down": <%= to(["left_command"]) %>
+        }
+      ]
+    },
     {
       "description": "test modifier 'A'",
       "manipulators": [
