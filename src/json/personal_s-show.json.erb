@@ -596,6 +596,61 @@
       ]
     },
     {
+      "description": "Double type 'Shift-Ctrl-Space', Open 'CheetSheet for Naked48'.",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["control", "shift"], ["any"]) %>,
+          "to": [
+            { "shell_command": "qlmanage -p ~/cheetsheet_naked48.png > /dev/null 2<&1" }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "ctrl_shift_space_tapCount", "value": 1  }
+          ] 
+        },
+        {
+          "type": "basic",
+          "from": <%= from("spacebar", ["control", "shift"], ["any"]) %>,
+          "to": [
+            {
+              "set_variable":
+                { "name": "ctrl_shift_space_tapCount", "value": 1 }
+            },
+            {
+              "key_code": "spacebar",
+              "modifiers": [ "shift", "control" ]
+            }
+          ], 
+          "to_delayed_action": {
+            "to_if_invoked": [
+              { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
+            ],
+            "to_if_canceled": [
+              { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 0
+            },
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 12384
+                  }
+              ]
+            }
+
+          ]
+        }
+      ]
+    },
+    {
       "description": "Quit application by double type command-q",
       "extra_descriptions": [
         "Misoperation prevention",
