@@ -4,7 +4,7 @@
   "make_extra_description": true,
   "rules": [
     {
-      "description": "Double type 'Shift-Ctrl-Space', Open 'CheetSheet for Naked48'.",
+      "description": "Double type 'Shift-Ctrl-Space', Display custom keymap.",
       "extra_description_level": 1,
       "manipulators": [
         {
@@ -32,10 +32,16 @@
           ], 
           "to_delayed_action": {
             "to_if_invoked": [
-              { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
+              {
+                "set_variable":
+                  { "name": "ctrl_shift_space_tapCount", "value": 0 }
+              }
             ],
             "to_if_canceled": [
-              { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
+              {
+                "set_variable":
+                  { "name": "ctrl_shift_space_tapCount", "value": 0 }
+              }
             ]
           },
           "conditions": [
@@ -50,10 +56,9 @@
                 {
                   "vendor_id": 65261,
                   "product_id": 12384
-                  }
+                }
               ]
             }
-
           ]
         }
       ]
