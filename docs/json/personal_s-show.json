@@ -40,7 +40,9 @@
                 "^com\\.p5sys\\.jump\\.mac\\.viewer$",
                 "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
                 "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$"
+                "^com\\.2X\\.Client\\.Mac$",
+                "nl\\.ultimaker\\.cura$",
+                "com\\.meshmixer\\.meshmixer09$"
               ]
             }
           ]
@@ -1273,7 +1275,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Alfred 3.app'"
+              "shell_command": "open -a 'Alfred 4.app'"
             },
             {
               "select_input_source": {
@@ -1464,11 +1466,6 @@
           },
           "conditions": [
             {
-              "type": "variable_if",
-              "name": "ctrl_shift_space_tapCount",
-              "value": 0
-            },
-            {
               "type": "device_if",
               "identifiers": [
                 {
@@ -1476,6 +1473,335 @@
                   "product_id": 12384
                 }
               ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double type 'Shift-Ctrl-Space', Open 'CheetSheet for Plaid'.",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "qlmanage -p ~/cheetsheet_plaid.png > /dev/null 2<&1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5824,
+                  "product_id": 10203,
+                  "description": "Plaid"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ctrl_shift_space_tapCount",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 5824,
+                  "product_id": 10203,
+                  "description": "Plaid"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double type 'Shift-Ctrl-Space', Open 'CheetSheet for Crkdb.",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "qlmanage -p ~/cheetsheet_crkbd.png > /dev/null 2<&1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 12384,
+                  "description": "Crkbd"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ctrl_shift_space_tapCount",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 12384,
+                  "description": "Crkbd"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Double type 'Shift-Ctrl-Space', Open 'CheetSheet for ErgoDash'.",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "qlmanage -p ~/cheetsheet_ergodash.png > /dev/null 2<&1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 24672,
+                  "description": "ErgoDash"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": [
+                "control",
+                "shift"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "ctrl_shift_space_tapCount",
+                "value": 1
+              }
+            },
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "ctrl_shift_space_tapCount",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 65261,
+                  "product_id": 24672,
+                  "description": "ErgoDash"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "ctrl_shift_space_tapCount",
+              "value": 0
             }
           ]
         }
@@ -1574,7 +1900,7 @@
       ]
     },
     {
-      "description": "Mint60の全角/半角キーでIMEのON/OFF切り替え",
+      "description": "全角/半角キー(Alt+`)でIMEのON/OFF切り替え",
       "extra_description_level": 1,
       "manipulators": [
         {
