@@ -78,7 +78,7 @@
         }
       ]
     },
-    { 
+    {
       "description": "test Cmd Holding",
       "manipulators": [
         {
@@ -302,6 +302,22 @@
           "to_if_alone": <%= to(["escape"]) %>,
           "to_if_held_down": [
             { "shell_command": "open -a 'Alfred 3.app'" }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Qiita回答(2019/11/17)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("left_alt", [], ["any"]) %>,
+          "to_if_alone": <%= to([["spacebar", ["command"]]]) %>,
+          "to": [
+            {
+              "key_code": "left_option",
+              "lazy": true
+            }
           ]
         }
       ]
@@ -596,6 +612,42 @@
           "conditions": [
             <%= frontmost_application_if("finder") %>
           ]
+        }
+      ]
+    },
+    {
+      "description": "fn to Double Click",
+      "comment": "Macbook pro の fn キーを `from` に指定できるか確認",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("fn") %>,
+          "to": [
+            { "pointing_button": "button1" },
+            { "pointing_button": "button1" }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Qiita回答2",
+      "comment": "左右コマンド同時＋N -> ↓",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("n", ["right_command"], ["left_command", "option", "shift"]) %>,
+          "to": <%= to(["down_arrow"]) %>
+        }
+      ]
+    },
+    {
+      "description": "fn+H to left arrow",
+      "comment": "Macbook pro の fn キーを `modifier` に指定できるか確認",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("h", ["fn"]) %>,
+          "to": <%= to(["left_arrow"]) %>
         }
       ]
     }

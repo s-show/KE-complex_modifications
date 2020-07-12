@@ -309,6 +309,16 @@ def frontmost_application(type, app_aliases, as_json=true)
   coteditor_bundle_identifiers = [
     'com\.coteditor\.CotEditor$'
   ]
+  
+  # 自分が追加した。
+  cura_bundle_identifiers = [
+    'nl\.ultimaker\.cura$'
+  ]
+  
+  # 自分が追加した。
+  meshmixer_bundle_identifiers = [
+    'com\.meshmixer\.meshmixer09$'
+  ]
 
   # ----------------------------------------
 
@@ -392,6 +402,14 @@ def frontmost_application(type, app_aliases, as_json=true)
     # 自分が追加した。
     when 'coteditor'  
       bundle_identifiers.concat(coteditor_bundle_identifiers)
+    
+    # 自分が追加した。
+    when 'cura'  
+      bundle_identifiers.concat(cura_bundle_identifiers)
+    
+    # 自分が追加した。
+    when 'meshmixer'  
+      bundle_identifiers.concat(meshmixer_bundle_identifiers)
 
     else
       $stderr << "unknown app_alias: #{app_alias}\n"
