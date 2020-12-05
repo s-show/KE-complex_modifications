@@ -1117,6 +1117,56 @@
           ]
         }
       ]
+    },
+    {
+      "description": "test 'event_changed_if'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "event_changed_unless",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "test 'event_changed_if2'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f3"
+          },
+          "to": [
+            {
+              "key_code": "a"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "event_changed_unless",
+              "value": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

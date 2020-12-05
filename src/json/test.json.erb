@@ -650,6 +650,22 @@
           "to": <%= to(["left_arrow"]) %>
         }
       ]
+    },
+    {
+      "description": "test 'event_changed_if'",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("q", ["left_control", "left_command"]) %>,
+          "to": <%= to([["f3"]]) %>,
+          "conditions": [
+            {
+              "type": "event_changed_unless",
+              "value": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
