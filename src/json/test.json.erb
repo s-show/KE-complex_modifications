@@ -47,6 +47,10 @@
       ]
     },
     {
+      "description": "empty rule",
+      "manipulators": [{}]
+    },
+    {
       "description": "ctrl-aキーの無効化（CotEditor限定）",
       "manipulators": [
         {
@@ -648,6 +652,25 @@
           "type": "basic",
           "from": <%= from("h", ["fn"]) %>,
           "to": <%= to(["left_arrow"]) %>
+        }
+      ]
+    },
+    {
+      "description": "マウスホイールへの割り当てテスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "mouse_key": {"vertical_wheel": 16}
+          },
+          "to": <%= to(["down_arrow"]) %>
+        },
+        {
+          "type": "basic",
+          "from": {
+            "mouse_key": {"vertical_wheel": -16}
+          },
+          "to": <%= to(["up_arrow"]) %>
         }
       ]
     },

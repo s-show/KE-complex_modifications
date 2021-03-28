@@ -60,6 +60,13 @@
       ]
     },
     {
+      "description": "empty rule",
+      "manipulators": [
+        {
+        }
+      ]
+    },
+    {
       "description": "ctrl-aキーの無効化（CotEditor限定）",
       "manipulators": [
         {
@@ -1119,6 +1126,37 @@
       ]
     },
     {
+      "description": "マウスホイールへの割り当てテスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "mouse_key": {
+              "vertical_wheel": 16
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "mouse_key": {
+              "vertical_wheel": -16
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "test 'event_changed_if'",
       "manipulators": [
         {
@@ -1141,28 +1179,6 @@
             {
               "type": "event_changed_unless",
               "value": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "test 'event_changed_if2'",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f3"
-          },
-          "to": [
-            {
-              "key_code": "a"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "event_changed_unless",
-              "value": false
             }
           ]
         }

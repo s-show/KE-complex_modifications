@@ -1275,7 +1275,43 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Alfred 4.app'"
+              "key_code": "spacebar",
+              "modifiers": [
+                "option"
+              ]
+            },
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome(Cmd + L to IME Off)",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
             },
             {
               "select_input_source": {

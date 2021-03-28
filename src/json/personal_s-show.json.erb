@@ -44,7 +44,7 @@
             <%= to([ ["japanese_eisuu"], ["spacebar", ["option"]] ]) %>,
           "conditions": [
             <%# input_source_ifメソッドは自作 %>
-            <%= input_source_if("ja") %> 
+            <%= input_source_if("ja") %>
           ]
         }
       ]
@@ -501,7 +501,30 @@
             ]
           },
           "to": [
-            { "shell_command": "open -a 'Alfred 4.app'" },
+            {
+              "key_code": "spacebar",
+              "modifiers": ["option"]
+            },
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ]        }
+      ]
+    },
+    {
+      "description": "Chrome(Cmd + L to IME Off)",
+      "extra_description_level": 1,
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("l", ["command"], ["caps_lock"]) %>,
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["command"]
+            },
             {
               "select_input_source": {
                 "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
@@ -591,7 +614,7 @@
                   }
               ]
             }
-          ] 
+          ]
         }
       ]
     },
@@ -607,7 +630,7 @@
           ],
           "conditions": [
             { "type": "variable_if", "name": "ctrl_shift_space_tapCount", "value": 1  }
-          ] 
+          ]
         },
         {
           "type": "basic",
@@ -621,7 +644,7 @@
               "key_code": "spacebar",
               "modifiers": [ "shift", "control" ]
             }
-          ], 
+          ],
           "to_delayed_action": {
             "to_if_invoked": [
               { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
@@ -673,9 +696,9 @@
             {
               "type": "variable_if",
               "name": "ctrl_shift_space_tapCount",
-              "value": 1  
+              "value": 1
             }
-          ] 
+          ]
         },
         {
           "type": "basic",
@@ -689,7 +712,7 @@
               "key_code": "spacebar",
               "modifiers": [ "shift", "control" ]
             }
-          ], 
+          ],
           "to_delayed_action": {
             "to_if_invoked": [
               { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
@@ -742,9 +765,9 @@
             {
               "type": "variable_if",
               "name": "ctrl_shift_space_tapCount",
-              "value": 1  
+              "value": 1
             }
-          ] 
+          ]
         },
         {
           "type": "basic",
@@ -758,7 +781,7 @@
               "key_code": "spacebar",
               "modifiers": [ "shift", "control" ]
             }
-          ], 
+          ],
           "to_delayed_action": {
             "to_if_invoked": [
               { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
@@ -809,7 +832,7 @@
               ]
             },
             { "type": "variable_if", "name": "ctrl_shift_space_tapCount", "value": 1  }
-          ] 
+          ]
         },
         {
           "type": "basic",
@@ -823,7 +846,7 @@
               "key_code": "spacebar",
               "modifiers": [ "shift", "control" ]
             }
-          ], 
+          ],
           "to_delayed_action": {
             "to_if_invoked": [
               { "set_variable": { "name": "ctrl_shift_space_tapCount", "value": 0 } }
@@ -909,7 +932,7 @@
             }
           ],
           "conditions": [
-             <%= input_source_if("en") %> 
+             <%= input_source_if("en") %>
           ]
         },
         {
@@ -923,7 +946,7 @@
             }
           ],
           "conditions": [
-             <%= input_source_if("ja") %> 
+             <%= input_source_if("ja") %>
           ]
         }
       ]
